@@ -1,0 +1,133 @@
+---
+import { SITE } from '../config/site';
+import { href } from '../utils/url';
+
+interface Props {
+  /** Preselect the audience segment (e.g. the TIR page links here with fleet preselected). */
+  defaultSegment?: 'wozki' | 'flota';
+}
+
+const { defaultSegment = 'wozki' } = Astro.props;
+---
+
+<form
+  id="contact-form"
+  class="space-y-4"
+  data-key={SITE.web3formsKey}
+  data-thanks={href('/dziekujemy')}
+  novalidate
+>
+  <!-- honeypot -->
+  <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" />
+
+  <div class="grid gap-4 sm:grid-cols-2">
+    <label class="block text-sm">
+      <span class="font-medium">Imię i nazwisko</span>
+      <input name="name" type="text" autocomplete="name" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5" />
+    </label>
+    <label class="block text-sm">
+      <span class="font-medium">Firma</span>
+      <input name="company" type="text" autocomplete="organization" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5" />
+    </label>
+  </div>
+
+  <div class="grid gap-4 sm:grid-cols-2">
+    <label class="block text-sm">
+      <span class="font-medium">Telefon <span class="text-red-600">*</span></span>
+      <input name="phone" type="tel" required autocomplete="tel" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5" />
+    </label>
+    <label class="block text-sm">
+      <span class="font-medium">E-mail (opcjonalnie)</span>
+      <input name="email" type="email" autocomplete="email" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5" />
+    </label>
+  </div>
+
+  <div class="grid gap-4 sm:grid-cols-2">
+    <label class="block text-sm">
+      <span class="font-medium">Czego dotyczy audyt?</span>
+      <select name="segment" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5">
+        <option value="Wózki widłowe — baterie trakcyjne" selected={defaultSegment === 'wozki'}>
+          Wózki widłowe — baterie trakcyjne
+        </option>
+        <option value="Flota ciężarowa — akumulatory 12/24V" selected={defaultSegment === 'flota'}>
+          Flota ciężarowa — akumulatory 12/24 V
+        </option>
+      </select>
+    </label>
+    <label class="block text-sm">
+      <span class="font-medium">Liczba baterii / pojazdów</span>
+      <select name="quantity" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5">
+        <option>1–3</option>
+        <option>4–10</option>
+        <option>11–30</option>
+        <option>30+</option>
+      </select>
+    </label>
+  </div>
+
+  <label class="block text-sm">
+    <span class="font-medium">Wiadomość (opcjonalnie)</span>
+    <textarea name="message" rows="3" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5"></textarea>
+  </label>
+
+  <button type="submit" class="w-full rounded-lg bg-brand-600 px-6 py-3.5 font-semibold text-white transition hover:bg-brand-500">
+    Zamów bezpłatny audyt
+  </button>
+  <p class="text-center text-xs text-gray-500">Oddzwonimy w ciągu 24 h w dni robocze.</p>
+  <p class="text-center text-xs text-gray-400">
+    Administratorem danych jest FTU „LIFT" Dariusz Kozieł. Dane posłużą wyłącznie do odpowiedzi na
+    zapytanie. Szczegóły: <a href={href('/privacy-policy')} class="underline">polityka prywatności</a>.
+  </p>
+  <p id="form-status" class="hidden rounded-lg bg-amber-50 px-4 py-3 text-sm text-amber-800"></p>
+</form>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const status = document.getElementById('form-status');
+
+  const showStatus = (message: string) => {
+    if (!status) return;
+    status.textContent = message;
+    status.classList.remove('hidden');
+  };
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if ((form.elements.namedItem('botcheck') as HTMLInputElement | null)?.checked) return;
+
+    const phone = (form.elements.namedItem('phone') as HTMLInputElement).value.trim();
+    if (phone.replace(/\D/g, '').length < 9) {
+      showStatus('Podaj prawidłowy numer telefonu — oddzwonimy w ciągu 24 h.');
+      return;
+    }
+
+    const accessKey = form.dataset.key;
+    if (!accessKey) {
+      showStatus('Formularz jest jeszcze w przygotowaniu — zadzwoń: 695 946 842.');
+      return;
+    }
+
+    const payload = Object.fromEntries(new FormData(form).entries());
+    delete payload.botcheck;
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ access_key: accessKey, subject: 'Zapytanie z lift-baterie.pl', ...payload }),
+      });
+      if (!response.ok) throw new Error(String(response.status));
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'form_submit' });
+      // Redirecting immediately would unload the page before GTM tags fire;
+      // the /dziekujemy pageview is the primary conversion signal, this event is auxiliary.
+      const thanks = form.dataset.thanks ?? '/dziekujemy';
+      setTimeout(() => {
+        window.location.href = thanks;
+      }, 400);
+    } catch {
+      showStatus('Coś poszło nie tak. Prosimy spróbować ponownie lub zadzwonić: 695 946 842.');
+    }
+  });
+</script>

@@ -1,0 +1,243 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBand from '../components/CtaBand.astro';
+import FaqItem from '../components/FaqItem.astro';
+import { SITE } from '../config/site';
+import { href } from '../utils/url';
+
+const services = [
+  {
+    title: 'Regeneracja baterii trakcyjnych',
+    desc: 'Przywracamy pojemność baterii wózków widłowych (Pb / GEL / AGM) bez wymiany na nowe — u Ciebie, z raportem przed/po.',
+    to: '/regeneracja-baterii-trakcyjnych',
+  },
+  {
+    title: 'Serwis i przeglądy baterii',
+    desc: 'Mobilny serwis w całej Polsce: przeglądy co 1/3/6 miesięcy, naprawy, wymiana ogniw — bez transportu baterii.',
+    to: '/serwis-baterii-trakcyjnych',
+  },
+  {
+    title: 'Formatowanie i profilaktyka',
+    desc: 'Coroczne formatowanie i ładowanie wyrównawcze zapobiegają zasiarczeniu i utracie pojemności.',
+    to: '/formatowanie-baterii-trakcyjnych',
+  },
+  {
+    title: 'Szkolenia z eksploatacji',
+    desc: 'Praktyczne szkolenia dla operatorów i utrzymania ruchu: ładowanie, obsługa, bezpieczeństwo akumulatorowni.',
+    to: '/szkolenia-obsluga-baterii-trakcyjnych',
+  },
+];
+
+const steps = [
+  { n: '1', t: 'Audyt (0 zł)', d: 'Pomiary i diagnoza każdej baterii. Rekomendacja z wyceną — bez zobowiązań.' },
+  { n: '2', t: 'Regeneracja u klienta', d: 'Pracujemy na miejscu, w oknach serwisowych: noce, weekendy, między zmianami.' },
+  { n: '3', t: 'Test', d: 'Kontrolowany test pojemności potwierdza odzyskaną sprawność.' },
+  { n: '4', t: 'Raport przed/po', d: 'Czarno na białym: parametry przed i po usłudze, plus zalecenia dla operatorów.' },
+];
+
+const cases = [
+  { firm: 'Firma logistyczna, Mazowsze', quote: 'Po audycie dostaliśmy jasną wycenę. Regeneracja obniżyła koszt o około 40% przy zachowaniu parametrów pracy baterii.', tag: '40% taniej niż wymiana' },
+  { firm: 'Fabryka tworzyw sztucznych, Małopolska', quote: 'Realizacja rotacyjnie, bez wyłączania stref. Dziesięć sztuk zrobionych w trzy dni — magazyn działał normalnie.', tag: '10 baterii w 3 dni' },
+  { firm: 'OSM Włoszczowa', quote: 'Audyt i formatowanie w oknach serwisowych, bez wstrzymywania załadunków. Wózki pracują stabilnie także w chłodniach.', tag: 'Stabilna praca w ruchu ciągłym' },
+];
+---
+
+<BaseLayout
+  title="Regeneracja baterii przemysłowych — cała Polska | LIFT Baterie"
+  description="Przywracamy sprawność baterii przemysłowych u klienta, w całej Polsce. Bezpłatny audyt, prace w oknach serwisowych, raport przed/po. Zadzwoń: 695 946 842."
+>
+  <!-- HERO -->
+  <section class="bg-ink-900 text-white">
+    <div class="mx-auto max-w-6xl px-4 py-20 sm:py-28">
+      <h1 class="max-w-3xl font-display text-3xl font-bold leading-tight sm:text-5xl">
+        Regeneracja i serwis baterii przemysłowych — mobilnie, w całej Polsce
+      </h1>
+      <p class="mt-5 max-w-2xl text-lg text-gray-300">
+        Przywracamy sprawność baterii trakcyjnych i akumulatorów flot ciężarowych u Ciebie, w oknach
+        serwisowych. Efekt potwierdzamy raportem przed/po.
+      </p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a href={href('/bezplatny-audyt')} class="rounded-lg bg-brand-600 px-6 py-3.5 text-center font-semibold transition hover:bg-brand-500">
+          Zamów bezpłatny audyt
+        </a>
+        <a href={SITE.phoneHref} class="rounded-lg border border-gray-500 px-6 py-3.5 text-center font-semibold transition hover:border-white">
+          ☎ Zadzwoń: {SITE.phoneDisplay}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="border-b border-gray-100 bg-gray-50">
+    <div class="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-4 py-6 text-center text-sm font-semibold text-ink-700 sm:grid-cols-4">
+      <span>Od {SITE.foundingYear} roku</span>
+      <span>Cała Polska — dojazd do klienta</span>
+      <span>Bezpłatny audyt na start</span>
+      <span>Raport przed/po każdej usłudze</span>
+    </div>
+  </section>
+
+  <!-- TWO PATHS -->
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <div class="grid gap-6 md:grid-cols-2">
+      <a href={href('/regeneracja-baterii-trakcyjnych')} class="group rounded-2xl border border-gray-200 p-8 transition hover:border-brand-500 hover:shadow-lg">
+        <p class="text-sm font-semibold uppercase tracking-wide text-brand-600">Wózki widłowe</p>
+        <h2 class="mt-2 font-display text-2xl font-bold">Baterie trakcyjne Pb / GEL / AGM</h2>
+        <p class="mt-3 text-gray-600">
+          Regeneracja, serwis, formatowanie i szkolenia. Oszczędność do 70% względem zakupu nowej baterii.
+        </p>
+        <p class="mt-4 font-semibold text-brand-600 group-hover:underline">Zobacz ofertę dla magazynów →</p>
+      </a>
+      <a href={href('/regeneracja-akumulatorow-ciezarowych')} class="group rounded-2xl border border-gray-200 p-8 transition hover:border-brand-500 hover:shadow-lg">
+        <p class="text-sm font-semibold uppercase tracking-wide text-brand-600">Floty transportowe</p>
+        <h2 class="mt-2 font-display text-2xl font-bold">Akumulatory ciężarowe 12/24 V</h2>
+        <p class="mt-3 text-gray-600">
+          Program serwisu akumulatorów floty: audyt, diagnostyka i regeneracja u Ciebie. Mniej awarii zimą.
+        </p>
+        <p class="mt-4 font-semibold text-brand-600 group-hover:underline">Zobacz ofertę dla flot →</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="bg-gray-50">
+    <div class="mx-auto max-w-3xl px-4 py-16">
+      <h2 class="font-display text-2xl font-bold sm:text-3xl">
+        Regeneracja baterii przemysłowych — odzyskaj sprawność zamiast kupować nowe
+      </h2>
+      <div class="prose mt-6 space-y-4 text-gray-700">
+        <p>
+          Największym wrogiem baterii przemysłowych nie jest wiek, tylko <strong>zasiarczenie</strong> —
+          twarda warstwa siarczanu ołowiu, która odkłada się na płytach ogniw przy niepełnym ładowaniu,
+          głębokich rozładowaniach i pracy w wysokich temperaturach. Bateria „nie trzyma zmiany", wózek
+          gaśnie przed końcem pracy, a ładowanie trwa coraz dłużej. W większości takich przypadków bateria
+          nie jest zużyta — jest zasiarczona i można przywrócić jej sprawność.
+        </p>
+        <p>
+          Prowadzimy <a href={href('/regeneracja-baterii-trakcyjnych')} class="font-semibold text-brand-600 hover:underline">regenerację baterii trakcyjnych</a>
+          wózków widłowych (kwasowe Pb, żelowe GEL i AGM) oraz
+          <a href={href('/regeneracja-akumulatorow-ciezarowych')} class="font-semibold text-brand-600 hover:underline">akumulatorów rozruchowych pojazdów ciężarowych</a>.
+          Proces zaczynamy zawsze od pomiarów: gęstości elektrolitu,
+          napięcia ogniw i rzeczywistej pojemności. Jeśli bateria rokuje — przeprowadzamy desulfatację
+          i cykle kontrolowanego ładowania, a wynik potwierdzamy testem i raportem przed/po. Jeśli nie
+          rokuje — mówimy to wprost i rekomendujemy wymianę. Płacisz za efekt, nie za próby.
+        </p>
+        <p>
+          Pracujemy <strong>mobilnie, w całej Polsce</strong> — przyjeżdżamy do Twojego magazynu lub bazy
+          i działamy w oknach serwisowych: w nocy, w weekend, między zmianami. Bez wysyłania baterii do
+          serwisu, bez zatrzymywania pracy hali, bez wózków zastępczych. Park baterii utrzymujemy w formie
+          przez <a href={href('/serwis-baterii-trakcyjnych')} class="font-semibold text-brand-600 hover:underline">przeglądy okresowe</a>
+          i coroczne <a href={href('/formatowanie-baterii-trakcyjnych')} class="font-semibold text-brand-600 hover:underline">formatowanie baterii</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <h2 class="font-display text-2xl font-bold sm:text-3xl">Nasze usługi</h2>
+    <div class="mt-8 grid gap-6 sm:grid-cols-2">
+      {services.map((s) => (
+        <a href={href(s.to)} class="group rounded-2xl border border-gray-200 p-6 transition hover:border-brand-500 hover:shadow-lg">
+          <h3 class="font-display text-lg font-bold">{s.title}</h3>
+          <p class="mt-2 text-sm text-gray-600">{s.desc}</p>
+          <p class="mt-3 text-sm font-semibold text-brand-600 group-hover:underline">Dowiedz się więcej →</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- PROCEDURE -->
+  <section class="bg-gray-50">
+    <div class="mx-auto max-w-6xl px-4 py-16">
+      <h2 class="font-display text-2xl font-bold sm:text-3xl">Procedura LIFT — 4 kroki do sprawnej baterii</h2>
+      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {steps.map((s) => (
+          <div class="rounded-2xl bg-white p-6 shadow-sm">
+            <span class="flex h-9 w-9 items-center justify-center rounded-full bg-brand-600 font-bold text-white">{s.n}</span>
+            <h3 class="mt-4 font-semibold">{s.t}</h3>
+            <p class="mt-2 text-sm text-gray-600">{s.d}</p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a href={href('/bezplatny-audyt')} class="rounded-lg bg-brand-600 px-6 py-3 font-semibold text-white transition hover:bg-brand-500">
+          Zacznij od bezpłatnego audytu
+        </a>
+        <a href={SITE.phoneHref} class="rounded-lg border border-gray-300 px-6 py-3 font-semibold text-ink-800 transition hover:border-ink-800">
+          ☎ {SITE.phoneDisplay}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUMBERS -->
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <div class="grid gap-6 text-center sm:grid-cols-3">
+      <div class="rounded-2xl border border-gray-200 p-8">
+        <p class="font-display text-4xl font-bold text-brand-600">do 70%</p>
+        <p class="mt-2 text-sm text-gray-600">taniej niż zakup nowej baterii trakcyjnej</p>
+      </div>
+      <div class="rounded-2xl border border-gray-200 p-8">
+        <p class="font-display text-4xl font-bold text-brand-600">0 h</p>
+        <p class="mt-2 text-sm text-gray-600">przestoju — pracujemy w oknach serwisowych</p>
+      </div>
+      <div class="rounded-2xl border border-gray-200 p-8">
+        <p class="font-display text-4xl font-bold text-brand-600">100%</p>
+        <p class="mt-2 text-sm text-gray-600">usług kończy się raportem przed/po</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASES TEASER -->
+  <section class="bg-gray-50">
+    <div class="mx-auto max-w-6xl px-4 py-16">
+      <div class="flex items-end justify-between gap-4">
+        <h2 class="font-display text-2xl font-bold sm:text-3xl">Realizacje</h2>
+        <a href={href('/realizacje')} class="text-sm font-semibold text-brand-600 hover:underline">Wszystkie realizacje →</a>
+      </div>
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        {cases.map((c) => (
+          <figure class="rounded-2xl bg-white p-6 shadow-sm">
+            <p class="text-sm font-bold text-brand-600">{c.tag}</p>
+            <blockquote class="mt-3 text-sm text-gray-700">„{c.quote}"</blockquote>
+            <figcaption class="mt-4 text-xs font-semibold text-gray-500">{c.firm}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="mx-auto max-w-3xl px-4 py-16">
+    <h2 class="font-display text-2xl font-bold sm:text-3xl">Najczęściej zadawane pytania</h2>
+    <div class="mt-6">
+      <FaqItem question="Czy regeneracja zawsze się opłaca?">
+        Nie — i mówimy to wprost. Zaczynamy od audytu i pomiarów. Jeśli bateria nie rokuje (np. wypadnięta
+        masa czynna, zwarcie ogniwa), rekomendujemy wymianę zamiast regeneracji.
+      </FaqItem>
+      <FaqItem question="Po czym poznać, że bateria nadaje się do regeneracji?">
+        Typowe sygnały: skrócony czas pracy, szybkie rozładowywanie, dłuższe ładowanie, przegrzewanie ogniw.
+        Najczęstszą przyczyną jest zasiarczenie — a to problem odwracalny.
+      </FaqItem>
+      <FaqItem question="Jak wygląda proces krok po kroku?">
+        Diagnostyka → regeneracja → test końcowy → raport przed/po. Całość u Ciebie, w oknach serwisowych,
+        według harmonogramu ustalonego z góry.
+      </FaqItem>
+      <FaqItem question="Jakie baterie i branże obsługujecie?">
+        Baterie trakcyjne Pb / GEL / AGM (wózki widłowe, magazyny, produkcja, dystrybucja, UPS) oraz
+        akumulatory rozruchowe 12/24 V we flotach ciężarowych. Działamy w całej Polsce.
+      </FaqItem>
+      <FaqItem question="Ile to trwa i czy wstrzymacie mi magazyn?">
+        Pracujemy między zmianami, w nocy lub w weekend, a przy większych parkach — rotacyjnie. Harmonogram
+        ustalamy z góry tak, żeby hala pracowała normalnie.
+      </FaqItem>
+      <FaqItem question="Ile to kosztuje?">
+        Koszt zależy od typu, pojemności i stanu baterii oraz liczby sztuk — i jest znacznie niższy niż zakup
+        nowych. Konkretną ofertę dostajesz po bezpłatnym audycie, a efekt potwierdzamy raportem.
+      </FaqItem>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>

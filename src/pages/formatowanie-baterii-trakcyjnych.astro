@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { SITE } from '../config/site';
+import { href } from '../utils/url';
+import { breadcrumbSchema, serviceSchema } from '../utils/schema';
+---
+
+<BaseLayout
+  title="Formatowanie baterii trakcyjnych i profilaktyka | LIFT Baterie"
+  description="Formatowanie eksploatacyjne baterii trakcyjnych: ładowanie wyrównawcze, wyrównywanie ogniw, zapobieganie zasiarczeniu. Mobilnie, w całej Polsce. ☎ 695 946 842"
+  extraSchema={[
+    serviceSchema({
+      name: 'Formatowanie i profilaktyka baterii trakcyjnych',
+      description:
+        'Coroczne formatowanie eksploatacyjne baterii trakcyjnych: ładowanie wyrównawcze, wyrównywanie ogniw, zapobieganie zasiarczeniu — mobilnie, w całej Polsce.',
+      path: '/formatowanie-baterii-trakcyjnych',
+    }),
+    breadcrumbSchema([
+      { name: 'Start', path: '/' },
+      { name: 'Formatowanie baterii trakcyjnych', path: '/formatowanie-baterii-trakcyjnych' },
+    ]),
+  ]}
+>
+  <section class="bg-ink-900 text-white">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:py-20">
+      <h1 class="max-w-3xl font-display text-3xl font-bold leading-tight sm:text-4xl">
+        Formatowanie baterii trakcyjnych — profilaktyka, która zapobiega zasiarczeniu
+      </h1>
+      <p class="mt-4 max-w-2xl text-gray-300">
+        Coroczne formatowanie eksploatacyjne stabilizuje pakiet ogniw i utrzymuje wysoką sprawność baterii
+        przez cały przewidziany okres jej eksploatacji. Wykonujemy je na miejscu, w oknach serwisowych.
+      </p>
+      <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+        <a href={href('/bezplatny-audyt')} class="rounded-lg bg-brand-600 px-6 py-3 text-center font-semibold transition hover:bg-brand-500">Zamów bezpłatny audyt</a>
+        <a href={SITE.phoneHref} class="rounded-lg border border-gray-500 px-6 py-3 text-center font-semibold transition hover:border-white">☎ {SITE.phoneDisplay}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 py-14">
+    <h2 class="font-display text-2xl font-bold">Czym jest formatowanie eksploatacyjne?</h2>
+    <p class="mt-4 text-gray-700">
+      Formatowanie to kontrolowane cykle ładowania i rozładowania, które wyrównują parametry wszystkich
+      ogniw w pakiecie i cofają początkowe stadium zasiarczenia, zanim odbierze baterii pojemność.
+      Odmienne pojęcie to formatowanie produkcyjne (aktywacja nowych ogniw) — my zajmujemy się
+      formatowaniem eksploatacyjnym baterii pracujących w Twoich wózkach.
+    </p>
+
+    <h2 class="mt-10 font-display text-2xl font-bold">Ładowanie wyrównawcze i wyrównywanie ogniw</h2>
+    <p class="mt-4 text-gray-700">
+      W pakiecie trakcyjnym ogniwa nigdy nie starzeją się równo. Najsłabsze ogniwo wyznacza pojemność całej
+      baterii, a przeładowywane sąsiednie ogniwa degradują się szybciej. Okresowe ładowanie wyrównawcze
+      z pomiarem gęstości elektrolitu każdego ogniwa przywraca równowagę pakietu — to najtańsza forma
+      przedłużania życia baterii.
+    </p>
+
+    <h2 class="mt-10 font-display text-2xl font-bold">Dlaczego raz w roku?</h2>
+    <p class="mt-4 text-gray-700">
+      Zasiarczenie narasta powoli i bezobjawowo — gdy widać spadek czasu pracy wózka, warstwa siarczanów
+      jest już twarda i potrzebna jest pełna
+      <a href={href('/regeneracja-baterii-trakcyjnych')} class="font-semibold text-brand-600 hover:underline">regeneracja baterii</a>.
+      Coroczne formatowanie przerywa ten proces na wczesnym etapie. W połączeniu z
+      <a href={href('/serwis-baterii-trakcyjnych')} class="font-semibold text-brand-600 hover:underline">przeglądami okresowymi</a>
+      utrzymuje park baterii w formie i odsuwa w czasie wydatek na nowe.
+    </p>
+  </section>
+
+  <CtaBand
+    title="Zaplanuj coroczne formatowanie parku baterii"
+    subtitle="Audyt pokaże, które baterie wymagają formatowania, a które pełnej regeneracji."
+  />
+</BaseLayout>

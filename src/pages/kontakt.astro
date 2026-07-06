@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { SITE } from '../config/site';
+
+const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  `${SITE.legalName}, ${SITE.address.street}, ${SITE.address.zip} ${SITE.address.city}`,
+)}`;
+---
+
+<BaseLayout
+  title="Kontakt — LIFT Baterie, Kielce | Serwis w całej Polsce"
+  description="Skontaktuj się z LIFT Baterie: ☎ 695 946 842. Kielce, ul. Wojska Polskiego 7/5A. Mobilny serwis baterii przemysłowych w całej Polsce."
+>
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <h1 class="font-display text-3xl font-bold sm:text-4xl">Kontakt — porozmawiajmy o Twoich bateriach</h1>
+
+    <div class="mt-10 grid gap-10 md:grid-cols-2">
+      <div>
+        <ul class="space-y-4 text-gray-700">
+          <li>
+            <p class="text-sm font-semibold uppercase tracking-wide text-gray-400">Telefon</p>
+            <a href={SITE.phoneHref} class="text-2xl font-bold text-brand-600 hover:underline">{SITE.phoneDisplay}</a>
+          </li>
+          <li>
+            <p class="text-sm font-semibold uppercase tracking-wide text-gray-400">E-mail</p>
+            <a href={`mailto:${SITE.email}`} class="font-semibold hover:underline">{SITE.email}</a>
+          </li>
+          <li>
+            <p class="text-sm font-semibold uppercase tracking-wide text-gray-400">Adres</p>
+            <p>{SITE.address.street}, {SITE.address.zip} {SITE.address.city}</p>
+            <a href={mapsUrl} target="_blank" rel="noopener" class="text-sm font-semibold text-brand-600 hover:underline">
+              Pokaż w Google Maps →
+            </a>
+          </li>
+          <li>
+            <p class="text-sm font-semibold uppercase tracking-wide text-gray-400">Obszar działania</p>
+            <p>Cała Polska — serwis mobilny z dojazdem do klienta.</p>
+          </li>
+          {SITE.googleReviewsUrl && (
+            <li>
+              <a href={SITE.googleReviewsUrl} target="_blank" rel="noopener" class="font-semibold text-brand-600 hover:underline">
+                ★ Zobacz nasze opinie w Google →
+              </a>
+            </li>
+          )}
+        </ul>
+        <p class="mt-8 text-xs text-gray-400">
+          {SITE.name} — marka {SITE.legalName}, NIP {SITE.nip}, REGON {SITE.regon}.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="mb-4 font-display text-xl font-bold">Napisz do nas</h2>
+        <ContactForm />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

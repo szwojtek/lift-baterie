@@ -1,0 +1,13 @@
+---
+import { SITE } from '../config/site';
+import { href } from '../utils/url';
+---
+
+<div class="fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 border-t border-gray-200 bg-white shadow-[0_-2px_10px_rgba(0,0,0,0.08)] md:hidden">
+  <a href={SITE.phoneHref} class="flex items-center justify-center gap-2 bg-brand-600 py-3.5 text-sm font-bold text-white">
+    ☎ Zadzwoń
+  </a>
+  <a href={href('/bezplatny-audyt')} class="flex items-center justify-center py-3.5 text-sm font-bold text-brand-700">
+    Bezpłatny audyt
+  </a>
+</div>

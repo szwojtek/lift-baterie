@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { SITE } from '../config/site';
+---
+
+<BaseLayout
+  title="Bezpłatny audyt baterii — zamów wycenę | LIFT Baterie"
+  description="Zamów bezpłatny audyt baterii trakcyjnych lub akumulatorów floty: pomiary, diagnoza każdej baterii i konkretna rekomendacja z wyceną. Bez zobowiązań."
+>
+  <section class="bg-ink-900 text-white">
+    <div class="mx-auto max-w-3xl px-4 py-14 text-center">
+      <h1 class="font-display text-3xl font-bold sm:text-4xl">Zamów bezpłatny audyt baterii</h1>
+      <ul class="mx-auto mt-5 max-w-xl space-y-2 text-left text-gray-300">
+        <li>✔ Pomiary i diagnoza każdej baterii — na miejscu, u Ciebie</li>
+        <li>✔ Rekomendacja per bateria: regenerować / serwisować / wymienić</li>
+        <li>✔ Konkretna wycena — bez zobowiązań i bez „handlowca w gratisie"</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="border-b border-gray-100 bg-gray-50">
+    <div class="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-4 py-5 text-center text-sm font-semibold text-ink-700 sm:grid-cols-4">
+      <span>Od {SITE.foundingYear} roku</span>
+      <span>Cała Polska</span>
+      <span>Audyt 0 zł — bez zobowiązań</span>
+      <span>Raport przed/po</span>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-2xl px-4 py-12">
+    <a
+      href={SITE.phoneHref}
+      class="flex items-center justify-center gap-2 rounded-xl bg-brand-600 px-6 py-4 text-lg font-bold text-white transition hover:bg-brand-500"
+    >
+      ☎ Wolisz porozmawiać? Zadzwoń: {SITE.phoneDisplay}
+    </a>
+    <p class="my-6 text-center text-sm font-semibold uppercase tracking-wide text-gray-400">albo zostaw kontakt</p>
+    <ContactForm />
+  </section>
+
+  <section class="bg-gray-50">
+    <div class="mx-auto max-w-3xl px-4 py-12">
+      <h2 class="text-center font-display text-2xl font-bold">Jak wygląda audyt?</h2>
+      <div class="mt-8 grid gap-6 sm:grid-cols-3">
+        <div class="rounded-2xl bg-white p-6 text-center shadow-sm">
+          <p class="font-display text-2xl font-bold text-brand-600">1</p>
+          <p class="mt-2 text-sm text-gray-700">Umawiamy termin — także w oknie serwisowym, poza godzinami szczytu hali.</p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 text-center shadow-sm">
+          <p class="font-display text-2xl font-bold text-brand-600">2</p>
+          <p class="mt-2 text-sm text-gray-700">Mierzymy każdą baterię: gęstość elektrolitu, napięcia ogniw, pojemność.</p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 text-center shadow-sm">
+          <p class="font-display text-2xl font-bold text-brand-600">3</p>
+          <p class="mt-2 text-sm text-gray-700">Dostajesz raport z rekomendacją i wyceną. Decyzja należy do Ciebie.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

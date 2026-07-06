@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config/site';
+---
+
+<BaseLayout
+  title="Polityka prywatności | LIFT Baterie"
+  description="Polityka prywatności serwisu lift-baterie.pl — zasady przetwarzania danych osobowych przez FTU LIFT Dariusz Kozieł."
+>
+  <section class="mx-auto max-w-3xl px-4 py-16">
+    <h1 class="font-display text-3xl font-bold">Polityka prywatności</h1>
+
+    <div class="mt-8 space-y-8 text-sm leading-relaxed text-gray-700">
+      <div>
+        <h2 class="font-display text-lg font-bold text-ink-800">Administrator danych</h2>
+        <p class="mt-2">
+          {SITE.legalName}, NIP: {SITE.nip}, REGON: {SITE.regon}, adres: {SITE.address.street},
+          {' '}{SITE.address.zip} {SITE.address.city}, woj. {SITE.address.region}.
+          Kontakt: e-mail {SITE.email}, tel. {SITE.phoneDisplay}. Osoba decyzyjna: Dariusz Kozieł.
+          IOD: nie powołano — w sprawach danych prosimy o kontakt e-mailowy.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-lg font-bold text-ink-800">Cele i podstawy przetwarzania</h2>
+        <ol class="mt-2 list-decimal space-y-1 pl-5">
+          <li>Odpowiedź na zapytanie / przygotowanie oferty (art. 6 ust. 1 lit. b RODO; dodatkowo lit. f).</li>
+          <li>Zawarcie i realizacja umów (art. 6 ust. 1 lit. b).</li>
+          <li>Rozliczenia, fakturowanie, archiwum księgowe (art. 6 ust. 1 lit. c).</li>
+          <li>Obrona i dochodzenie roszczeń (art. 6 ust. 1 lit. f).</li>
+          <li>Marketing własny B2B (art. 6 ust. 1 lit. f lub lit. a).</li>
+          <li>Analityka / pliki cookies (art. 6 ust. 1 lit. a dla cookies nieniezbędnych).</li>
+        </ol>
+      </div>
+
+      <div>
+        <h2 class="font-display text-lg font-bold text-ink-800">Zakres danych</h2>
+        <p class="mt-2">
+          Dane identyfikacyjne i kontaktowe, treść wiadomości, dane umowne i rozliczeniowe oraz dane
+          techniczne o korzystaniu ze strony.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-lg font-bold text-ink-800">Odbiorcy danych</h2>
+        <p class="mt-2">
+          Dostawcy hostingu, poczty, narzędzi analitycznych/CRM, biuro rachunkowe, podwykonawcy serwisowi.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-lg font-bold text-ink-800">Przekazywanie poza EOG</h2>
+        <p class="mt-2">Stosujemy standardowe klauzule umowne (SCC) i dodatkowe środki bezpieczeństwa.</p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-lg font-bold text-ink-800">Czas przechowywania</h2>
+        <ul class="mt-2 list-disc space-y-1 pl-5">
+          <li>Korespondencja / oferty: do 12 miesięcy.</li>
+          <li>Umowy / rozliczenia: do 6 lat.</li>
+          <li>Dane marketingowe: do wycofania zgody lub sprzeciwu.</li>
+          <li>Cookies: zgodnie z okresem życia pliku.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="font-display text-lg font-bold text-ink-800">Prawa użytkownika</h2>
+        <p class="mt-2">
+          Dostęp, sprostowanie, usunięcie, ograniczenie przetwarzania, przenoszenie danych, sprzeciw oraz
+          skarga do Prezesa UODO.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-lg font-bold text-ink-800">Wymóg podania danych</h2>
+        <p class="mt-2">Podanie danych jest dobrowolne, ale niezbędne do odpowiedzi lub zawarcia umowy.</p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-lg font-bold text-ink-800">Zautomatyzowane decyzje</h2>
+        <p class="mt-2">Nie stosujemy profilowania ani decyzji wywołujących skutki prawne.</p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-lg font-bold text-ink-800">Pliki cookies</h2>
+        <p class="mt-2">
+          Cookies niezbędne zapewniają funkcjonalność strony; analityczne i marketingowe wymagają zgody
+          wyrażanej w banerze cookie.
+        </p>
+      </div>
+
+      <p class="text-xs text-gray-400">Data publikacji: 17.10.2025</p>
+    </div>
+  </section>
+</BaseLayout>

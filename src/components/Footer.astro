@@ -1,0 +1,54 @@
+---
+import { SITE } from '../config/site';
+import { href } from '../utils/url';
+---
+
+<footer class="bg-ink-900 text-gray-300">
+  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-3">
+    <div>
+      <img src={href('/logo-lift-baterie.svg')} alt="LIFT Baterie" class="h-8 w-auto" />
+      <p class="mt-4 font-display text-lg font-semibold text-white">{SITE.tagline}</p>
+      <p class="mt-2 text-sm">
+        Mobilny serwis i regeneracja baterii przemysłowych w całej Polsce. Bezpłatny audyt, praca w oknach
+        serwisowych, raport przed/po.
+      </p>
+    </div>
+
+    <nav aria-label="Mapa strony" class="text-sm">
+      <p class="mb-3 font-semibold text-white">Na skróty</p>
+      <ul class="space-y-2">
+        <li><a class="hover:text-white" href={href('/regeneracja-baterii-trakcyjnych')}>Regeneracja baterii trakcyjnych</a></li>
+        <li><a class="hover:text-white" href={href('/serwis-baterii-trakcyjnych')}>Serwis baterii trakcyjnych</a></li>
+        <li><a class="hover:text-white" href={href('/formatowanie-baterii-trakcyjnych')}>Formatowanie i profilaktyka</a></li>
+        <li><a class="hover:text-white" href={href('/szkolenia-obsluga-baterii-trakcyjnych')}>Szkolenia</a></li>
+        <li><a class="hover:text-white" href={href('/regeneracja-akumulatorow-ciezarowych')}>Floty ciężarowe (TIR)</a></li>
+        <li><a class="hover:text-white" href={href('/realizacje')}>Realizacje</a></li>
+        <li><a class="hover:text-white" href={href('/o-nas')}>O nas</a></li>
+        <li><a class="hover:text-white" href={href('/baza-wiedzy')}>Baza wiedzy</a></li>
+        <li><a class="hover:text-white" href={href('/privacy-policy')}>Polityka prywatności</a></li>
+      </ul>
+    </nav>
+
+    <div class="text-sm">
+      <p class="mb-3 font-semibold text-white">Kontakt</p>
+      <ul class="space-y-2">
+        <li><a class="font-semibold text-brand-300 hover:text-white" href={SITE.phoneHref}>☎ {SITE.phoneDisplay}</a></li>
+        <li><a class="hover:text-white" href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+        <li>{SITE.address.street}, {SITE.address.zip} {SITE.address.city}</li>
+        {SITE.googleReviewsUrl && (
+          <li>
+            <a class="hover:text-white" href={SITE.googleReviewsUrl} rel="noopener" target="_blank">
+              Zobacz nasze opinie w Google →
+            </a>
+          </li>
+        )}
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-ink-700">
+    <p class="mx-auto max-w-6xl px-4 py-4 text-xs text-gray-400">
+      {SITE.name} — marka {SITE.legalName}, NIP {SITE.nip}, {SITE.address.city}. © {new Date().getFullYear()}
+    </p>
+  </div>
+</footer>

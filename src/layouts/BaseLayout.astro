@@ -1,0 +1,146 @@
+---
+import '../styles/global.css';
+import { SITE } from '../config/site';
+import { href } from '../utils/url';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import StickyMobileBar from '../components/StickyMobileBar.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Page-level noindex (e.g. thank-you page), independent of the global preview noindex. */
+  noindex?: boolean;
+  /** Additional JSON-LD blocks (Service, BreadcrumbList, Article) rendered next to LocalBusiness. */
+  extraSchema?: Record<string, unknown>[];
+}
+
+const { title, description, noindex = false, extraSchema = [] } = Astro.props;
+
+// build.format 'file' leaves .html in pathname; canonical must match the clean served URL
+const cleanPath = Astro.url.pathname.replace(/index\.html$/, '').replace(/\.html$/, '');
+const canonical = new URL(cleanPath || '/', Astro.site);
+const previewNoindex = import.meta.env.PUBLIC_NOINDEX === 'true';
+const analyticsOn = import.meta.env.PUBLIC_ANALYTICS === 'true';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': `${SITE.domain}/#business`,
+  name: SITE.name,
+  legalName: SITE.legalName,
+  url: SITE.domain,
+  telephone: '+48695946842',
+  email: SITE.email,
+  foundingDate: String(SITE.foundingYear),
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: SITE.address.street,
+    postalCode: SITE.address.zip,
+    addressLocality: SITE.address.city,
+    addressRegion: SITE.address.region,
+    addressCountry: 'PL',
+  },
+  geo: { '@type': 'GeoCoordinates', latitude: SITE.geo.lat, longitude: SITE.geo.lng },
+  areaServed: 'PL',
+  image: `${SITE.domain}/og-image.png`,
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '08:00',
+    closes: '16:00',
+  },
+  ...(SITE.googleReviewsUrl ? { sameAs: [SITE.googleReviewsUrl] } : {}),
+};
+
+const ogImage = new URL(href('/og-image.png'), Astro.site);
+---
+
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {(previewNoindex || noindex) && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="icon" type="image/png" href={href('/webclip.png')} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Sora:wght@600;700&display=swap"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    {extraSchema.map((block) => <script type="application/ld+json" set:html={JSON.stringify(block)} />)}
+
+    {
+      analyticsOn && (
+        <>
+          {/* Order matters: 1. Consent Mode v2 defaults -> 2. CookieYes -> 3. GTM -> 4. GSC */}
+          <script is:inline>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('consent', 'default', {
+              ad_storage: 'denied',
+              ad_user_data: 'denied',
+              ad_personalization: 'denied',
+              analytics_storage: 'denied',
+              functionality_storage: 'denied',
+              personalization_storage: 'denied',
+              security_storage: 'granted',
+            });
+          </script>
+          <script
+            is:inline
+            id="cookieyes"
+            type="text/javascript"
+            src={`https://cdn-cookieyes.com/client_data/${SITE.cookieYesKey}/script.js`}
+          />
+          <script is:inline define:vars={{ gtmId: SITE.gtmId }}>
+            (function (w, d, s, l, i) {
+              w[l] = w[l] || [];
+              w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+              var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+              j.async = true;
+              j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+              f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', gtmId);
+          </script>
+          <meta name="google-site-verification" content={SITE.gscVerification} />
+        </>
+      )
+    }
+  </head>
+  <body class="min-h-screen bg-white pb-16 md:pb-0">
+    {
+      analyticsOn && (
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${SITE.gtmId}`}
+            height="0"
+            width="0"
+            style="display:none;visibility:hidden"
+          />
+        </noscript>
+      )
+    }
+    <Header />
+    <slot />
+    <Footer />
+    <StickyMobileBar />
+  </body>
+</html>

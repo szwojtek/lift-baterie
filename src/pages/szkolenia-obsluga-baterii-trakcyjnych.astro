@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { SITE } from '../config/site';
+import { breadcrumbSchema, serviceSchema } from '../utils/schema';
+---
+
+<BaseLayout
+  title="Szkolenia z obsługi baterii trakcyjnych i akumulatorowni | LIFT Baterie"
+  description="Praktyczne szkolenia z eksploatacji baterii trakcyjnych dla operatorów i utrzymania ruchu: ładowanie, konserwacja, bezpieczeństwo akumulatorowni. Certyfikat."
+  extraSchema={[
+    serviceSchema({
+      name: 'Szkolenia z obsługi baterii trakcyjnych',
+      description:
+        'Praktyczne szkolenia z eksploatacji baterii trakcyjnych i bezpieczeństwa akumulatorowni dla operatorów, utrzymania ruchu i kierowników magazynów. Certyfikat.',
+      path: '/szkolenia-obsluga-baterii-trakcyjnych',
+    }),
+    breadcrumbSchema([
+      { name: 'Start', path: '/' },
+      { name: 'Szkolenia', path: '/szkolenia-obsluga-baterii-trakcyjnych' },
+    ]),
+  ]}
+>
+  <section class="bg-ink-900 text-white">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:py-20">
+      <h1 class="max-w-3xl font-display text-3xl font-bold leading-tight sm:text-4xl">
+        Szkolenia z obsługi baterii trakcyjnych — mniej awarii dzięki dobrym nawykom
+      </h1>
+      <p class="mt-4 max-w-2xl text-gray-300">
+        Większość przedwczesnych awarii baterii to skutek codziennych błędów: doładowywania w przerwach,
+        głębokich rozładowań, zaniedbanej wody destylowanej. Szkolimy zespoły, które pracują z bateriami
+        na co dzień — praktycznie, na Waszej hali.
+      </p>
+      <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+        <a href={SITE.phoneHref} class="rounded-lg bg-brand-600 px-6 py-3 text-center font-semibold transition hover:bg-brand-500">☎ Zapytaj o termin: {SITE.phoneDisplay}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 py-14">
+    <h2 class="font-display text-2xl font-bold">Dla kogo?</h2>
+    <ul class="mt-5 space-y-3 text-gray-700">
+      <li>• <strong>Operatorzy wózków</strong> — prawidłowe ładowanie, wymiana baterii, codzienna kontrola.</li>
+      <li>• <strong>Utrzymanie ruchu</strong> — pomiary, uzupełnianie elektrolitu, rozpoznawanie objawów zasiarczenia.</li>
+      <li>• <strong>Kierownicy magazynów</strong> — organizacja pracy akumulatorowni, planowanie serwisu, koszty cyklu życia.</li>
+    </ul>
+    <p class="mt-4 text-sm text-gray-500">
+      Uwaga: to szkolenie z eksploatacji baterii — nie kurs uprawnień UDT na operatora wózka.
+    </p>
+
+    <h2 class="mt-10 font-display text-2xl font-bold">Akumulatorownia i bezpieczeństwo ładowania</h2>
+    <p class="mt-4 text-gray-700">
+      Osobny moduł poświęcamy bezpieczeństwu: gazowanie ogniw i ryzyko wybuchu wodoru, wentylacja
+      akumulatorowni, środki ochrony przy pracy z elektrolitem, postępowanie przy poparzeniach. To wiedza,
+      która chroni ludzi i skraca listę niezgodności przy audytach BHP.
+    </p>
+
+    <h2 class="mt-10 font-display text-2xl font-bold">Jak szkolimy?</h2>
+    <ul class="mt-5 space-y-3 text-gray-700">
+      <li>• <strong>Dwa poziomy:</strong> podstawowy (operatorzy) i zaawansowany (utrzymanie ruchu).</li>
+      <li>• <strong>100% praktyki</strong> — pracujemy na Waszych bateriach i prostownikach, nie na slajdach.</li>
+      <li>• <strong>Listy kontrolne</strong> — zespół dostaje gotowe checklisty do codziennej pracy.</li>
+      <li>• <strong>Certyfikat</strong> — każdy uczestnik otrzymuje potwierdzenie kompetencji.</li>
+      <li>• <strong>Terminy elastyczne</strong> — także między zmianami, u Was na hali, w całej Polsce.</li>
+    </ul>
+  </section>
+
+  <CtaBand
+    title="Przeszkol zespół, zanim baterie zapłacą za błędy"
+    subtitle="Zadzwoń — dopasujemy program i termin do pracy Twojej hali."
+  />
+</BaseLayout>

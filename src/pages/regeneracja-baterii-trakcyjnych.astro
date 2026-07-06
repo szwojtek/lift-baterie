@@ -1,0 +1,259 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import FaqItem from '../components/FaqItem.astro';
+import { SITE } from '../config/site';
+import { href } from '../utils/url';
+import { breadcrumbSchema, serviceSchema } from '../utils/schema';
+
+const steps: { phase: string; items: { t: string; d: string }[] }[] = [
+  {
+    phase: 'Faza 1 — Diagnostyka (bezpłatny audyt)',
+    items: [
+      { t: 'Wywiad eksploatacyjny', d: 'Jak bateria pracowała i była ładowana, jakie są objawy — to ukierunkowuje pomiary.' },
+      { t: 'Pomiar napięcia każdego ogniwa', d: 'Wyłapuje ogniwa odstające od pakietu i podejrzenia zwarć wewnętrznych.' },
+      { t: 'Pomiar gęstości elektrolitu w każdym ogniwie', d: 'Gęstość mówi wprost o stopniu naładowania i zasiarczenia; rozrzut między ogniwami zdradza kondycję pakietu.' },
+      { t: 'Oględziny i kontrola połączeń', d: 'Poziom elektrolitu, stan łączników międzyogniwowych, wtyków i skrzyni, ślady wycieków.' },
+      { t: 'Test pojemności', d: 'Kontrolowane rozładowanie pokazuje, ile bateria naprawdę oddaje — punkt odniesienia dla raportu.' },
+      { t: 'Kwalifikacja: regenerować czy nie', d: 'Jeśli pomiary wykażą wypadniętą masę czynną lub zwarcia — odradzamy regenerację wprost.' },
+    ],
+  },
+  {
+    phase: 'Faza 2 — Regeneracja u Ciebie, w oknach serwisowych',
+    items: [
+      { t: 'Przygotowanie baterii', d: 'Czyszczenie, korekta poziomu elektrolitu wodą destylowaną, naprawa połączeń o podwyższonej rezystancji.' },
+      { t: 'Desulfatacja impulsowa', d: 'Profesjonalny regenerator ogniw ołowiowych rozbija warstwę siarczanu ołowiu blokującą płyty — pod stałą kontrolą napięć i temperatury.' },
+      { t: 'Cykle kontrolowanego ładowania i rozładowania', d: 'Odbudowują pojemność i uaktywniają odzyskaną powierzchnię płyt.' },
+      { t: 'Ładowanie wyrównawcze pakietu', d: 'Wyrównuje parametry wszystkich ogniw — najsłabsze ogniwo przestaje ciągnąć baterię w dół.' },
+    ],
+  },
+  {
+    phase: 'Faza 3 — Weryfikacja i raport',
+    items: [
+      { t: 'Test końcowy pojemności', d: 'Kryterium sukcesu: powrót powyżej progu 80% pojemności znamionowej — tego samego, który normy branżowe przyjmują za granicę życia baterii. Bez zdanego testu nie zamykamy zlecenia.' },
+      { t: 'Raport przed/po + zalecenia', d: 'Porównanie parametrów sprzed i po regeneracji oraz proste zalecenia dla operatorów, które utrwalają efekt.' },
+    ],
+  },
+];
+
+const costFactors = [
+  { f: 'Napięcie i pojemność baterii', d: 'np. 24 V / 48 V / 80 V — im większy pakiet, tym więcej ogniw do przepracowania' },
+  { f: 'Stopień zasiarczenia', d: 'wczesne zasiarczenie = krótszy proces; wieloletnie wymaga dłuższych cykli' },
+  { f: 'Liczba baterii w zleceniu', d: 'przy parku baterii pracujemy rotacyjnie — koszt jednostkowy spada' },
+  { f: 'Ewentualna wymiana ogniw', d: 'pojedyncze zwarte ogniwo wymieniamy zamiast dyskwalifikować całą baterię' },
+  { f: 'Lokalizacja i okna serwisowe', d: 'dojazd w dowolne miejsce w Polsce; terminy nocne i weekendowe ustalamy w harmonogramie' },
+];
+---
+
+<BaseLayout
+  title="Regeneracja baterii trakcyjnych do wózków widłowych | LIFT Baterie"
+  description="Regeneracja baterii trakcyjnych Pb, GEL i AGM u klienta, w całej Polsce. Do 70% taniej niż nowa bateria. Bezpłatny audyt i raport przed/po. ☎ 695 946 842"
+  extraSchema={[
+    serviceSchema({
+      name: 'Regeneracja baterii trakcyjnych',
+      description:
+        'Mobilna regeneracja baterii trakcyjnych wózków widłowych (Pb, GEL, AGM): diagnostyka, desulfatacja, test pojemności i raport przed/po — u klienta, w całej Polsce.',
+      path: '/regeneracja-baterii-trakcyjnych',
+    }),
+    breadcrumbSchema([
+      { name: 'Start', path: '/' },
+      { name: 'Regeneracja baterii trakcyjnych', path: '/regeneracja-baterii-trakcyjnych' },
+    ]),
+  ]}
+>
+  <section class="bg-ink-900 text-white">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:py-20">
+      <h1 class="max-w-3xl font-display text-3xl font-bold leading-tight sm:text-4xl">
+        Regeneracja baterii trakcyjnych do wózków widłowych — u Ciebie, bez przestojów
+      </h1>
+      <p class="mt-4 max-w-2xl text-gray-300">
+        Przywracamy pojemność baterii kwasowych (Pb), żelowych (GEL) i AGM zamiast wymieniać je na nowe.
+        Pracujemy na miejscu, w oknach serwisowych, a efekt potwierdzamy raportem przed/po.
+      </p>
+      <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+        <a href="#audyt" class="rounded-lg bg-brand-600 px-6 py-3 text-center font-semibold transition hover:bg-brand-500">Zamów bezpłatny audyt</a>
+        <a href={SITE.phoneHref} class="rounded-lg border border-gray-500 px-6 py-3 text-center font-semibold transition hover:border-white">☎ {SITE.phoneDisplay}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-gray-100 bg-gray-50">
+    <div class="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-4 py-5 text-center text-sm font-semibold text-ink-700 sm:grid-cols-4">
+      <span>Od {SITE.foundingYear} roku</span>
+      <span>Cała Polska — dojazd do klienta</span>
+      <span>Do 70% taniej niż nowa bateria</span>
+      <span>Raport przed/po</span>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 py-14">
+    <h2 class="font-display text-2xl font-bold">Te objawy znasz z własnej hali?</h2>
+    <ul class="mt-5 space-y-3 text-gray-700">
+      <li>• Bateria <strong>nie trzyma pełnej zmiany</strong> — wózek gaśnie przed końcem pracy.</li>
+      <li>• Ładowanie trwa coraz dłużej, a efekt jest coraz krótszy.</li>
+      <li>• Ogniwa przegrzewają się podczas ładowania, rośnie zużycie wody destylowanej.</li>
+      <li>• Dostawca podpowiada „nowa bateria" — a to wydatek rzędu kilkudziesięciu tysięcy złotych.</li>
+    </ul>
+    <p class="mt-5 text-gray-700">
+      W większości takich przypadków przyczyną jest <strong>zasiarczenie</strong> — odwracalny proces
+      odkładania się siarczanu ołowiu na płytach ogniw. Regeneracja i
+      <a href={href('/baza-wiedzy/odsiarczanie-baterii-trakcyjnej')} class="font-semibold text-brand-600 hover:underline">odsiarczanie (desulfatacja)</a>
+      przywracają pojemność bez wymiany baterii. Jakie jeszcze bywają przyczyny „słabej baterii" —
+      opisaliśmy <a href={href('/baza-wiedzy/bateria-wozka-widlowego-szybko-sie-rozladowuje')} class="font-semibold text-brand-600 hover:underline">12 najczęstszych w bazie wiedzy</a>.
+    </p>
+  </section>
+
+  <section class="bg-gray-50">
+    <div class="mx-auto max-w-3xl px-4 py-14">
+      <h2 class="font-display text-2xl font-bold">Procedura LIFT — pełny przebieg regeneracji</h2>
+      <p class="mt-3 text-gray-600">
+        Żadnej magii i żadnych skrótów: każdy etap jest mierzalny, a wynik końcowy weryfikuje test, nie
+        deklaracja. Cały proces odbywa się u Ciebie — bateria nigdzie nie jedzie.
+      </p>
+      {steps.map((phase) => (
+        <div class="mt-8">
+          <h3 class="font-display text-lg font-bold text-brand-700">{phase.phase}</h3>
+          <ol class="mt-4 space-y-3">
+            {phase.items.map((s, i) => (
+              <li class="rounded-xl bg-white p-4 shadow-sm">
+                <p class="font-semibold">{i + 1}. {s.t}</p>
+                <p class="mt-1 text-sm text-gray-600">{s.d}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      ))}
+      <p class="mt-6 text-sm text-gray-600">
+        Krok po kroku, z czasami realizacji, opisaliśmy proces także w artykule
+        <a href={href('/baza-wiedzy/jak-przebiega-regeneracja-baterii-trakcyjnej')} class="font-semibold text-brand-600 hover:underline">„Jak przebiega regeneracja baterii trakcyjnej"</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 py-14">
+    <h2 class="font-display text-2xl font-bold">Regenerujemy baterie Pb, żelowe (GEL) i AGM</h2>
+    <p class="mt-4 text-gray-700">
+      Obsługujemy wszystkie popularne typy baterii trakcyjnych: klasyczne kwasowo-ołowiowe (PzS/PzB),
+      żelowe oraz AGM — niezależnie od marki wózka i producenta baterii. Parametry procesu dobieramy do
+      technologii ogniw. Pracujemy dla magazynów, zakładów produkcyjnych, centrów dystrybucyjnych
+      i chłodni w całej Polsce.
+    </p>
+
+    <h2 class="mt-10 font-display text-2xl font-bold">Uczciwa kwalifikacja — nie każdą baterię warto regenerować</h2>
+    <p class="mt-4 text-gray-700">
+      Jeśli pomiary pokażą wypadniętą masę czynną, zwarcia ogniw albo uszkodzenia mechaniczne —
+      regeneracja nie ma sensu i powiemy Ci to wprost, rekomendując wymianę. Pojedyncze słabe ogniwo
+      w zdrowym pakiecie to z kolei wskazanie do
+      <a href={href('/serwis-baterii-trakcyjnych')} class="font-semibold text-brand-600 hover:underline">wymiany ogniwa w ramach serwisu</a>,
+      nie do pełnej regeneracji. Które uszkodzenia są nieodwracalne —
+      <a href={href('/baza-wiedzy/kiedy-bateria-nie-nadaje-sie-do-regeneracji')} class="font-semibold text-brand-600 hover:underline">piszemy o tym otwarcie</a>.
+      Dzięki temu płacisz tylko za usługi, które przynoszą efekt.
+    </p>
+
+    <div class="mt-8 rounded-2xl bg-brand-50 p-6 text-center">
+      <p class="font-semibold text-ink-800">Nie wiesz, czy Twoja bateria się kwalifikuje?</p>
+      <div class="mt-4 flex flex-col justify-center gap-3 sm:flex-row">
+        <a href="#audyt" class="rounded-lg bg-brand-600 px-6 py-3 font-semibold text-white transition hover:bg-brand-500">Zamów bezpłatny audyt</a>
+        <a href={SITE.phoneHref} class="rounded-lg border border-brand-300 px-6 py-3 font-semibold text-brand-700 transition hover:border-brand-600">☎ {SITE.phoneDisplay}</a>
+      </div>
+    </div>
+
+    <h2 class="mt-12 font-display text-2xl font-bold">Ile trwa regeneracja?</h2>
+    <p class="mt-4 text-gray-700">
+      Pojedyncza bateria to zwykle <strong>od jednej do kilku dób</strong> — zależnie od pojemności
+      i stopnia zasiarczenia. Przy parku kilku–kilkunastu baterii pracujemy <strong>rotacyjnie</strong>:
+      bateria po baterii, w oknach serwisowych (noce, weekendy, przerwy między zmianami), więc flota
+      wózków przez cały czas ma zasilanie, a magazyn pracuje normalnie. Harmonogram ustalamy z góry.
+    </p>
+
+    <h2 class="mt-10 font-display text-2xl font-bold">Od czego zależy koszt regeneracji?</h2>
+    <p class="mt-4 text-gray-700">
+      Konkretną wycenę przedstawiamy po bezpłatnym audycie — bo rzetelnie da się ją policzyć dopiero po
+      pomiarach. Na cenę składają się:
+    </p>
+    <ul class="mt-4 space-y-2 text-gray-700">
+      {costFactors.map((c) => (
+        <li class="rounded-xl border border-gray-200 p-4">
+          <span class="font-semibold">{c.f}</span> — <span class="text-gray-600">{c.d}</span>
+        </li>
+      ))}
+    </ul>
+    <p class="mt-4 text-gray-700">
+      Punkt odniesienia jest zawsze ten sam: regeneracja kosztuje <strong>do 70% mniej niż zakup nowej
+      baterii</strong>, a efekt jest potwierdzony testem pojemności i raportem przed/po. Porównanie obu
+      scenariuszy z kryteriami decyzji znajdziesz w artykule
+      <a href={href('/baza-wiedzy/regeneracja-czy-nowa-bateria')} class="font-semibold text-brand-600 hover:underline">„Regeneracja czy zakup nowej baterii"</a>.
+    </p>
+  </section>
+
+  <section class="bg-gray-50">
+    <div class="mx-auto max-w-6xl px-4 py-14">
+      <h2 class="text-center font-display text-2xl font-bold">Dlaczego regeneracja z LIFT Baterie</h2>
+      <div class="mt-8 grid gap-6 text-center sm:grid-cols-3">
+        <div class="rounded-2xl bg-white p-6 shadow-sm">
+          <p class="font-display text-3xl font-bold text-brand-600">do 70%</p>
+          <p class="mt-2 text-sm text-gray-600">oszczędności względem zakupu nowej baterii</p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 shadow-sm">
+          <p class="font-display text-3xl font-bold text-brand-600">0 km</p>
+          <p class="mt-2 text-sm text-gray-600">transportu baterii — cały proces odbywa się u Ciebie</p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 shadow-sm">
+          <p class="font-display text-3xl font-bold text-brand-600">noc / weekend</p>
+          <p class="mt-2 text-sm text-gray-600">okna serwisowe — magazyn pracuje bez przerwy</p>
+        </div>
+      </div>
+      <figure class="mx-auto mt-10 max-w-2xl rounded-2xl bg-white p-6 shadow-sm">
+        <p class="text-sm font-bold text-brand-600">40% taniej niż wymiana</p>
+        <blockquote class="mt-2 text-sm text-gray-700">
+          „Po audycie dostaliśmy jasną wycenę. Regeneracja obniżyła koszt o około 40% przy zachowaniu
+          parametrów pracy baterii."
+        </blockquote>
+        <figcaption class="mt-3 text-xs font-semibold text-gray-500">Firma logistyczna, Mazowsze</figcaption>
+      </figure>
+      <p class="mt-6 text-center">
+        <a href={href('/realizacje')} class="text-sm font-semibold text-brand-600 hover:underline">Zobacz więcej realizacji →</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 py-14">
+    <h2 class="font-display text-2xl font-bold">Pytania o regenerację</h2>
+    <div class="mt-6">
+      <FaqItem question="Czym jest odsiarczanie (desulfatacja) baterii trakcyjnej?">
+        To proces rozbijania twardej warstwy siarczanu ołowiu, która blokuje płyty ogniw i odbiera baterii
+        pojemność. Wykonujemy go impulsowo, pod kontrolą pomiarów — to serce całej regeneracji.
+      </FaqItem>
+      <FaqItem question="Ile trwa regeneracja baterii trakcyjnej?">
+        Zależnie od stanu baterii i liczby sztuk — od jednej doby do kilku dni. Przy większych parkach
+        pracujemy rotacyjnie, żeby flota wózków cały czas miała zasilanie.
+      </FaqItem>
+      <FaqItem question="Czy regeneracja działa na baterie żelowe i AGM?">
+        Tak — dobieramy parametry procesu do technologii baterii (Pb / GEL / AGM). Kwalifikację zawsze
+        poprzedzają pomiary.
+      </FaqItem>
+      <FaqItem question="Czy dostanę gwarancję na efekt?">
+        Efekt każdej regeneracji potwierdzamy testem pojemności i raportem przed/po — płacisz za wynik,
+        który widać w liczbach. Warunki gwarancji na wykonaną usługę określamy w ofercie po audycie,
+        zależnie od stanu i wieku baterii.
+      </FaqItem>
+      <FaqItem question="Co jeśli bateria nie nadaje się do regeneracji?">
+        Mówimy to wprost po audycie i rekomendujemy wymianę. Nie podejmujemy się zleceń, które nie rokują —
+        raport przed/po musi się bronić.
+      </FaqItem>
+    </div>
+  </section>
+
+  <section id="audyt" class="bg-ink-900">
+    <div class="mx-auto max-w-2xl px-4 py-14">
+      <h2 class="text-center font-display text-2xl font-bold text-white">Sprawdź, ile odzyska Twoja bateria</h2>
+      <p class="mt-3 text-center text-gray-300">
+        Bezpłatny audyt z pomiarami i konkretną rekomendacją — u Ciebie, bez zobowiązań.
+        Wolisz porozmawiać? <a href={SITE.phoneHref} class="font-bold text-brand-300">☎ {SITE.phoneDisplay}</a>
+      </p>
+      <div class="mt-8 rounded-2xl bg-white p-6">
+        <ContactForm />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

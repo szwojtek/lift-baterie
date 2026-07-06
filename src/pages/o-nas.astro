@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { SITE } from '../config/site';
+
+const timeline = [
+  {
+    year: '2009',
+    title: 'Start w Kielcach',
+    desc: 'FTU LIFT Dariusz Kozieł rozpoczyna działalność: sprzedaż, wynajem i mobilny serwis wózków widłowych wiodących marek.',
+  },
+  {
+    year: '2015',
+    title: 'Serwis szyty na miarę',
+    desc: 'Pełny serwis wyjazdowy i indywidualne podejście — oferta budowana pod konkretne okoliczności klienta, nie z katalogu.',
+  },
+  {
+    year: '2020',
+    title: 'Specjalizacja: regeneracja baterii',
+    desc: 'Wdrażamy technologię desulfatacji impulsowej (partnerstwo technologiczne z niemieckim producentem urządzeń do regeneracji) i budujemy procedurę audyt → regeneracja → test → raport.',
+  },
+  {
+    year: '2025',
+    title: 'Cała Polska',
+    desc: 'Skalujemy serwis mobilny na cały kraj: praca w oknach serwisowych, bezpłatny audyt na start, raport przed/po każdej usługi.',
+  },
+  {
+    year: '2026',
+    title: 'LIFT Baterie',
+    desc: 'Porządkujemy markę LIFT Baterie i rozwijamy zakres usług dla magazynów oraz firm transportowych.',
+  },
+];
+---
+
+<BaseLayout
+  title="O nas — LIFT Baterie, serwis baterii przemysłowych od 2009 | Kielce"
+  description="LIFT Baterie to marka FTU LIFT Dariusz Kozieł (Kielce, od 2009): mobilna regeneracja i serwis baterii przemysłowych w całej Polsce."
+>
+  <section class="mx-auto max-w-3xl px-4 py-16">
+    <h1 class="font-display text-3xl font-bold sm:text-4xl">O nas</h1>
+    <p class="mt-5 text-gray-700">
+      {SITE.name} to marka firmy {SITE.legalName} z Kielc, działającej w branży wózków widłowych
+      od {SITE.foundingYear} roku. Przez lata serwisowania wózków zobaczyliśmy z bliska, ile firmy
+      przepłacają za przedwczesną wymianę baterii — i zbudowaliśmy wokół tego specjalizację: mobilną
+      regenerację, profilaktykę i serwis baterii przemysłowych w całej Polsce.
+    </p>
+    <p class="mt-4 text-gray-700">
+      Pracujemy tak, jak sami chcielibyśmy być obsługiwani: zaczynamy od bezpłatnego audytu z pomiarami,
+      mówimy wprost, co się opłaca, a czego nie, pracujemy w oknach serwisowych bez zatrzymywania hali
+      i każdą usługę kończymy raportem przed/po.
+    </p>
+
+    <h2 class="mt-12 font-display text-2xl font-bold">Historia firmy</h2>
+    <ol class="mt-6 space-y-6 border-l-2 border-brand-200 pl-6">
+      {timeline.map((t) => (
+        <li>
+          <p class="font-display text-sm font-bold text-brand-600">{t.year}</p>
+          <p class="mt-1 font-semibold">{t.title}</p>
+          <p class="mt-1 text-sm text-gray-600">{t.desc}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <CtaBand />
+</BaseLayout>
