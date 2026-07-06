@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { SITE } from '../config/site';
+import { href } from '../utils/url';
 import { breadcrumbSchema, serviceSchema } from '../utils/schema';
 ---
 
@@ -63,6 +64,11 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
       <li>• <strong>Certyfikat</strong> — każdy uczestnik otrzymuje potwierdzenie kompetencji.</li>
       <li>• <strong>Terminy elastyczne</strong> — także między zmianami, u Was na hali, w całej Polsce.</li>
     </ul>
+    <p class="mt-4 text-gray-700">
+      Program budujemy wokół realnych problemów z hal — takich jak
+      <a href={href('/baza-wiedzy/bateria-wozka-widlowego-szybko-sie-rozladowuje')} class="font-semibold text-brand-600 hover:underline">12 najczęstszych przyczyn szybkiego rozładowywania się baterii</a>,
+      z których większość to codzienne nawyki operatorów.
+    </p>
   </section>
 
   <CtaBand

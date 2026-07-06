@@ -8,6 +8,7 @@ const nav = [
   { label: 'Szkolenia', to: '/szkolenia-obsluga-baterii-trakcyjnych' },
   { label: 'Floty TIR', to: '/regeneracja-akumulatorow-ciezarowych' },
   { label: 'Realizacje', to: '/realizacje' },
+  { label: 'Baza wiedzy', to: '/baza-wiedzy' },
   { label: 'Kontakt', to: '/kontakt' },
 ];
 ---
@@ -60,8 +61,7 @@ const nav = [
         {item.label}
       </a>
     ))}
-    <a href={href('/o-nas')} class="block border-b border-ink-700 py-3 text-sm font-medium text-gray-200">O nas</a>
-    <a href={href('/baza-wiedzy')} class="block py-3 text-sm font-medium text-gray-200">Baza wiedzy</a>
+    <a href={href('/o-nas')} class="block py-3 text-sm font-medium text-gray-200">O nas</a>
   </nav>
 </header>
 

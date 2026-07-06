@@ -1,9 +1,14 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CtaBand from '../components/CtaBand.astro';
 import FaqItem from '../components/FaqItem.astro';
 import { SITE } from '../config/site';
 import { href } from '../utils/url';
+
+const latestPosts = (await getCollection('blog'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 
 const services = [
   {
@@ -208,8 +213,28 @@ const cases = [
     </div>
   </section>
 
+  <!-- KNOWLEDGE BASE -->
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <div class="flex items-end justify-between gap-4">
+      <h2 class="font-display text-2xl font-bold sm:text-3xl">Baza wiedzy</h2>
+      <a href={href('/baza-wiedzy')} class="text-sm font-semibold text-brand-600 hover:underline">Wszystkie artykuły →</a>
+    </div>
+    <div class="mt-8 grid gap-6 md:grid-cols-3">
+      {latestPosts.map((post) => (
+        <a
+          href={href(`/baza-wiedzy/${post.id}`)}
+          class="group rounded-2xl border border-gray-200 p-6 transition hover:border-brand-500 hover:shadow-lg"
+        >
+          <h3 class="font-display text-base font-bold group-hover:text-brand-700">{post.data.title}</h3>
+          <p class="mt-2 text-sm text-gray-600">{post.data.description}</p>
+          <p class="mt-3 text-sm font-semibold text-brand-600 group-hover:underline">Czytaj →</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
   <!-- FAQ -->
-  <section class="mx-auto max-w-3xl px-4 py-16">
+  <section class="mx-auto max-w-3xl bg-white px-4 py-16">
     <h2 class="font-display text-2xl font-bold sm:text-3xl">Najczęściej zadawane pytania</h2>
     <div class="mt-6">
       <FaqItem question="Czy regeneracja zawsze się opłaca?">
