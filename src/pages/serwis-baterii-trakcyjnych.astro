@@ -1,4 +1,5 @@
 ---
+import PhoneIcon from '../components/icons/PhoneIcon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
 import FaqItem from '../components/FaqItem.astro';
@@ -9,7 +10,7 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
 
 <BaseLayout
   title="Serwis baterii trakcyjnych — mobilnie | LIFT Baterie"
-  description="Mobilny serwis baterii trakcyjnych: przeglądy co 1/3/6 miesięcy, naprawa, wymiana ogniw — bez transportu baterii, w oknach serwisowych. ☎ 695 946 842"
+  description="Mobilny serwis baterii trakcyjnych: przeglądy co 1/3/6 miesięcy, naprawa, wymiana ogniw — bez transportu baterii, w oknach serwisowych. Tel. 695 946 842"
   extraSchema={[
     serviceSchema({
       name: 'Serwis baterii trakcyjnych',
@@ -30,11 +31,11 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
       </h1>
       <p class="mt-4 max-w-2xl text-gray-300">
         Cykliczne przeglądy, naprawy i opieka nad parkiem baterii Twoich wózków. Przyjeżdżamy do Ciebie
-        i pracujemy w oknach serwisowych — bateria nigdzie nie jedzie, magazyn pracuje bez przerwy.
+        i pracujemy w oknach serwisowych. Bateria zostaje na miejscu, a magazyn pracuje bez przerwy.
       </p>
       <div class="mt-7 flex flex-col gap-3 sm:flex-row">
-        <a href={href('/bezplatny-audyt')} class="rounded-lg bg-brand-600 px-6 py-3 text-center font-semibold transition hover:bg-brand-500">Zamów bezpłatny audyt</a>
-        <a href={SITE.phoneHref} class="rounded-lg border border-gray-500 px-6 py-3 text-center font-semibold transition hover:border-white">☎ {SITE.phoneDisplay}</a>
+        <a href={href('/bezplatny-audyt')} class="rounded-lg bg-brand-600 px-6 py-3 text-center font-semibold transition hover:bg-brand-700">Zamów bezpłatny audyt</a>
+        <a href={SITE.phoneHref} class="rounded-lg border border-gray-500 px-6 py-3 text-center font-semibold transition hover:border-white"><PhoneIcon /> {SITE.phoneDisplay}</a>
       </div>
     </div>
   </section>
@@ -49,7 +50,7 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
   </section>
 
   <section class="mx-auto max-w-3xl px-4 py-14">
-    <h2 class="font-display text-2xl font-bold">Przeglądy okresowe — co 1, 3 lub 6 miesięcy</h2>
+    <h2 class="border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Przeglądy okresowe — co 1, 3 lub 6 miesięcy</h2>
     <p class="mt-4 text-gray-700">
       Regularny przegląd to najtańszy sposób na uniknięcie awarii i przedwczesnej wymiany baterii.
       W ramach kontraktu serwisowego mierzymy gęstość elektrolitu i napięcia ogniw, kontrolujemy poziom
@@ -59,15 +60,15 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
       <a href={href('/baza-wiedzy/bateria-wozka-widlowego-szybko-sie-rozladowuje')} class="font-semibold text-brand-600 hover:underline">„12 przyczyn, dla których bateria szybko się rozładowuje"</a>.
     </p>
 
-    <h2 class="mt-10 font-display text-2xl font-bold">Naprawa baterii trakcyjnej</h2>
+    <h2 class="mt-10 border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Naprawa baterii trakcyjnej</h2>
     <p class="mt-4 text-gray-700">
       Usuwamy awarie: wymiana uszkodzonych wtyków i przewodów, naprawa połączeń, uzupełnianie elektrolitu.
-      Jeśli bateria traci pojemność przez zasiarczenie, naprawa mechaniczna nie wystarczy — wtedy kierujemy
+      Jeśli bateria traci pojemność przez zasiarczenie, naprawa mechaniczna nie wystarczy. Wtedy kierujemy
       ją do <a href={href('/regeneracja-baterii-trakcyjnych')} class="font-semibold text-brand-600 hover:underline">regeneracji baterii trakcyjnej</a>,
       która przywraca utraconą pojemność.
     </p>
 
-    <h2 class="mt-10 font-display text-2xl font-bold">Wymiana ogniw w baterii trakcyjnej</h2>
+    <h2 class="mt-10 border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Wymiana ogniw w baterii trakcyjnej</h2>
     <p class="mt-4 text-gray-700">
       Pojedyncze uszkodzone ogniwo nie oznacza wymiany całej baterii. Diagnozujemy, które ogniwa odstają
       od pakietu, wymieniamy je i wyrównujemy parametry całości — to ułamek kosztu nowej baterii.
@@ -75,24 +76,23 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
       <a href={href('/baza-wiedzy/kiedy-bateria-nie-nadaje-sie-do-regeneracji')} class="font-semibold text-brand-600 hover:underline">piszemy o tym otwarcie</a>.
     </p>
 
-    <h2 class="mt-10 font-display text-2xl font-bold">Mobilny serwis — bez transportu baterii</h2>
+    <h2 class="mt-10 border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Mobilny serwis — bez transportu baterii</h2>
     <p class="mt-4 text-gray-700">
       Większość firm serwisowych wymaga wysłania baterii do warsztatu: organizacja transportu, tygodnie
-      oczekiwania, wózek wyłączony z pracy. My działamy odwrotnie — <strong>serwis przyjeżdża do baterii</strong>.
-      Pracujemy planowo w oknach serwisowych (noce, weekendy, przerwy między zmianami) w całej Polsce,
-      więc Twoja hala nie zwalnia nawet na godzinę.
+      oczekiwania, wózek wyłączony z pracy. My działamy odwrotnie: <strong>serwis przyjeżdża do baterii</strong>.
+      Pracujemy planowo, nocą i w weekendy, w całej Polsce, więc hala nie zwalnia nawet na godzinę.
     </p>
 
     <div class="mt-8 rounded-2xl bg-brand-50 p-6 text-center">
       <p class="font-semibold text-ink-800">Umów przegląd parku baterii albo zapytaj o kontrakt serwisowy</p>
       <div class="mt-4 flex flex-col justify-center gap-3 sm:flex-row">
-        <a href={href('/bezplatny-audyt')} class="rounded-lg bg-brand-600 px-6 py-3 font-semibold text-white transition hover:bg-brand-500">Zamów bezpłatny audyt</a>
-        <a href={SITE.phoneHref} class="rounded-lg border border-brand-300 px-6 py-3 font-semibold text-brand-700 transition hover:border-brand-600">☎ {SITE.phoneDisplay}</a>
+        <a href={href('/bezplatny-audyt')} class="rounded-lg bg-brand-600 px-6 py-3 font-semibold text-white transition hover:bg-brand-700">Zamów bezpłatny audyt</a>
+        <a href={SITE.phoneHref} class="rounded-lg border border-brand-300 px-6 py-3 font-semibold text-brand-700 transition hover:border-brand-600"><PhoneIcon /> {SITE.phoneDisplay}</a>
       </div>
     </div>
 
     <figure class="mt-8 rounded-2xl border border-gray-200 p-6">
-      <p class="text-sm font-bold text-brand-600">Stabilna praca w ruchu ciągłym</p>
+      <p class="text-sm font-bold text-brand-600">Praca ciągła, także w chłodniach</p>
       <blockquote class="mt-2 text-sm text-gray-700">
         „Zrobiliście audyt i formatowanie baterii w oknach serwisowych, bez wstrzymywania załadunków.
         Po wdrożeniu zaleceń wózki pracują stabilnie także w chłodniach."
@@ -103,7 +103,7 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
 
   <section class="bg-gray-50">
     <div class="mx-auto max-w-3xl px-4 py-14">
-      <h2 class="font-display text-2xl font-bold">Pytania o serwis</h2>
+      <h2 class="border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Pytania o serwis</h2>
       <div class="mt-6">
         <FaqItem question="Czym różni się serwis od regeneracji?">
           Serwis to cykliczna opieka: przeglądy, pomiary, naprawy i profilaktyka, które utrzymują baterię
@@ -111,8 +111,8 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
           Dobry serwis sprawia, że regeneracja jest potrzebna rzadziej.
         </FaqItem>
         <FaqItem question="Czy musimy wyłączyć wózki z pracy na czas przeglądu?">
-          Nie — pracujemy w oknach serwisowych i rotacyjnie, bateria po baterii. Harmonogram ustalamy tak,
-          żeby flota zachowała pełną dyspozycyjność.
+          Nie. Pracujemy rotacyjnie, bateria po baterii, a harmonogram ustalamy tak, żeby flota zachowała
+          pełną dyspozycyjność.
         </FaqItem>
         <FaqItem question="Czy obsługujecie firmy w całej Polsce?">
           Tak, serwis jest mobilny i ogólnopolski. Koszt dojazdu uwzględniamy w wycenie po audycie.
@@ -125,8 +125,8 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
     <div class="mx-auto max-w-2xl px-4 py-14">
       <h2 class="text-center font-display text-2xl font-bold text-white">Park baterii pod stałą opieką</h2>
       <p class="mt-3 text-center text-gray-300">
-        Zacznij od bezpłatnego audytu — zobaczysz stan każdej baterii czarno na białym.
-        Wolisz porozmawiać? <a href={SITE.phoneHref} class="font-bold text-brand-300">☎ {SITE.phoneDisplay}</a>
+        Zacznij od bezpłatnego audytu i zobacz stan każdej baterii czarno na białym.
+        Wolisz porozmawiać? <a href={SITE.phoneHref} class="font-bold text-brand-300"><PhoneIcon /> {SITE.phoneDisplay}</a>
       </p>
       <div class="mt-8 rounded-2xl bg-white p-6">
         <ContactForm />

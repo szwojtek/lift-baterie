@@ -1,4 +1,5 @@
 ---
+import PhoneIcon from '../components/icons/PhoneIcon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { SITE } from '../config/site';
@@ -30,42 +31,42 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
       <p class="mt-4 max-w-2xl text-gray-300">
         Większość przedwczesnych awarii baterii to skutek codziennych błędów: doładowywania w przerwach,
         głębokich rozładowań, zaniedbanej wody destylowanej. Szkolimy zespoły, które pracują z bateriami
-        na co dzień — praktycznie, na Waszej hali.
+        na co dzień: praktycznie, na Waszej hali.
       </p>
       <div class="mt-7 flex flex-col gap-3 sm:flex-row">
-        <a href={SITE.phoneHref} class="rounded-lg bg-brand-600 px-6 py-3 text-center font-semibold transition hover:bg-brand-500">☎ Zapytaj o termin: {SITE.phoneDisplay}</a>
+        <a href={SITE.phoneHref} class="rounded-lg bg-brand-600 px-6 py-3 text-center font-semibold transition hover:bg-brand-700"><PhoneIcon /> Zapytaj o termin: {SITE.phoneDisplay}</a>
       </div>
     </div>
   </section>
 
   <section class="mx-auto max-w-3xl px-4 py-14">
-    <h2 class="font-display text-2xl font-bold">Dla kogo?</h2>
-    <ul class="mt-5 space-y-3 text-gray-700">
-      <li>• <strong>Operatorzy wózków</strong> — prawidłowe ładowanie, wymiana baterii, codzienna kontrola.</li>
-      <li>• <strong>Utrzymanie ruchu</strong> — pomiary, uzupełnianie elektrolitu, rozpoznawanie objawów zasiarczenia.</li>
-      <li>• <strong>Kierownicy magazynów</strong> — organizacja pracy akumulatorowni, planowanie serwisu, koszty cyklu życia.</li>
+    <h2 class="border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Kogo szkolimy</h2>
+    <ul class="mt-5 list-disc space-y-3 pl-5 text-gray-700 marker:text-brand-500">
+      <li><strong>Operatorzy wózków</strong>: prawidłowe ładowanie, wymiana baterii, codzienna kontrola.</li>
+      <li><strong>Utrzymanie ruchu</strong>: pomiary, uzupełnianie elektrolitu, rozpoznawanie objawów zasiarczenia.</li>
+      <li><strong>Kierownicy magazynów</strong>: organizacja pracy akumulatorowni, planowanie serwisu, koszty cyklu życia.</li>
     </ul>
     <p class="mt-4 text-sm text-gray-500">
-      Uwaga: to szkolenie z eksploatacji baterii — nie kurs uprawnień UDT na operatora wózka.
+      Uwaga: to szkolenie z eksploatacji baterii, nie kurs uprawnień UDT na operatora wózka.
     </p>
 
-    <h2 class="mt-10 font-display text-2xl font-bold">Akumulatorownia i bezpieczeństwo ładowania</h2>
+    <h2 class="mt-10 border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Akumulatorownia i bezpieczeństwo ładowania</h2>
     <p class="mt-4 text-gray-700">
       Osobny moduł poświęcamy bezpieczeństwu: gazowanie ogniw i ryzyko wybuchu wodoru, wentylacja
       akumulatorowni, środki ochrony przy pracy z elektrolitem, postępowanie przy poparzeniach. To wiedza,
       która chroni ludzi i skraca listę niezgodności przy audytach BHP.
     </p>
 
-    <h2 class="mt-10 font-display text-2xl font-bold">Jak szkolimy?</h2>
-    <ul class="mt-5 space-y-3 text-gray-700">
-      <li>• <strong>Dwa poziomy:</strong> podstawowy (operatorzy) i zaawansowany (utrzymanie ruchu).</li>
-      <li>• <strong>100% praktyki</strong> — pracujemy na Waszych bateriach i prostownikach, nie na slajdach.</li>
-      <li>• <strong>Listy kontrolne</strong> — zespół dostaje gotowe checklisty do codziennej pracy.</li>
-      <li>• <strong>Certyfikat</strong> — każdy uczestnik otrzymuje potwierdzenie kompetencji.</li>
-      <li>• <strong>Terminy elastyczne</strong> — także między zmianami, u Was na hali, w całej Polsce.</li>
+    <h2 class="mt-10 border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Jak wygląda szkolenie</h2>
+    <ul class="mt-5 list-disc space-y-3 pl-5 text-gray-700 marker:text-brand-500">
+      <li><strong>Dwa poziomy:</strong> podstawowy (operatorzy) i zaawansowany (utrzymanie ruchu).</li>
+      <li><strong>100% praktyki</strong>: pracujemy na Waszych bateriach i prostownikach, nie na slajdach.</li>
+      <li><strong>Listy kontrolne</strong>: zespół dostaje gotowe checklisty do codziennej pracy.</li>
+      <li><strong>Certyfikat</strong>: każdy uczestnik otrzymuje potwierdzenie kompetencji.</li>
+      <li><strong>Terminy elastyczne</strong>: także między zmianami, u Was na hali.</li>
     </ul>
     <p class="mt-4 text-gray-700">
-      Program budujemy wokół realnych problemów z hal — takich jak
+      Program budujemy wokół realnych problemów z hal, takich jak
       <a href={href('/baza-wiedzy/bateria-wozka-widlowego-szybko-sie-rozladowuje')} class="font-semibold text-brand-600 hover:underline">12 najczęstszych przyczyn szybkiego rozładowywania się baterii</a>,
       z których większość to codzienne nawyki operatorów.
     </p>

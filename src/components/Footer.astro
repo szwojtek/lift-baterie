@@ -1,4 +1,5 @@
 ---
+import PhoneIcon from './icons/PhoneIcon.astro';
 import { SITE } from '../config/site';
 import { href } from '../utils/url';
 ---
@@ -9,8 +10,7 @@ import { href } from '../utils/url';
       <img src={href('/logo-lift-baterie.svg')} alt="LIFT Baterie" class="h-8 w-auto" />
       <p class="mt-4 font-display text-lg font-semibold text-white">{SITE.tagline}</p>
       <p class="mt-2 text-sm">
-        Mobilny serwis i regeneracja baterii przemysłowych w całej Polsce. Bezpłatny audyt, praca w oknach
-        serwisowych, raport przed/po.
+        Mobilny serwis i regeneracja baterii przemysłowych. Kielce, dojazd do klienta w całym kraju.
       </p>
     </div>
 
@@ -32,7 +32,7 @@ import { href } from '../utils/url';
     <div class="text-sm">
       <p class="mb-3 font-semibold text-white">Kontakt</p>
       <ul class="space-y-2">
-        <li><a class="font-semibold text-brand-300 hover:text-white" href={SITE.phoneHref}>☎ {SITE.phoneDisplay}</a></li>
+        <li><a class="font-semibold text-brand-300 hover:text-white" href={SITE.phoneHref}><PhoneIcon /> {SITE.phoneDisplay}</a></li>
         <li><a class="hover:text-white" href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
         <li>{SITE.address.street}, {SITE.address.zip} {SITE.address.city}</li>
         {SITE.googleReviewsUrl && (

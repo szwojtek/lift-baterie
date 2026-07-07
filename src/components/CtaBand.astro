@@ -1,4 +1,5 @@
 ---
+import PhoneIcon from './icons/PhoneIcon.astro';
 import { SITE } from '../config/site';
 import { href } from '../utils/url';
 
@@ -10,8 +11,8 @@ interface Props {
 }
 
 const {
-  title = SITE.tagline,
-  subtitle = 'Bezpłatny audyt baterii — pomiary, diagnoza i konkretna rekomendacja. Bez zobowiązań.',
+  title = 'Zacznij od bezpłatnych pomiarów',
+  subtitle = 'Przyjedziemy, zmierzymy każdą baterię i pokażemy, co realnie da się odzyskać.',
   primaryLabel = 'Zamów bezpłatny audyt',
   primaryTo = '/bezplatny-audyt',
 } = Astro.props;
@@ -24,7 +25,7 @@ const {
     <div class="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
       <a
         href={href(primaryTo)}
-        class="w-full rounded-lg bg-brand-600 px-6 py-3 font-semibold text-white transition hover:bg-brand-500 sm:w-auto"
+        class="w-full rounded-lg bg-brand-600 px-6 py-3 font-semibold text-white transition hover:bg-brand-700 sm:w-auto"
       >
         {primaryLabel}
       </a>
@@ -32,7 +33,7 @@ const {
         href={SITE.phoneHref}
         class="w-full rounded-lg border border-gray-500 px-6 py-3 font-semibold text-white transition hover:border-white sm:w-auto"
       >
-        ☎ {SITE.phoneDisplay}
+        <PhoneIcon /> {SITE.phoneDisplay}
       </a>
     </div>
   </div>

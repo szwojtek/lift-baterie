@@ -9,7 +9,19 @@ const { question } = Astro.props;
 <details class="group border-b border-gray-200 py-4">
   <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-ink-800">
     {question}
-    <span class="text-brand-600 transition group-open:rotate-45">＋</span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="h-5 w-5 shrink-0 text-brand-600 transition group-open:rotate-180"
+      aria-hidden="true"
+    >
+      <path d="m6 9 6 6 6-6" />
+    </svg>
   </summary>
   <div class="mt-3 text-sm leading-relaxed text-gray-600">
     <slot />

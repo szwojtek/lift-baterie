@@ -5,21 +5,25 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Sora", "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  /* Brand: blue accent from the LIFT Baterie logo, near-black surfaces */
-  --color-brand-50: #eff6ff;
-  --color-brand-100: #dbeafe;
-  --color-brand-200: #bfdbfe;
-  --color-brand-300: #93c5fd;
-  --color-brand-400: #60a5fa;
-  --color-brand-500: #3b82f6;
-  --color-brand-600: #2563eb;
-  --color-brand-700: #1d4ed8;
-  --color-brand-800: #1e40af;
-  --color-brand-900: #1e3a8a;
+  /* Brand scale built around the actual logo blue #1B8DF0 (brand-500).
+     brand-600 (#1272cc) is the darkest tone that keeps 4.5:1+ with white text — use it for buttons/links. */
+  --color-brand-50: #eff8ff;
+  --color-brand-100: #def0fe;
+  --color-brand-200: #b6e1fd;
+  --color-brand-300: #75c9fb;
+  --color-brand-400: #2caef7;
+  --color-brand-500: #1b8df0;
+  --color-brand-600: #1272cc;
+  --color-brand-700: #115ba3;
+  --color-brand-800: #134d87;
+  --color-brand-900: #16406f;
 
   --color-ink-900: #0a0f1a;
   --color-ink-800: #111827;
   --color-ink-700: #1f2937;
+
+  /* Brand-tinted section surface instead of default neutral gray */
+  --color-gray-50: #f4f8fc;
 }
 
 html {

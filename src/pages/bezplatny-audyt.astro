@@ -1,4 +1,6 @@
 ---
+import CheckIcon from '../components/icons/CheckIcon.astro';
+import PhoneIcon from '../components/icons/PhoneIcon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
 import { SITE } from '../config/site';
@@ -12,9 +14,9 @@ import { SITE } from '../config/site';
     <div class="mx-auto max-w-3xl px-4 py-14 text-center">
       <h1 class="font-display text-3xl font-bold sm:text-4xl">Zamów bezpłatny audyt baterii</h1>
       <ul class="mx-auto mt-5 max-w-xl space-y-2 text-left text-gray-300">
-        <li>✔ Pomiary i diagnoza każdej baterii — na miejscu, u Ciebie</li>
-        <li>✔ Rekomendacja per bateria: regenerować / serwisować / wymienić</li>
-        <li>✔ Konkretna wycena — bez zobowiązań i bez „handlowca w gratisie"</li>
+        <li><CheckIcon /> Pomiary i diagnoza każdej baterii — na miejscu, u Ciebie</li>
+        <li><CheckIcon /> Rekomendacja per bateria: regenerować / serwisować / wymienić</li>
+        <li><CheckIcon /> Konkretna wycena, bez zobowiązań i bez „handlowca w gratisie"</li>
       </ul>
     </div>
   </section>
@@ -23,7 +25,7 @@ import { SITE } from '../config/site';
     <div class="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-4 py-5 text-center text-sm font-semibold text-ink-700 sm:grid-cols-4">
       <span>Od {SITE.foundingYear} roku</span>
       <span>Cała Polska</span>
-      <span>Audyt 0 zł — bez zobowiązań</span>
+      <span>Audyt 0 zł na start</span>
       <span>Raport przed/po</span>
     </div>
   </section>
@@ -31,9 +33,9 @@ import { SITE } from '../config/site';
   <section class="mx-auto max-w-2xl px-4 py-12">
     <a
       href={SITE.phoneHref}
-      class="flex items-center justify-center gap-2 rounded-xl bg-brand-600 px-6 py-4 text-lg font-bold text-white transition hover:bg-brand-500"
+      class="flex items-center justify-center gap-2 rounded-xl bg-brand-600 px-6 py-4 text-lg font-bold text-white transition hover:bg-brand-700"
     >
-      ☎ Wolisz porozmawiać? Zadzwoń: {SITE.phoneDisplay}
+      <PhoneIcon /> Wolisz porozmawiać? Zadzwoń: {SITE.phoneDisplay}
     </a>
     <p class="my-6 text-center text-sm font-semibold uppercase tracking-wide text-gray-500">albo zostaw kontakt</p>
     <ContactForm />
@@ -45,7 +47,7 @@ import { SITE } from '../config/site';
       <div class="mt-8 grid gap-6 sm:grid-cols-3">
         <div class="rounded-2xl bg-white p-6 text-center shadow-sm">
           <p class="font-display text-2xl font-bold text-brand-600">1</p>
-          <p class="mt-2 text-sm text-gray-700">Umawiamy termin — także w oknie serwisowym, poza godzinami szczytu hali.</p>
+          <p class="mt-2 text-sm text-gray-700">Umawiamy termin, także poza godzinami szczytu hali.</p>
         </div>
         <div class="rounded-2xl bg-white p-6 text-center shadow-sm">
           <p class="font-display text-2xl font-bold text-brand-600">2</p>

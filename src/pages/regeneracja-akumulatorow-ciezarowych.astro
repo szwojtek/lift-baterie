@@ -1,4 +1,5 @@
 ---
+import PhoneIcon from '../components/icons/PhoneIcon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
 import FaqItem from '../components/FaqItem.astro';
@@ -8,7 +9,7 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
 
 <BaseLayout
   title="Regeneracja akumulatorów ciężarowych — floty | LIFT Baterie"
-  description="Program serwisu akumulatorów 12/24 V dla flot ciężarowych: audyt, diagnostyka, regeneracja u klienta. Mniej awarii zimą, niższy budżet na wymiany. ☎ 695 946 842"
+  description="Program serwisu akumulatorów 12/24 V dla flot ciężarowych: audyt, diagnostyka, regeneracja u klienta. Mniej awarii zimą, niższy budżet na wymiany. Tel. 695 946 842"
   extraSchema={[
     serviceSchema({
       name: 'Serwis i regeneracja akumulatorów ciężarowych dla flot',
@@ -29,29 +30,27 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
         Serwis i regeneracja akumulatorów ciężarowych — mniej awarii zimą, zero stojących zestawów
       </h1>
       <p class="mt-4 max-w-2xl text-gray-300">
-        Audyt akumulatorów 12/24 V całej floty, raport per pojazd i regeneracja tego, co rokuje — u Ciebie
-        na bazie, w oknach serwisowych.
+        Audyt akumulatorów 12/24 V całej floty, raport per pojazd i regeneracja tego, co rokuje. Wszystko na Twojej bazie, bez zjeżdżania pojazdów z tras.
       </p>
       <div class="mt-7 flex flex-col gap-3 sm:flex-row">
-        <a href="#audyt-floty" class="rounded-lg bg-brand-600 px-6 py-3 text-center font-semibold transition hover:bg-brand-500">Zamów audyt floty</a>
-        <a href={SITE.phoneHref} class="rounded-lg border border-gray-500 px-6 py-3 text-center font-semibold transition hover:border-white">☎ {SITE.phoneDisplay}</a>
+        <a href="#audyt-floty" class="rounded-lg bg-brand-600 px-6 py-3 text-center font-semibold transition hover:bg-brand-700">Zamów audyt floty</a>
+        <a href={SITE.phoneHref} class="rounded-lg border border-gray-500 px-6 py-3 text-center font-semibold transition hover:border-white"><PhoneIcon /> {SITE.phoneDisplay}</a>
       </div>
     </div>
   </section>
 
   <section class="mx-auto max-w-3xl px-4 py-14">
-    <h2 class="font-display text-2xl font-bold">Jedna awaria w trasie kosztuje więcej niż nowy akumulator</h2>
+    <h2 class="border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Jedna awaria w trasie kosztuje więcej niż nowy akumulator</h2>
     <p class="mt-4 text-gray-700">
-      Stojący zestaw, holowanie lub serwis mobilny, opóźniony fracht, dniówka kierowcy — rachunek za jedną
-      zimową awarię akumulatora zwykle przekracza cenę nowej sztuki. Według statystyk assistance akumulator
-      od lat jest najczęstszą pojedynczą przyczyną unieruchomienia pojazdu — a w transporcie ciężkim
-      problem nasila ogrzewanie postojowe, lodówka i długie postoje, które głęboko rozładowują akumulatory
-      i przyspieszają zasiarczenie.
+      Stojący zestaw, holowanie lub serwis mobilny, opóźniony fracht, dniówka kierowcy. Rachunek za jedną
+      zimową awarię akumulatora zwykle przekracza cenę nowej sztuki. W corocznych statystykach awarii ADAC akumulator od lat jest najczęstszą pojedynczą przyczyną
+      unieruchomienia auta. W transporcie ciężkim problem nasilają ogrzewanie postojowe, lodówka
+      i długie postoje, które głęboko rozładowują akumulatory i przyspieszają zasiarczenie.
     </p>
-    <h2 class="mt-10 font-display text-2xl font-bold">Matematyka floty</h2>
+    <h2 class="mt-10 border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Matematyka floty</h2>
     <p class="mt-4 text-gray-700">
       Każdy ciągnik siodłowy to dwa akumulatory rozruchowe. Flota 50 pojazdów = 100 akumulatorów, które
-      trzeba cyklicznie wymieniać — to dziesiątki tysięcy złotych w każdym cyklu, plus robocizna i wyjazdy
+      trzeba cyklicznie wymieniać. To dziesiątki tysięcy złotych w każdym cyklu, plus robocizna i wyjazdy
       awaryjne. Regeneracja akumulatorów, które rokują, kosztuje zwykle <strong>około połowy ceny nowego</strong>,
       a przegląd prewencyjny przed zimą wyłapuje słabe sztuki, zanim unieruchomią pojazd w trasie.
     </p>
@@ -59,7 +58,7 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
 
   <section class="bg-gray-50">
     <div class="mx-auto max-w-3xl px-4 py-14">
-      <h2 class="font-display text-2xl font-bold">Program serwisu akumulatorów floty</h2>
+      <h2 class="border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Program serwisu akumulatorów floty</h2>
       <ol class="mt-6 space-y-4">
         <li class="rounded-xl bg-white p-5 shadow-sm">
           <p class="font-semibold">1. Audyt floty — bezpłatna próbka</p>
@@ -72,14 +71,13 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
           <p class="font-semibold">2. Raport per pojazd</p>
           <p class="mt-1 text-sm text-gray-600">
             Każdy pojazd dostaje jednoznaczną rekomendację: <strong>regenerować / obserwować / wymienić</strong>.
-            Zero zgadywania przy planowaniu budżetu.
           </p>
         </li>
         <li class="rounded-xl bg-white p-5 shadow-sm">
           <p class="font-semibold">3. Regeneracja na miejscu</p>
           <p class="mt-1 text-sm text-gray-600">
-            Desulfatacja i ładowanie wyrównawcze wykonujemy u Ciebie na bazie, w oknach serwisowych —
-            nocą lub w weekend, gdy pojazdy i tak stoją.
+            Desulfatacja i ładowanie wyrównawcze wykonujemy na bazie, nocą albo w weekend, gdy pojazdy
+            i tak stoją.
           </p>
         </li>
         <li class="rounded-xl bg-white p-5 shadow-sm">
@@ -94,11 +92,11 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
   </section>
 
   <section class="mx-auto max-w-3xl px-4 py-14">
-    <h2 class="font-display text-2xl font-bold">Uczciwa kwalifikacja — regenerujemy tylko to, co rokuje</h2>
+    <h2 class="border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Czego nie regenerujemy</h2>
     <p class="mt-4 text-gray-700">
-      Desulfatacja skutecznie przywraca sprawność akumulatorom we wczesnej fazie zasiarczenia — typowo po
-      głębokich rozładowaniach na postoju. Akumulator ze zwarciem celi albo wypadniętą masą czynną jest
-      nie do uratowania i powiemy to wprost, rekomendując wymianę. Dzięki temu program obniża koszty floty
+      Desulfatacja przywraca sprawność akumulatorom we wczesnej fazie zasiarczenia, typowej po głębokich
+      rozładowaniach na postoju. Akumulatora ze zwarciem celi albo wypadniętą masą czynną nie da się
+      uratować: taki dostaje od nas rekomendację wymiany, nie usługę. Dzięki temu program obniża koszty floty
       zamiast generować kolejne.
     </p>
     <p class="mt-4 text-gray-700">
@@ -109,7 +107,7 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
 
   <section class="bg-gray-50">
     <div class="mx-auto max-w-3xl px-4 py-14">
-      <h2 class="font-display text-2xl font-bold">Pytania flotowe</h2>
+      <h2 class="border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Pytania flotowe</h2>
       <div class="mt-6">
         <FaqItem question="Czy regeneracja akumulatora ciężarowego w ogóle się opłaca?">
           Pojedynczej sztuki — rzadko. Dlatego pracujemy programowo, na poziomie floty: audyt wielu pojazdów
@@ -121,7 +119,7 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
           Zadzwoń — powiemy wprost, czy przy Twojej skali program ma sens.
         </FaqItem>
         <FaqItem question="Czy pojazdy muszą zjechać z tras?">
-          Nie — pracujemy na bazie w oknach serwisowych (noc, weekend), na pojazdach, które i tak stoją.
+          Nie. Pracujemy na bazie, nocą lub w weekend, na pojazdach, które i tak stoją.
           Harmonogram układamy pod dyspozycję floty.
         </FaqItem>
       </div>

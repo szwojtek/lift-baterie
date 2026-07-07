@@ -51,7 +51,7 @@ w chłodniach wymaga odpowiednio dobranych baterii i zmienionego harmonogramu ł
 
 Najczęstsza techniczna przyczyna utraty pojemności. Twarda warstwa siarczanu ołowiu odkłada się na
 płytach i blokuje reakcję chemiczną. Dobra wiadomość: zasiarczenie jest w większości przypadków
-**odwracalne** — usuwa je [profesjonalne odsiarczanie i regeneracja](../regeneracja-baterii-trakcyjnych).
+**odwracalne**: usuwa je [profesjonalne odsiarczanie i regeneracja](../regeneracja-baterii-trakcyjnych).
 
 ### 8. Rozjechane parametry ogniw
 
@@ -78,7 +78,7 @@ mimo dobrego stanu ogniw.
 
 Wypadająca masa czynna, zwarcia wewnętrzne, deformacje płyt — to uszkodzenia nieodwracalne. Jeśli
 diagnostyka je potwierdzi, [regeneracja nie ma sensu](./kiedy-bateria-nie-nadaje-sie-do-regeneracji)
-i uczciwy serwis powie to wprost.
+i dobry serwis to odradzi.
 
 ## Co zrobić w praktyce?
 

@@ -5,13 +5,13 @@ import CtaBand from '../components/CtaBand.astro';
 const cases = [
   {
     firm: 'OSM Włoszczowa',
-    tag: 'Stabilna praca w ruchu ciągłym',
+    tag: 'Praca ciągła, także w chłodniach',
     quote:
       'Zrobiliście audyt i formatowanie baterii w oknach serwisowych, bez wstrzymywania załadunków. Po wdrożeniu zaleceń wózki pracują stabilnie także w chłodniach.',
   },
   {
     firm: 'Unimax, Kielce',
-    tag: 'Mniej przestojów już w pierwszym tygodniu',
+    tag: 'Produkcja nie stanęła',
     quote: 'Prace zaplanowane w oknach serwisowych, produkcja nie stanęła. Wózki wróciły do pracy szybciej, niż zakładaliśmy.',
   },
   {
@@ -26,7 +26,7 @@ const cases = [
   },
   {
     firm: 'Magazyn e-commerce, Pomorskie',
-    tag: 'Raport i procedury utrzymały efekt',
+    tag: 'Parametry trzymają do dziś',
     quote: 'Po usłudze dostaliśmy raport przed/po i proste zalecenia dla operatorów. Parametry trzymają do dziś.',
   },
 ];
@@ -51,6 +51,10 @@ const cases = [
       ))}
     </div>
   </section>
+
+  <p class="mx-auto max-w-6xl px-4 pb-10 text-sm text-gray-500">
+    Część klientów prosi o anonimizację nazw. Pełne dane referencyjne udostępniamy do wglądu podczas audytu.
+  </p>
 
   <CtaBand title="Twoja hala może być następna" />
 </BaseLayout>

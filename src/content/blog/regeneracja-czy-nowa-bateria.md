@@ -35,7 +35,7 @@ i stanu baterii — dlatego poważny serwis wycenia go **po pomiarach, nie przez
 
 Uczciwie: regeneracja nie jest cudownym środkiem na wszystko. Nowa bateria wygrywa, gdy:
 
-- diagnostyka wykazuje **wypadniętą masę czynną lub zwarcia wewnętrzne ogniw** — tych uszkodzeń nie
+- diagnostyka wykazuje **wypadniętą masę czynną lub zwarcia wewnętrzne ogniw**: tych uszkodzeń nie
   cofnie żadna technologia ([szczegóły tutaj](./kiedy-bateria-nie-nadaje-sie-do-regeneracji)),
 - bateria była wielokrotnie głęboko rozładowywana „do zera" przez lata,
 - pakiet ma uszkodzenia mechaniczne (deformacje, wycieki, korozja skrzyni zagrażająca bezpieczeństwu),
@@ -48,7 +48,7 @@ baterii bez diagnostyki, oszczędza na etapie, który chroni Twoje pieniądze.
 ## Rachunek, który warto zrobić
 
 Policz koszt jednej zmiany przestoju wózka i zestaw go z terminem dostawy nowej baterii (tygodnie)
-kontra regeneracją wykonaną **na miejscu, w oknach serwisowych** — nocą lub w weekend, bez wyłączania
+kontra regeneracją wykonaną **na miejscu, w oknach serwisowych**: nocą lub w weekend, bez wyłączania
 hali. W wielu firmach to właśnie logistyka, nie sama cena, przesądza o wyborze regeneracji.
 
 ## Jak podjąć decyzję na liczbach
@@ -57,4 +57,4 @@ Zamów [bezpłatny audyt baterii](../bezplatny-audyt): zmierzymy gęstość elek
 ogniwa, sprawdzimy rzeczywistą pojemność i powiemy wprost — **regenerować, serwisować czy wymienić**.
 Jeśli bateria nie rokuje, usłyszysz to od nas przed wydaniem pieniędzy, nie po. A jeśli rokuje —
 [regeneracja](../regeneracja-baterii-trakcyjnych) zakończy się testem i raportem przed/po, który
-czarno na białym pokaże, co odzyskałeś.
+pokaże w liczbach, co odzyskałeś.
