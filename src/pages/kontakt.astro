@@ -19,22 +19,22 @@ const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComp
       <div>
         <ul class="space-y-4 text-gray-700">
           <li>
-            <p class="text-sm font-semibold uppercase tracking-wide text-gray-400">Telefon</p>
+            <p class="text-sm font-semibold uppercase tracking-wide text-gray-500">Telefon</p>
             <a href={SITE.phoneHref} class="text-2xl font-bold text-brand-600 hover:underline">{SITE.phoneDisplay}</a>
           </li>
           <li>
-            <p class="text-sm font-semibold uppercase tracking-wide text-gray-400">E-mail</p>
+            <p class="text-sm font-semibold uppercase tracking-wide text-gray-500">E-mail</p>
             <a href={`mailto:${SITE.email}`} class="font-semibold hover:underline">{SITE.email}</a>
           </li>
           <li>
-            <p class="text-sm font-semibold uppercase tracking-wide text-gray-400">Adres</p>
+            <p class="text-sm font-semibold uppercase tracking-wide text-gray-500">Adres</p>
             <p>{SITE.address.street}, {SITE.address.zip} {SITE.address.city}</p>
             <a href={mapsUrl} target="_blank" rel="noopener" class="text-sm font-semibold text-brand-600 hover:underline">
               Pokaż w Google Maps →
             </a>
           </li>
           <li>
-            <p class="text-sm font-semibold uppercase tracking-wide text-gray-400">Obszar działania</p>
+            <p class="text-sm font-semibold uppercase tracking-wide text-gray-500">Obszar działania</p>
             <p>Cała Polska — serwis mobilny z dojazdem do klienta.</p>
           </li>
           {SITE.googleReviewsUrl && (
@@ -45,7 +45,7 @@ const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComp
             </li>
           )}
         </ul>
-        <p class="mt-8 text-xs text-gray-400">
+        <p class="mt-8 text-xs text-gray-500">
           {SITE.name} — marka {SITE.legalName}, NIP {SITE.nip}, REGON {SITE.regon}.
         </p>
       </div>

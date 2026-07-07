@@ -1,5 +1,6 @@
 ---
 title: "Kiedy bateria trakcyjna NIE nadaje się do regeneracji"
+seoTitle: "Kiedy bateria nie nadaje się do regeneracji"
 description: "Regeneracja nie jest cudownym środkiem. Oto uszkodzenia, których nie cofnie żadna technologia — i jak je rozpoznać, zanim zapłacisz za usługę bez efektu."
 pubDate: 2026-07-07
 ctaPath: "/bezplatny-audyt"

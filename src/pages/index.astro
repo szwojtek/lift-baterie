@@ -41,9 +41,9 @@ const steps = [
 ];
 
 const cases = [
-  { firm: 'Firma logistyczna, Mazowsze', quote: 'Po audycie dostaliśmy jasną wycenę. Regeneracja obniżyła koszt o około 40% przy zachowaniu parametrów pracy baterii.', tag: '40% taniej niż wymiana' },
+  { firm: 'Unimax, Kielce', quote: 'Prace zaplanowane w oknach serwisowych, produkcja nie stanęła. Wózki wróciły do pracy szybciej, niż zakładaliśmy.', tag: 'Mniej przestojów już w pierwszym tygodniu' },
   { firm: 'Fabryka tworzyw sztucznych, Małopolska', quote: 'Realizacja rotacyjnie, bez wyłączania stref. Dziesięć sztuk zrobionych w trzy dni — magazyn działał normalnie.', tag: '10 baterii w 3 dni' },
-  { firm: 'OSM Włoszczowa', quote: 'Audyt i formatowanie w oknach serwisowych, bez wstrzymywania załadunków. Wózki pracują stabilnie także w chłodniach.', tag: 'Stabilna praca w ruchu ciągłym' },
+  { firm: 'Magazyn e-commerce, Pomorskie', quote: 'Po usłudze dostaliśmy raport przed/po i proste zalecenia dla operatorów. Parametry trzymają do dziś.', tag: 'Raport i procedury utrzymały efekt' },
 ];
 ---
 
@@ -110,7 +110,7 @@ const cases = [
       <h2 class="font-display text-2xl font-bold sm:text-3xl">
         Regeneracja baterii przemysłowych — odzyskaj sprawność zamiast kupować nowe
       </h2>
-      <div class="prose mt-6 space-y-4 text-gray-700">
+      <div class="mt-6 space-y-4 text-gray-700">
         <p>
           Największym wrogiem baterii przemysłowych nie jest wiek, tylko <strong>zasiarczenie</strong> —
           twarda warstwa siarczanu ołowiu, która odkłada się na płytach ogniw przy niepełnym ładowaniu,
@@ -234,7 +234,8 @@ const cases = [
   </section>
 
   <!-- FAQ -->
-  <section class="mx-auto max-w-3xl bg-white px-4 py-16">
+  <section class="bg-gray-50">
+    <div class="mx-auto max-w-3xl px-4 py-16">
     <h2 class="font-display text-2xl font-bold sm:text-3xl">Najczęściej zadawane pytania</h2>
     <div class="mt-6">
       <FaqItem question="Czy regeneracja zawsze się opłaca?">
@@ -250,8 +251,8 @@ const cases = [
         według harmonogramu ustalonego z góry.
       </FaqItem>
       <FaqItem question="Jakie baterie i branże obsługujecie?">
-        Baterie trakcyjne Pb / GEL / AGM (wózki widłowe, magazyny, produkcja, dystrybucja, UPS) oraz
-        akumulatory rozruchowe 12/24 V we flotach ciężarowych. Działamy w całej Polsce.
+        Baterie trakcyjne Pb / GEL / AGM w wózkach widłowych oraz akumulatory rozruchowe 12/24 V we
+        flotach ciężarowych. Pracujemy dla magazynów, produkcji, dystrybucji i transportu — w całej Polsce.
       </FaqItem>
       <FaqItem question="Ile to trwa i czy wstrzymacie mi magazyn?">
         Pracujemy między zmianami, w nocy lub w weekend, a przy większych parkach — rotacyjnie. Harmonogram
@@ -261,6 +262,7 @@ const cases = [
         Koszt zależy od typu, pojemności i stanu baterii oraz liczby sztuk — i jest znacznie niższy niż zakup
         nowych. Konkretną ofertę dostajesz po bezpłatnym audycie, a efekt potwierdzamy raportem.
       </FaqItem>
+      </div>
     </div>
   </section>
 

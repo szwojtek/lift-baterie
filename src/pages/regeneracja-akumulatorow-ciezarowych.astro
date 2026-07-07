@@ -7,7 +7,7 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
 ---
 
 <BaseLayout
-  title="Regeneracja akumulatorów ciężarowych dla flot transportowych | LIFT Baterie"
+  title="Regeneracja akumulatorów ciężarowych — floty | LIFT Baterie"
   description="Program serwisu akumulatorów 12/24 V dla flot ciężarowych: audyt, diagnostyka, regeneracja u klienta. Mniej awarii zimą, niższy budżet na wymiany. ☎ 695 946 842"
   extraSchema={[
     serviceSchema({
@@ -45,7 +45,7 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
       Stojący zestaw, holowanie lub serwis mobilny, opóźniony fracht, dniówka kierowcy — rachunek za jedną
       zimową awarię akumulatora zwykle przekracza cenę nowej sztuki. Według statystyk assistance akumulator
       od lat jest najczęstszą pojedynczą przyczyną unieruchomienia pojazdu — a w transporcie ciężkim
-      problem nasila ogrzewanie postojowe, lodówka i długie postoje, które głęboko rozładowują baterie
+      problem nasila ogrzewanie postojowe, lodówka i długie postoje, które głęboko rozładowują akumulatory
       i przyspieszają zasiarczenie.
     </p>
     <h2 class="mt-10 font-display text-2xl font-bold">Matematyka floty</h2>
@@ -102,8 +102,8 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
       zamiast generować kolejne.
     </p>
     <p class="mt-4 text-gray-700">
-      Obsługujemy akumulatory kwasowo-ołowiowe, EFB i AGM. Twoje magazyny mają też wózki widłowe?
-      Jedna wizyta może objąć oba parki — baterie trakcyjne i rozruchowe.
+      Obsługujemy akumulatory kwasowo-ołowiowe, EFB i AGM. Masz w magazynach również wózki widłowe?
+      Jedna wizyta może objąć oba parki — baterie trakcyjne i akumulatory rozruchowe.
     </p>
   </section>
 
@@ -118,7 +118,7 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
         </FaqItem>
         <FaqItem question="Od jakiej wielkości floty ma to sens?">
           Program kierujemy do firm transportowych i baz logistycznych z co najmniej kilkunastoma pojazdami.
-          Zadzwoń — powiemy wprost, czy przy Twojej skali to się spina.
+          Zadzwoń — powiemy wprost, czy przy Twojej skali program ma sens.
         </FaqItem>
         <FaqItem question="Czy pojazdy muszą zjechać z tras?">
           Nie — pracujemy na bazie w oknach serwisowych (noc, weekend), na pojazdach, które i tak stoją.
@@ -132,7 +132,7 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
     <h2 class="text-center font-display text-2xl font-bold">Zamów audyt akumulatorów floty</h2>
     <p class="mt-3 text-center text-gray-600">Zostaw kontakt albo zadzwoń: <a href={SITE.phoneHref} class="font-bold text-brand-600">{SITE.phoneDisplay}</a></p>
     <div class="mt-8">
-      <ContactForm defaultSegment="flota" />
+      <ContactForm defaultSegment="flota" buttonLabel="Zamów audyt floty" />
     </div>
   </section>
 </BaseLayout>

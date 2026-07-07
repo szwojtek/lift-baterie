@@ -16,7 +16,8 @@ import { SITE } from '../config/site';
         <p class="mt-2">
           {SITE.legalName}, NIP: {SITE.nip}, REGON: {SITE.regon}, adres: {SITE.address.street},
           {' '}{SITE.address.zip} {SITE.address.city}, woj. {SITE.address.region}.
-          Kontakt: e-mail {SITE.email}, tel. {SITE.phoneDisplay}. Osoba decyzyjna: Dariusz Kozieł.
+          Kontakt: e-mail <a href={`mailto:${SITE.email}`} class="underline">{SITE.email}</a>, tel.
+          <a href={SITE.phoneHref} class="underline">{SITE.phoneDisplay}</a>. Osoba decyzyjna: Dariusz Kozieł.
           IOD: nie powołano — w sprawach danych prosimy o kontakt e-mailowy.
         </p>
       </div>
@@ -89,7 +90,7 @@ import { SITE } from '../config/site';
         </p>
       </div>
 
-      <p class="text-xs text-gray-400">Data publikacji: 17.10.2025</p>
+      <p class="text-xs text-gray-500">Data publikacji: 17.10.2025</p>
     </div>
   </section>
 </BaseLayout>

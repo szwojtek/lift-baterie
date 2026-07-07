@@ -1,7 +1,8 @@
 ---
 title: "Odsiarczanie baterii trakcyjnej — czym jest desulfatacja, kiedy działa, a kiedy nie"
-description: "Zasiarczenie odpowiada za większość przypadków utraty pojemności baterii trakcyjnych. Wyjaśniamy, jak powstaje, jak działa desulfatacja impulsowa i jakie ma granice."
-pubDate: 2026-07-07
+seoTitle: "Odsiarczanie baterii trakcyjnej (desulfatacja)"
+description: "Zasiarczenie odpowiada za większość przypadków utraty pojemności baterii trakcyjnych. Jak powstaje, jak działa desulfatacja impulsowa i jakie ma granice."
+pubDate: 2026-07-06
 ctaPath: "/regeneracja-baterii-trakcyjnych"
 ---
 

@@ -1,7 +1,8 @@
 ---
 title: "Jak przebiega regeneracja baterii trakcyjnej — etapy, czas trwania, kryterium 80%"
+seoTitle: "Jak przebiega regeneracja baterii trakcyjnej"
 description: "Od pomiaru gęstości elektrolitu po raport przed/po: pełny przebieg profesjonalnej regeneracji baterii trakcyjnej krok po kroku i realne czasy realizacji."
-pubDate: 2026-07-07
+pubDate: 2026-07-03
 ctaPath: "/regeneracja-baterii-trakcyjnych"
 ---
 

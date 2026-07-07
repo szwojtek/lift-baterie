@@ -27,7 +27,7 @@ const dateFormatted = post.data.pubDate.toLocaleDateString('pl-PL', {
 ---
 
 <BaseLayout
-  title={`${post.data.title} | LIFT Baterie`}
+  title={`${post.data.seoTitle ?? post.data.title} | LIFT Baterie`}
   description={post.data.description}
   extraSchema={[
     articleSchema({
@@ -44,11 +44,11 @@ const dateFormatted = post.data.pubDate.toLocaleDateString('pl-PL', {
   ]}
 >
   <article class="mx-auto max-w-3xl px-4 py-14">
-    <nav class="text-sm text-gray-400" aria-label="Okruszki">
+    <nav class="text-sm text-gray-500" aria-label="Okruszki">
       <a href={href('/baza-wiedzy')} class="hover:text-brand-600">Baza wiedzy</a> / artykuł
     </nav>
     <h1 class="mt-3 font-display text-3xl font-bold leading-tight sm:text-4xl">{post.data.title}</h1>
-    <p class="mt-3 text-sm text-gray-400">{dateFormatted} · LIFT Baterie</p>
+    <p class="mt-3 text-sm text-gray-500">{dateFormatted} · LIFT Baterie</p>
 
     <div class="prose prose-gray mt-8 max-w-none prose-headings:font-display prose-a:text-brand-600">
       <Content />

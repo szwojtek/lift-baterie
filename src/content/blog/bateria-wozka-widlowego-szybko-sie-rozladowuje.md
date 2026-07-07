@@ -1,7 +1,8 @@
 ---
 title: "Bateria wózka widłowego szybko się rozładowuje — 12 przyczyn i co sprawdzić przed wymianą"
+seoTitle: "Bateria wózka szybko się rozładowuje — 12 przyczyn"
 description: "Wózek nie dojeżdża do końca zmiany? Zanim kupisz nową baterię, sprawdź te 12 przyczyn — większość z nich da się usunąć za ułamek ceny wymiany."
-pubDate: 2026-07-07
+pubDate: 2026-07-01
 ctaPath: "/regeneracja-baterii-trakcyjnych"
 ---
 
@@ -18,10 +19,10 @@ Krótkie, częściowe doładowania to jeden z najszybszych sposobów na zniszcze
 Każde podpięcie do prostownika to początek cyklu — bateria „myśli", że zaczyna pełne ładowanie, a po 20
 minutach zostaje przerwana. Efekt: niedoładowanie i postępujące zasiarczenie płyt.
 
-### 2. Głębokie rozładowania poniżej 80% DoD
+### 2. Regularne rozładowywanie „do zera"
 
 Bateria trakcyjna jest projektowana na rozładowanie do ok. 80% pojemności (DoD — depth of discharge).
-Regularna jazda „do zera" drastycznie skraca liczbę dostępnych cykli.
+Regularne przekraczanie tej granicy i jazda „do zera" drastycznie skracają liczbę dostępnych cykli.
 
 ### 3. Brak wody destylowanej
 

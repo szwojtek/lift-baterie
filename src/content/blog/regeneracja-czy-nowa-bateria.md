@@ -1,7 +1,8 @@
 ---
 title: "Regeneracja baterii trakcyjnej czy zakup nowej? Porównanie kosztów"
-description: "Nowa bateria trakcyjna to wydatek rzędu dziesiątek tysięcy złotych. Kiedy regeneracja za ułamek tej kwoty ma sens, a kiedy to wyrzucone pieniądze — konkretne kryteria decyzji."
-pubDate: 2026-07-07
+seoTitle: "Regeneracja czy nowa bateria — porównanie kosztów"
+description: "Nowa bateria trakcyjna to dziesiątki tysięcy złotych. Kiedy regeneracja za ułamek tej kwoty ma sens, a kiedy to wyrzucone pieniądze — kryteria decyzji."
+pubDate: 2026-07-02
 ctaPath: "/regeneracja-baterii-trakcyjnych"
 ---
 

@@ -1,6 +1,6 @@
 export const SITE = {
   name: 'LIFT Baterie',
-  legalName: 'FTU "LIFT" Dariusz Kozieł',
+  legalName: 'FTU „LIFT" Dariusz Kozieł',
   tagline: 'Przywróć moc, nie kupuj nowych.',
   domain: 'https://lift-baterie.pl',
   phoneDisplay: '695 946 842',
