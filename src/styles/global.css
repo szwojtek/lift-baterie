@@ -33,3 +33,27 @@ html {
 body {
   @apply font-sans text-ink-800 antialiased;
 }
+
+/* Subtle scroll-reveal: pure CSS scroll-driven animations (no JS).
+   Progressive enhancement — unsupported browsers render fully static;
+   transform/opacity only, so no CLS; sections already in view load at end state. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    section > div {
+      animation: reveal-up both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0.01;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

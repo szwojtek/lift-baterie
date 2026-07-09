@@ -41,7 +41,7 @@ elektrolit wodą destylowaną i korygujemy gęstość.
 
 Standardem oceny baterii trakcyjnej jest próg **80% pojemności znamionowej**: ten sam, który normy
 branżowe przyjmują jako granicę końca życia baterii. Test kontrolowanego rozładowania po regeneracji
-musi pokazać, że bateria wróciła powyżej progu użytkowej sprawności. Bez zdanego testu nie zamykamy
+musi pokazać, że bateria wróciła ponad próg użytkowej sprawności. Bez zdanego testu nie zamykamy
 zlecenia.
 
 ## Etap 5: Raport przed/po i zalecenia
@@ -54,7 +54,7 @@ przeglądach w ramach [serwisu baterii](../serwis-baterii-trakcyjnych).
 ## Ile to trwa i czy magazyn musi stanąć?
 
 Pojedyncza bateria to zwykle **od jednej do kilku dób**: zależnie od stopnia zasiarczenia i pojemności.
-Przy parku kilku-kilkunastu baterii pracujemy **rotacyjnie**: bateria po baterii, w oknach serwisowych
+Przy parku kilku–kilkunastu baterii pracujemy **rotacyjnie**: bateria po baterii, w oknach serwisowych
 (noce, weekendy, przerwy między zmianami), więc flota wózków cały czas ma zasilanie. Cały proces
 odbywa się **u Ciebie na hali**: bateria nigdzie nie jedzie.
 

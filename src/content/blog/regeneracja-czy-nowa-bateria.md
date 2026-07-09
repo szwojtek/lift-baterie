@@ -24,11 +24,11 @@ i stanu baterii — dlatego poważny serwis wycenia go **po pomiarach, nie przez
 1. **Bateria traci pojemność przez zasiarczenie.** To zdecydowanie najczęstszy scenariusz w polskich
    magazynach — i dokładnie ten, który regeneracja odwraca. Objawy: coraz krótsza praca na jednym
    ładowaniu, dłuższe ładowanie, grzejące się ogniwa.
-2. **Bateria ma mniej niż ~5-6 lat i była w miarę dobrze eksploatowana.** Płyty są całe, masa czynna
+2. **Bateria ma mniej niż ok. 5–6 lat i była w miarę dobrze eksploatowana.** Płyty są całe, masa czynna
    na miejscu — jest co odzyskiwać.
 3. **Pojedyncze ogniwa odstają od pakietu.** Zamiast wymieniać całą baterię, wymienia się słabe ogniwa
    i wyrównuje parametry całości.
-4. **Park kilku-kilkunastu baterii.** Przy większej skali różnica kosztów rośnie proporcjonalnie,
+4. **Park kilku–kilkunastu baterii.** Przy większej skali różnica kosztów rośnie proporcjonalnie,
    a prace można prowadzić rotacyjnie, bez zatrzymywania magazynu.
 
 ## Kiedy nowa bateria jest lepszą decyzją
@@ -47,9 +47,9 @@ baterii bez diagnostyki, oszczędza na etapie, który chroni Twoje pieniądze.
 
 ## Rachunek, który warto zrobić
 
-Policz koszt jednej zmiany przestoju wózka i zestaw go z terminem dostawy nowej baterii (tygodnie)
-kontra regeneracją wykonaną **na miejscu, w oknach serwisowych**: nocą lub w weekend, bez wyłączania
-hali. W wielu firmach to właśnie logistyka, nie sama cena, przesądza o wyborze regeneracji.
+Policz koszt jednej zmiany przestoju wózka. Potem zestaw termin dostawy nowej baterii, liczony
+w tygodniach, z regeneracją wykonaną **na miejscu**: nocą lub w weekend, bez wyłączania hali.
+W wielu firmach to właśnie logistyka, nie sama cena, przesądza o wyborze regeneracji.
 
 ## Jak podjąć decyzję na liczbach
 

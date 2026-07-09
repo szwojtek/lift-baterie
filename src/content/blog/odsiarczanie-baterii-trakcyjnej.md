@@ -16,11 +16,11 @@ W każdym cyklu pracy baterii ołowiowej na płytach ogniw powstaje siarczan oł
 reakcji chemicznej. Przy pełnym, prawidłowym naładowaniu siarczan wraca do elektrolitu. Problem
 zaczyna się, gdy bateria:
 
-- jest chronicznie **niedoładowywana** (krótkie doładowania w przerwach, praca 3-zmianowa bez pełnego
+- jest chronicznie **niedoładowywana** (krótkie doładowania w przerwach, praca trzyzmianowa bez pełnego
   cyklu ładowania),
 - stoi **rozładowana** przez dłuższy czas (weekend, urlop, wózek rezerwowy),
 - jest regularnie **rozładowywana zbyt głęboko**,
-- pracuje z **za niskim poziomem elektrolitu**.
+- pracuje ze **zbyt niskim poziomem elektrolitu**.
 
 Wtedy drobne kryształy siarczanu zaczynają rosnąć i twardnieć. Twarda, krystaliczna warstwa nie bierze
 już udziału w reakcji — im więcej powierzchni płyt zablokuje, tym mniej pojemności zostaje. Bateria
@@ -30,7 +30,7 @@ już udziału w reakcji — im więcej powierzchni płyt zablokuje, tym mniej po
 
 Profesjonalne odsiarczanie polega na podawaniu do baterii serii impulsów o dobranych parametrach,
 które stopniowo rozbijają kryształy siarczanu i przywracają go do obiegu chemicznego. Kluczowe słowa:
-**pod kontrolą**. Proces prowadzi się monitorując napięcia i temperaturę ogniw oraz gęstość
+**pod kontrolą**. Proces prowadzi się, monitorując napięcia i temperaturę ogniw oraz gęstość
 elektrolitu — to odróżnia serwisową desulfatację od podłączenia „cudownego pudełka" na stałe.
 
 Odsiarczanie jest jednym z etapów pełnej [regeneracji baterii trakcyjnej](../regeneracja-baterii-trakcyjnych) —

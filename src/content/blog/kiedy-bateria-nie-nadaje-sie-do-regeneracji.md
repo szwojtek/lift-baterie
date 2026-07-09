@@ -42,7 +42,7 @@ Skorodowana krata rozpada się przy próbie głębszego cyklowania.
 
 - **Bateria bardzo stara** (naturalny koniec cyklu życia): nawet po odsiarczeniu nie osiągnie progu
   80% pojemności znamionowej. Test rozładowania rozstrzyga, nie wiek z tabliczki.
-- **Głębokie, wieloletnie zasiarczenie:** twarde kryształy czasem daje się rozbić tylko częściowo.
+- **Głębokie, wieloletnie zasiarczenie:** twarde kryształy czasem da się rozbić tylko częściowo.
   Dobry serwis powie: „spróbujemy, ale sukces potwierdzi dopiero test" — i nie weźmie pieniędzy
   za baterię, która testu nie zda.
 - **Pojedyncze słabe ogniwa w zdrowym pakiecie:** to nie dyskwalifikacja — to wskazanie do
@@ -57,5 +57,5 @@ Z zewnątrz wyglądają identycznie.
 
 Dlatego każdą współpracę zaczynamy od [bezpłatnego audytu z pomiarami](../bezplatny-audyt): gęstość
 elektrolitu i napięcie każdego ogniwa, test pojemności, oględziny. Wynik to jednoznaczna rekomendacja
-dla każdej baterii: **regenerować / serwisować / wymienić**: z wyceną. Jeśli bateria nie rokuje,
+dla każdej baterii: **regenerować / serwisować / wymienić** — z wyceną. Jeśli bateria nie rokuje,
 dowiesz się tego przed wydaniem pieniędzy. Na tym polega różnica między serwisem a sprzedażą.

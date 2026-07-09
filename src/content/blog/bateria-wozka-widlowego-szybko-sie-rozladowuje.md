@@ -27,7 +27,7 @@ Regularne przekraczanie tej granicy i jazda „do zera" drastycznie skracają li
 ### 3. Brak wody destylowanej
 
 Zbyt niski poziom elektrolitu odsłania płyty ogniw — odsłonięta część płyty ulega nieodwracalnemu
-uszkodzeniu. Poziom trzeba kontrolować co 1-2 tygodnie, dolewać wyłącznie wodę destylowaną i wyłącznie
+uszkodzeniu. Poziom trzeba kontrolować co 1–2 tygodnie, dolewać wyłącznie wodę destylowaną i wyłącznie
 **po** naładowaniu.
 
 ### 4. Bateria nie dostaje pełnego cyklu ładowania
@@ -37,7 +37,7 @@ naładowania. Chroniczne niedoładowanie = zasiarczenie.
 
 ### 5. Ładowanie „na gorąco"
 
-Bateria wyjęta z intensywnej pracy potrzebuje ostygnąć. Ładowanie rozgrzanego pakietu przyspiesza
+Bateria wyjęta z intensywnej pracy musi ostygnąć. Ładowanie rozgrzanego pakietu przyspiesza
 korozję płyt i odparowywanie elektrolitu.
 
 ### 6. Praca w chłodni bez korekty
@@ -51,7 +51,7 @@ w chłodniach wymaga odpowiednio dobranych baterii i zmienionego harmonogramu ł
 
 Najczęstsza techniczna przyczyna utraty pojemności. Twarda warstwa siarczanu ołowiu odkłada się na
 płytach i blokuje reakcję chemiczną. Dobra wiadomość: zasiarczenie jest w większości przypadków
-**odwracalne**: usuwa je [profesjonalne odsiarczanie i regeneracja](../regeneracja-baterii-trakcyjnych).
+**odwracalne** — usuwa je [profesjonalne odsiarczanie i regeneracja](../regeneracja-baterii-trakcyjnych).
 
 ### 8. Rozjechane parametry ogniw
 
