@@ -128,6 +128,9 @@ const ogImage = new URL(href('/og-image.png'), Astro.site);
     }
   </head>
   <body class="min-h-screen bg-white pb-16 md:pb-0">
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
     {
       analyticsOn && (
         <noscript>
@@ -144,5 +147,91 @@ const ogImage = new URL(href('/og-image.png'), Astro.site);
     <slot />
     <Footer />
     <StickyMobileBar />
+
+    <script>
+      // Motion system "energia wraca": scroll reveal with stagger, self-drawing
+      // timelines and stat counters. Hero is excluded (it has its own load animation).
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+        const hero = document.querySelector('header + section');
+        const targets: Array<[Element, number]> = [];
+
+        document.querySelectorAll('section > div.mx-auto').forEach((band) => {
+          if (band.closest('section') === hero) return;
+          if (!band.querySelector(':scope .grid, :scope ol, :scope ul')) {
+            targets.push([band, 0]);
+            return;
+          }
+          Array.from(band.children).forEach((child) => {
+            const isCollection = child.classList.contains('grid') || child.tagName === 'OL' || child.tagName === 'UL';
+            if (isCollection) {
+              Array.from(child.children).forEach((item, i) => targets.push([item, 80 + i * 90]));
+            } else {
+              targets.push([child, 0]);
+            }
+          });
+        });
+
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                io.unobserve(entry.target);
+              }
+            }
+          },
+          { threshold: 0.1, rootMargin: '0px 0px -8% 0px' },
+        );
+
+        for (const [el, delay] of targets) {
+          el.setAttribute('data-reveal', '');
+          (el as HTMLElement).style.setProperty('--reveal-delay', `${delay}ms`);
+          io.observe(el);
+        }
+
+        // Timelines (procedure on home, history on the about page) draw their line
+        // top-down once they scroll into view; step markers ignite via CSS.
+        const lineIo = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('line-drawn');
+                lineIo.unobserve(entry.target);
+              }
+            }
+          },
+          { threshold: 0.15 },
+        );
+        document.querySelectorAll('ol[class*="border-l-2"]').forEach((ol) => lineIo.observe(ol));
+
+        // Stat tiles like "80%" / "do 70%" count up when they appear.
+        const counterIo = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (!entry.isIntersecting) continue;
+              counterIo.unobserve(entry.target);
+              const el = entry.target as HTMLElement;
+              const raw = el.textContent?.trim() ?? '';
+              const match = raw.match(/^(do\s*)?(\d+)(\s*%)$/);
+              if (!match) continue;
+              const prefix = match[1] ?? '';
+              const total = Number(match[2]);
+              const start = performance.now();
+              const tick = (now: number) => {
+                const progress = Math.min((now - start) / 900, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                el.textContent = `${prefix}${Math.round(total * eased)}%`;
+                if (progress < 1) requestAnimationFrame(tick);
+              };
+              requestAnimationFrame(tick);
+            }
+          },
+          { threshold: 0.4 },
+        );
+        document.querySelectorAll('p.font-display').forEach((p) => {
+          if (/^(do\s*)?\d+\s*%$/.test(p.textContent?.trim() ?? '')) counterIo.observe(p);
+        });
+      }
+    </script>
   </body>
 </html>

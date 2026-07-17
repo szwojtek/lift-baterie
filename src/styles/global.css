@@ -34,26 +34,173 @@ body {
   @apply font-sans text-ink-800 antialiased;
 }
 
-/* Subtle scroll-reveal: pure CSS scroll-driven animations (no JS).
-   Progressive enhancement — unsupported browsers render fully static;
-   transform/opacity only, so no CLS; sections already in view load at end state. */
+/* ============================================================================
+   Motion identity: "energia wraca" — everything on the page charges up like
+   a battery. Progressive enhancement: without the .js class (no JS) or with
+   reduced-motion the site is fully static and every element stays visible.
+   Only transform/opacity/box-shadow are animated — zero layout shift.
+   ========================================================================= */
 @media (prefers-reduced-motion: no-preference) {
-  @supports (animation-timeline: view()) {
-    section > div {
-      animation: reveal-up both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 35%;
-    }
+  /* --- 1. Scroll reveal (IntersectionObserver in BaseLayout) --------------- */
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(26px);
   }
-}
-
-@keyframes reveal-up {
-  from {
-    opacity: 0.01;
-    transform: translateY(18px);
-  }
-  to {
+  .js [data-reveal].revealed {
     opacity: 1;
     transform: none;
+    transition:
+      opacity 0.65s ease,
+      transform 0.75s cubic-bezier(0.22, 1.25, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  /* --- 2. Hero: power-on entrance + shine sweep + drifting glow ------------ */
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  }
+  .js header + section h1 {
+    animation: rise 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .js header + section h1 ~ p {
+    animation: rise 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+  }
+  .js header + section h1 ~ :is(div, ul, a) {
+    animation: rise 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
+  }
+
+  header + section.bg-ink-900 {
+    position: relative;
+    overflow: hidden;
+  }
+  header + section.bg-ink-900 > div {
+    position: relative;
+  }
+  @keyframes glow-drift {
+    from {
+      transform: translate3d(-12%, -8%, 0) scale(1);
+    }
+    to {
+      transform: translate3d(14%, 10%, 0) scale(1.25);
+    }
+  }
+  header + section.bg-ink-900::before {
+    content: "";
+    position: absolute;
+    top: -30%;
+    right: -15%;
+    width: 70%;
+    height: 130%;
+    background: radial-gradient(closest-side, rgba(27, 141, 240, 0.22), transparent 70%);
+    animation: glow-drift 13s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+  @keyframes hero-shine {
+    from {
+      transform: translateX(-130%) skewX(-18deg);
+    }
+    to {
+      transform: translateX(320%) skewX(-18deg);
+    }
+  }
+  .js header + section.bg-ink-900::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 38%;
+    background: linear-gradient(
+      105deg,
+      transparent,
+      rgba(255, 255, 255, 0.06) 45%,
+      rgba(117, 201, 251, 0.13) 55%,
+      transparent
+    );
+    animation: hero-shine 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0.55s 1 both;
+    pointer-events: none;
+  }
+
+  /* --- 3. Heading accent bars charge bottom-up like a battery level -------- */
+  .js h2[class*="border-l-4"] {
+    position: relative;
+    border-left-color: transparent;
+  }
+  .js h2[class*="border-l-4"]::before {
+    content: "";
+    position: absolute;
+    left: -4px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to top, var(--color-brand-600), var(--color-brand-400));
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+  }
+  .js :is([data-reveal].revealed h2[class*="border-l-4"], h2[class*="border-l-4"].revealed)::before {
+    transform: scaleY(1);
+  }
+
+  /* --- 4. Timelines draw themselves; step markers ignite ------------------- */
+  .js ol[class*="border-l-2"] {
+    position: relative;
+    border-left-color: transparent;
+  }
+  .js ol[class*="border-l-2"]::before {
+    content: "";
+    position: absolute;
+    left: -2px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--color-brand-500), var(--color-brand-200));
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 1.4s ease 0.2s;
+  }
+  .js ol[class*="border-l-2"].line-drawn::before {
+    transform: scaleY(1);
+  }
+  @keyframes ignite {
+    from {
+      box-shadow: 0 0 0 0 rgba(27, 141, 240, 0.55);
+    }
+    to {
+      box-shadow: 0 0 0 16px rgba(27, 141, 240, 0);
+    }
+  }
+  .js li[data-reveal].revealed > span[class*="rounded-full"] {
+    animation: ignite 0.9s ease-out var(--reveal-delay, 0ms) 1;
+  }
+
+  /* --- 5. Phone icon nudge: gentle periodic ring on the main conversion ---- */
+  @keyframes phone-nudge {
+    0%,
+    9%,
+    100% {
+      transform: rotate(0);
+    }
+    2% {
+      transform: rotate(-14deg);
+    }
+    4.5% {
+      transform: rotate(11deg);
+    }
+    7% {
+      transform: rotate(-6deg);
+    }
+  }
+  .js a[href^="tel:"] svg {
+    animation: phone-nudge 8s ease-in-out 3s infinite;
+    transform-origin: 50% 60%;
+  }
+
+  /* --- 6. FAQ answers rise in when opened ---------------------------------- */
+  details[open] > div {
+    animation: rise 0.35s ease-out both;
   }
 }
