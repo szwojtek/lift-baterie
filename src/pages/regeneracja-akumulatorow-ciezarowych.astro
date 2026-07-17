@@ -1,4 +1,5 @@
 ---
+import TrustBar from '../components/TrustBar.astro';
 import PhoneIcon from '../components/icons/PhoneIcon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
@@ -38,6 +39,8 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
       </div>
     </div>
   </section>
+
+  <TrustBar items={[`Od ${SITE.foundingYear} roku`, 'Cała Polska, na Twojej bazie', 'Bezpłatna próbka audytu', 'Raport per pojazd']} />
 
   <section class="mx-auto max-w-3xl px-4 py-14">
     <h2 class="border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Jedna awaria w trasie kosztuje więcej niż nowy akumulator</h2>

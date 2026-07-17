@@ -155,7 +155,9 @@ body {
     position: absolute;
     left: -2px;
     top: 0;
-    bottom: 0;
+    /* Timelines with step markers end the line exactly at the last marker's
+       center (--line-end measured in BaseLayout); plain timelines run full height. */
+    height: var(--line-end, 100%);
     width: 2px;
     background: linear-gradient(to bottom, var(--color-brand-500), var(--color-brand-200));
     transform: scaleY(0);

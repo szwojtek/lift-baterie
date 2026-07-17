@@ -1,0 +1,22 @@
+---
+import { SITE } from '../config/site';
+
+interface Props {
+  items?: string[];
+}
+
+const {
+  items = [
+    `Od ${SITE.foundingYear} roku`,
+    'Cała Polska, dojazd do klienta',
+    'Bezpłatny audyt na start',
+    'Raport przed/po każdej usłudze',
+  ],
+} = Astro.props;
+---
+
+<section class="border-b border-gray-100 bg-gray-50">
+  <div class="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-4 py-5 text-center text-sm font-semibold text-ink-700 sm:grid-cols-4">
+    {items.map((item) => <span>{item}</span>)}
+  </div>
+</section>

@@ -202,7 +202,19 @@ const ogImage = new URL(href('/og-image.png'), Astro.site);
           },
           { threshold: 0.15 },
         );
-        document.querySelectorAll('ol[class*="border-l-2"]').forEach((ol) => lineIo.observe(ol));
+        document.querySelectorAll('ol[class*="border-l-2"]').forEach((ol) => {
+          const lastMarker = ol.querySelector(':scope > li:last-child > span[class*="rounded-full"]');
+          if (lastMarker) {
+            const setLineEnd = () => {
+              const end =
+                lastMarker.getBoundingClientRect().top - ol.getBoundingClientRect().top + lastMarker.clientHeight / 2;
+              (ol as HTMLElement).style.setProperty('--line-end', `${Math.max(end, 0)}px`);
+            };
+            setLineEnd();
+            window.addEventListener('resize', setLineEnd, { passive: true });
+          }
+          lineIo.observe(ol);
+        });
 
         // Stat tiles like "80%" / "do 70%" count up when they appear.
         const counterIo = new IntersectionObserver(

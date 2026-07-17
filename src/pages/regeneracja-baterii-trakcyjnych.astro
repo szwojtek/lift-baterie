@@ -1,4 +1,5 @@
 ---
+import TrustBar from '../components/TrustBar.astro';
 import PhoneIcon from '../components/icons/PhoneIcon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
@@ -78,14 +79,7 @@ const costFactors = [
     </div>
   </section>
 
-  <section class="border-b border-gray-100 bg-gray-50">
-    <div class="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-4 py-5 text-center text-sm font-semibold text-ink-700 sm:grid-cols-4">
-      <span>Od {SITE.foundingYear} roku</span>
-      <span>Cała Polska — dojazd do klienta</span>
-      <span>Do 70% taniej niż nowa bateria</span>
-      <span>Raport przed/po</span>
-    </div>
-  </section>
+  <TrustBar items={[`Od ${SITE.foundingYear} roku`, 'Cała Polska, dojazd do klienta', 'Do 70% taniej niż nowa bateria', 'Raport przed/po']} />
 
   <section class="mx-auto max-w-3xl px-4 py-14">
     <h2 class="border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Te objawy znasz z własnej hali?</h2>
