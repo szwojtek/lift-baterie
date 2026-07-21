@@ -177,8 +177,18 @@ const costFactors = [
       Punkt odniesienia jest zawsze ten sam: regeneracja kosztuje <strong>do 70% mniej niż zakup nowej
       baterii</strong>, a efekt potwierdza test pojemności. Porównanie obu scenariuszy z kryteriami
       decyzji znajdziesz w artykule
-      <a href={href('/baza-wiedzy/regeneracja-czy-nowa-bateria')} class="font-semibold text-brand-600 hover:underline">„Regeneracja czy zakup nowej baterii”</a>.
+      <a href={href('/baza-wiedzy/regeneracja-czy-nowa-bateria')} class=”font-semibold text-brand-600 hover:underline”>„Regeneracja czy zakup nowej baterii”</a>.
     </p>
+
+    <div class=”mt-8 rounded-2xl border-l-4 border-brand-500 bg-brand-50 p-6”>
+      <p class=”font-semibold text-ink-800”>Druga oszczędność: rachunek za prąd</p>
+      <p class=”mt-2 text-gray-700”>
+        Zasiarczone ogniwa mają wyższą rezystancję wewnętrzną, więc przy każdym ładowaniu część energii
+        ucieka w ciepło, a samo ładowanie trwa dłużej. Po regeneracji bateria przyjmuje ładunek
+        sprawniej i licznik w prostowni kręci się wolniej przy tej samej pracy wózków. Przy parku
+        baterii ładowanych codziennie różnicę widać na fakturze za energię.
+      </p>
+    </div>
   </section>
 
   <section class="bg-gray-50">
@@ -218,6 +228,13 @@ const costFactors = [
       <FaqItem question="Czym jest odsiarczanie (desulfatacja) baterii trakcyjnej?">
         To proces rozbijania twardej warstwy siarczanu ołowiu, która blokuje płyty ogniw i odbiera
         baterii pojemność. Wykonujemy go impulsowo, pod kontrolą pomiarów. To serce całej regeneracji.
+        Efekt uboczny, który doceniają księgowi: odsiarczona bateria ładuje się sprawniej, więc spada
+        zużycie energii w prostowni.
+      </FaqItem>
+      <FaqItem question="Do jakiej sprawności wraca bateria po regeneracji?">
+        Typowy wynik w naszej praktyce to powrót do 90-100% sprawności użytkowej. Minimalny próg,
+        przy którym w ogóle uznajemy usługę za wykonaną, to 80% pojemności znamionowej. Konkretny
+        wynik zawsze potwierdza test i raport przed/po.
       </FaqItem>
       <FaqItem question="Ile trwa regeneracja baterii trakcyjnej?">
         Zależnie od stanu baterii i liczby sztuk: od jednej doby do kilku dni. Przy większych parkach
