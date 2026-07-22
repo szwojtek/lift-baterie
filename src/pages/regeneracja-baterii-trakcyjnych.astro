@@ -10,7 +10,7 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
 
 const steps: { phase: string; items: { t: string; d: string }[] }[] = [
   {
-    phase: 'Faza 1 — Diagnostyka (bezpłatny audyt)',
+    phase: 'Faza 1: Diagnostyka (bezpłatny audyt)',
     items: [
       { t: 'Wywiad eksploatacyjny', d: 'Jak bateria pracowała i była ładowana, jakie są objawy. To ukierunkowuje pomiary.' },
       { t: 'Pomiar napięcia każdego ogniwa', d: 'Wyłapuje ogniwa odstające od pakietu i podejrzenia zwarć wewnętrznych.' },
@@ -21,7 +21,7 @@ const steps: { phase: string; items: { t: string; d: string }[] }[] = [
     ],
   },
   {
-    phase: 'Faza 2 — Regeneracja na miejscu',
+    phase: 'Faza 2: Regeneracja na miejscu',
     items: [
       { t: 'Przygotowanie baterii', d: 'Czyszczenie, korekta poziomu elektrolitu wodą destylowaną, naprawa połączeń o podwyższonej rezystancji.' },
       { t: 'Desulfatacja impulsowa', d: 'Profesjonalny regenerator ogniw ołowiowych rozbija warstwę siarczanu ołowiu blokującą płyty, pod stałą kontrolą napięć i temperatury.' },
@@ -30,7 +30,7 @@ const steps: { phase: string; items: { t: string; d: string }[] }[] = [
     ],
   },
   {
-    phase: 'Faza 3 — Weryfikacja i raport',
+    phase: 'Faza 3: Weryfikacja i raport',
     items: [
       { t: 'Test końcowy pojemności', d: 'Kryterium sukcesu to powrót powyżej 80% pojemności znamionowej, czyli progu, który normy branżowe przyjmują za granicę końca życia baterii. Bez zdanego testu nie zamykamy zlecenia.' },
       { t: 'Raport przed/po + zalecenia', d: 'Porównanie parametrów sprzed i po regeneracji oraz proste zalecenia dla operatorów, które utrwalają efekt.' },
@@ -39,7 +39,7 @@ const steps: { phase: string; items: { t: string; d: string }[] }[] = [
 ];
 
 const costFactors = [
-  { f: 'Napięcie i pojemność baterii', d: '24, 48 lub 80 V — im większy pakiet, tym więcej ogniw do przepracowania' },
+  { f: 'Napięcie i pojemność baterii', d: '24, 48 lub 80 V: im większy pakiet, tym więcej ogniw do przepracowania' },
   { f: 'Stopień zasiarczenia', d: 'wczesne skraca proces, wieloletnie wymaga dłuższych cykli' },
   { f: 'Liczba baterii w zleceniu', d: 'przy parku pracujemy rotacyjnie i koszt jednostkowy spada' },
   { f: 'Ewentualna wymiana ogniw', d: 'pojedyncze zwarte ogniwo wymieniamy zamiast dyskwalifikować całą baterię' },
@@ -54,7 +54,7 @@ const costFactors = [
     serviceSchema({
       name: 'Regeneracja baterii trakcyjnych',
       description:
-        'Mobilna regeneracja baterii trakcyjnych wózków widłowych (Pb, GEL, AGM): diagnostyka, desulfatacja, test pojemności i raport przed/po — u klienta, w całej Polsce.',
+        'Mobilna regeneracja baterii trakcyjnych wózków widłowych (Pb, GEL, AGM): diagnostyka, desulfatacja, test pojemności i raport przed/po. U klienta, w całej Polsce.',
       path: '/regeneracja-baterii-trakcyjnych',
     }),
     breadcrumbSchema([
@@ -66,7 +66,7 @@ const costFactors = [
   <section class="bg-ink-900 text-white">
     <div class="mx-auto max-w-6xl px-4 py-16 sm:py-20">
       <h1 class="max-w-3xl font-display text-3xl font-bold leading-tight sm:text-4xl">
-        Regeneracja baterii trakcyjnych do wózków widłowych — u Ciebie, bez przestojów
+        Regeneracja baterii trakcyjnych do wózków widłowych: u Ciebie, bez przestojów
       </h1>
       <p class="mt-4 max-w-2xl text-gray-300">
         Przywracamy pojemność baterii kwasowych (Pb), żelowych (GEL) i AGM zamiast wymieniać je na nowe.
@@ -100,7 +100,7 @@ const costFactors = [
 
   <section class="bg-gray-50">
     <div class="mx-auto max-w-3xl px-4 py-14">
-      <h2 class="border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Procedura LIFT — pełny przebieg regeneracji</h2>
+      <h2 class="border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Procedura LIFT: pełny przebieg regeneracji</h2>
       <p class="mt-3 text-gray-600">
         Każdy etap kończy się pomiarem, a o wyniku decyduje test pojemności. Cały proces odbywa się na
         miejscu i bateria nie wyjeżdża z zakładu.

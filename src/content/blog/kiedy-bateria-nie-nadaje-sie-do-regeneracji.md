@@ -1,7 +1,7 @@
 ---
 title: "Kiedy bateria trakcyjna NIE nadaje się do regeneracji"
 seoTitle: "Kiedy bateria nie nadaje się do regeneracji"
-description: "Regeneracja nie jest cudownym środkiem. Oto uszkodzenia, których nie cofnie żadna technologia — i jak je rozpoznać, zanim zapłacisz za usługę bez efektu."
+description: "Regeneracja nie jest cudownym środkiem. Oto uszkodzenia, których nie cofnie żadna technologia, oraz jak je rozpoznać, zanim zapłacisz za usługę bez efektu."
 pubDate: 2026-07-07
 ctaPath: "/bezplatny-audyt"
 ---
@@ -31,31 +31,31 @@ to zwykle koniec baterii.
 
 Rozładowana bateria ma elektrolit o niskiej gęstości, który zamarza już przy kilku stopniach poniżej
 zera. Lód mechanicznie niszczy płyty i separatory. Bateria po zamarznięciu może „działać", ale jej
-płyty są popękane — regeneracja nie przywróci ich integralności.
+płyty są popękane. Regeneracja nie przywróci ich integralności.
 
 ### Przegrzanie i deformacje płyt
 
 Praca lub ładowanie w wysokich temperaturach deformuje płyty i przyspiesza korozję krat nośnych.
 Skorodowana krata rozpada się przy próbie głębszego cyklowania.
 
-## Przypadki graniczne — decydują pomiary
+## Przypadki graniczne: decydują pomiary
 
 - **Bateria bardzo stara** (naturalny koniec cyklu życia): nawet po odsiarczeniu nie osiągnie progu
   80% pojemności znamionowej. Test rozładowania rozstrzyga, nie wiek z tabliczki.
 - **Głębokie, wieloletnie zasiarczenie:** twarde kryształy czasem da się rozbić tylko częściowo.
-  Dobry serwis powie: „spróbujemy, ale sukces potwierdzi dopiero test" — i nie weźmie pieniędzy
+  Dobry serwis powie: „spróbujemy, ale sukces potwierdzi dopiero test" i nie weźmie pieniędzy
   za baterię, która testu nie zda.
-- **Pojedyncze słabe ogniwa w zdrowym pakiecie:** to nie dyskwalifikacja — to wskazanie do
+- **Pojedyncze słabe ogniwa w zdrowym pakiecie:** to nie dyskwalifikacja, lecz wskazanie do
   [wymiany ogniw i serwisu](../serwis-baterii-trakcyjnych) zamiast pełnej regeneracji.
 
 ## Jak rozpoznać, z którym przypadkiem masz do czynienia?
 
-Nie po objawach — po pomiarach. Ta sama „słaba bateria" może mieć zasiarczenie (odwracalne,
+Nie po objawach, tylko po pomiarach. Ta sama „słaba bateria" może mieć zasiarczenie (odwracalne,
 [regeneracja ma sens](../regeneracja-baterii-trakcyjnych)), rozjechane ogniwa (wystarczy
 [formatowanie](../formatowanie-baterii-trakcyjnych)) albo wypadniętą masę (czas na wymianę).
 Z zewnątrz wyglądają identycznie.
 
 Dlatego każdą współpracę zaczynamy od [bezpłatnego audytu z pomiarami](../bezplatny-audyt): gęstość
 elektrolitu i napięcie każdego ogniwa, test pojemności, oględziny. Wynik to jednoznaczna rekomendacja
-dla każdej baterii: **regenerować / serwisować / wymienić** — z wyceną. Jeśli bateria nie rokuje,
+dla każdej baterii: **regenerować / serwisować / wymienić**, z wyceną. Jeśli bateria nie rokuje,
 dowiesz się tego przed wydaniem pieniędzy. Na tym polega różnica między serwisem a sprzedażą.

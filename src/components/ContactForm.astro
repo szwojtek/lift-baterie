@@ -46,11 +46,11 @@ const { defaultSegment = 'wozki', buttonLabel = 'Zamów bezpłatny audyt' } = As
     <label class="block text-sm">
       <span class="font-medium">Czego dotyczy audyt?</span>
       <select name="segment" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5">
-        <option value="Wózki widłowe — baterie trakcyjne" selected={defaultSegment === 'wozki'}>
-          Wózki widłowe — baterie trakcyjne
+        <option value="Wózki widłowe (baterie trakcyjne)" selected={defaultSegment === 'wozki'}>
+          Wózki widłowe (baterie trakcyjne)
         </option>
-        <option value="Flota ciężarowa — akumulatory 12/24V" selected={defaultSegment === 'flota'}>
-          Flota ciężarowa — akumulatory 12/24 V
+        <option value="Flota ciężarowa (akumulatory 12/24V)" selected={defaultSegment === 'flota'}>
+          Flota ciężarowa (akumulatory 12/24 V)
         </option>
       </select>
     </label>
@@ -97,13 +97,13 @@ const { defaultSegment = 'wozki', buttonLabel = 'Zamów bezpłatny audyt' } = As
 
     const phone = (form.elements.namedItem('phone') as HTMLInputElement).value.trim();
     if (phone.replace(/\D/g, '').length < 9) {
-      showStatus('Podaj prawidłowy numer telefonu — oddzwonimy w ciągu 24 h.');
+      showStatus('Podaj prawidłowy numer telefonu. Oddzwonimy w ciągu 24 h.');
       return;
     }
 
     const accessKey = form.dataset.key;
     if (!accessKey) {
-      showStatus('Formularz jest jeszcze w przygotowaniu — zadzwoń: 695 946 842.');
+      showStatus('Formularz jest jeszcze w przygotowaniu. Zadzwoń: 695 946 842.');
       return;
     }
 
