@@ -3,15 +3,22 @@ import TrustBar from '../components/TrustBar.astro';
 import PhoneIcon from '../components/icons/PhoneIcon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
-import FaqItem from '../components/FaqItem.astro';
+import FaqList from '../components/FaqList.astro';
 import { SITE } from '../config/site';
-import { breadcrumbSchema, serviceSchema } from '../utils/schema';
+import { breadcrumbSchema, serviceSchema, faqSchema } from '../utils/schema';
+
+const faq = [
+  { q: "Czy regeneracja akumulatora ciężarowego w ogóle się opłaca?", a: "Pojedynczej sztuki – rzadko. Dlatego pracujemy programowo, na poziomie floty: audyt wielu pojazdów naraz, regeneracja partiami u Was na bazie i wymiana tylko tam, gdzie to konieczne. Oszczędność bierze się ze skali i z uniknięcia awaryjnych przestojów." },
+  { q: "Od jakiej wielkości floty ma to sens?", a: "Najlepiej działa we flotach od kilkunastu pojazdów wzwyż, ale granica nie jest sztywna: przy mniejszej skali często łączymy wizytę z audytem baterii wózków widłowych. Zadzwoń, powiemy wprost, czy przy Twojej skali program ma sens." },
+  { q: "Czy pojazdy muszą zjechać z tras?", a: "Nie. Pracujemy na bazie, nocą lub w weekend, na pojazdach, które i tak stoją. Harmonogram układamy pod dyspozycję floty." },
+];
+
 ---
 
 <BaseLayout
   title="Regeneracja akumulatorów ciężarowych dla flot | LIFT Baterie"
   description="Program serwisu akumulatorów 12/24 V dla flot ciężarowych: audyt, diagnostyka, regeneracja u klienta. Mniej awarii zimą, niższy budżet na wymiany. Tel. 695 946 842"
-  extraSchema={[
+  extraSchema={[faqSchema(faq), 
     serviceSchema({
       name: 'Serwis i regeneracja akumulatorów ciężarowych dla flot',
       description:
@@ -161,20 +168,7 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
     <div class="mx-auto max-w-3xl px-4 py-14">
       <h2 class="border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Pytania flotowe</h2>
       <div class="mt-6">
-        <FaqItem question="Czy regeneracja akumulatora ciężarowego w ogóle się opłaca?">
-          Pojedynczej sztuki – rzadko. Dlatego pracujemy programowo, na poziomie floty: audyt wielu pojazdów
-          naraz, regeneracja partiami u Was na bazie i wymiana tylko tam, gdzie to konieczne. Oszczędność
-          bierze się ze skali i z uniknięcia awaryjnych przestojów.
-        </FaqItem>
-        <FaqItem question="Od jakiej wielkości floty ma to sens?">
-          Najlepiej działa we flotach od kilkunastu pojazdów wzwyż, ale granica nie jest sztywna: przy
-          mniejszej skali często łączymy wizytę z audytem baterii wózków widłowych. Zadzwoń, powiemy
-          wprost, czy przy Twojej skali program ma sens.
-        </FaqItem>
-        <FaqItem question="Czy pojazdy muszą zjechać z tras?">
-          Nie. Pracujemy na bazie, nocą lub w weekend, na pojazdach, które i tak stoją.
-          Harmonogram układamy pod dyspozycję floty.
-        </FaqItem>
+        <FaqList items={faq} />
       </div>
     </div>
   </section>

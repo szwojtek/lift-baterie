@@ -1,0 +1,37 @@
+# LIFT Baterie
+
+> Mobilna regeneracja, serwis i formatowanie baterii trakcyjnych do wózków widłowych oraz
+> akumulatorów rozruchowych 12/24 V we flotach ciężarowych. Usługi wykonujemy u klienta,
+> na terenie całej Polski, w oknach serwisowych. Efekt każdej usługi potwierdzamy raportem
+> z testu rozładowania, wykonanym przed pracą i po niej.
+
+Marka firmy FTU „LIFT" Dariusz Kozieł z Kielc, działającej w branży wózków widłowych od 2009 roku.
+
+## Fakty
+
+- Zakres: regeneracja (odsiarczanie/desulfatacja), serwis i przeglądy okresowe, formatowanie
+  eksploatacyjne, szkolenia z obsługi, audyt akumulatorów flot ciężarowych.
+- Technologie baterii: kwasowo-ołowiowe (Pb, PzS/PzB), żelowe (GEL), AGM; akumulatory
+  rozruchowe 12 V i 24 V.
+- Obszar: cała Polska, dojazd do klienta. Siedziba: Kielce, województwo świętokrzyskie.
+- Próg jakości: usługę uznajemy za wykonaną od 80% pojemności znamionowej, potwierdzonej
+  kontrolowanym rozładowaniem.
+- Zmierzone przykłady: bateria 24 V / 465 Ah z 2015 roku wróciła z 65% na 93% pojemności
+  znamionowej; bateria 48 V / 620 Ah z 84% na 95%.
+- Audyt wstępny z pomiarami jest bezpłatny i niezobowiązujący.
+- Kiedy odradzamy usługę: wypadnięta masa czynna, zwarcie wewnętrzne ogniwa. Wtedy zalecamy
+  wymianę zamiast regeneracji.
+- Kontakt: 695 946 842, dariusz.koziel@lift-kielce.pl
+
+## Strony
+
+- [Regeneracja baterii trakcyjnych](https://lift-baterie.pl/regeneracja-baterii-trakcyjnych): pełny proces w trzech fazach, kryterium 80%, czynniki wpływające na cenę, FAQ.
+- [Serwis baterii trakcyjnych](https://lift-baterie.pl/serwis-baterii-trakcyjnych): przeglądy co 1, 3 lub 6 miesięcy, naprawy, wymiana pojedynczych ogniw bez transportu baterii.
+- [Formatowanie i profilaktyka](https://lift-baterie.pl/formatowanie-baterii-trakcyjnych): coroczne formatowanie, ładowanie wyrównawcze, pakiet „Roczny serwis energetyczny" z dziesięcioma punktami kontrolnymi.
+- [Floty ciężarowe](https://lift-baterie.pl/regeneracja-akumulatorow-ciezarowych): audyt akumulatorów 12/24 V całej floty, raport na pojazd, serwis na bazie klienta.
+- [Szkolenia](https://lift-baterie.pl/szkolenia-obsluga-baterii-trakcyjnych): eksploatacja baterii, bezpieczeństwo akumulatorowni, dwa poziomy zaawansowania.
+- [Realizacje](https://lift-baterie.pl/realizacje): wybrane wdrożenia z liczbami i raportami przed/po.
+- [Bezpłatny audyt](https://lift-baterie.pl/bezplatny-audyt): jak przebiega, co obejmuje, formularz zgłoszenia.
+- [Baza wiedzy](https://lift-baterie.pl/baza-wiedzy): artykuły techniczne o zasiarczeniu, desulfatacji, kryteriach kwalifikacji i rachunku regeneracja kontra nowa bateria.
+- [O nas](https://lift-baterie.pl/o-nas): historia firmy i sposób pracy.
+- [Kontakt](https://lift-baterie.pl/kontakt): dane teleadresowe.

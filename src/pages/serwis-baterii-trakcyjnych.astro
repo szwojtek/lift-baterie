@@ -3,19 +3,26 @@ import TrustBar from '../components/TrustBar.astro';
 import PhoneIcon from '../components/icons/PhoneIcon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
-import FaqItem from '../components/FaqItem.astro';
+import FaqList from '../components/FaqList.astro';
 import HeroBackdrop from '../components/HeroBackdrop.astro';
 import Photo from '../components/Photo.astro';
 import { PHOTOS } from '../config/photos';
 import { SITE } from '../config/site';
 import { href } from '../utils/url';
-import { breadcrumbSchema, serviceSchema } from '../utils/schema';
+import { breadcrumbSchema, serviceSchema, faqSchema } from '../utils/schema';
+
+const faq = [
+  { q: "Czym różni się serwis od regeneracji?", a: "Serwis to cykliczna opieka: przeglądy, pomiary, naprawy i profilaktyka, które utrzymują baterię w formie. Regeneracja to jednorazowe przywrócenie pojemności baterii, która już ją utraciła. Dobry serwis sprawia, że regeneracja jest potrzebna rzadziej." },
+  { q: "Czy musimy wyłączyć wózki z pracy na czas przeglądu?", a: "Nie. Pracujemy rotacyjnie, bateria po baterii, a harmonogram ustalamy tak, żeby flota zachowała pełną dyspozycyjność." },
+  { q: "Czy obsługujecie firmy w całej Polsce?", a: "Tak, serwis jest mobilny i ogólnopolski. Koszt dojazdu uwzględniamy w wycenie po audycie." },
+];
+
 ---
 
 <BaseLayout
   title="Mobilny serwis baterii trakcyjnych | LIFT Baterie"
   description="Mobilny serwis baterii trakcyjnych: przeglądy co 1/3/6 miesięcy, naprawa, wymiana ogniw bez transportu baterii, w oknach serwisowych. Tel. 695 946 842"
-  extraSchema={[
+  extraSchema={[faqSchema(faq), 
     serviceSchema({
       name: 'Serwis baterii trakcyjnych',
       description:
@@ -105,18 +112,7 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
     <div class="mx-auto max-w-3xl px-4 py-14">
       <h2 class="border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Pytania o serwis</h2>
       <div class="mt-6">
-        <FaqItem question="Czym różni się serwis od regeneracji?">
-          Serwis to cykliczna opieka: przeglądy, pomiary, naprawy i profilaktyka, które utrzymują baterię
-          w formie. Regeneracja to jednorazowe przywrócenie pojemności baterii, która już ją utraciła.
-          Dobry serwis sprawia, że regeneracja jest potrzebna rzadziej.
-        </FaqItem>
-        <FaqItem question="Czy musimy wyłączyć wózki z pracy na czas przeglądu?">
-          Nie. Pracujemy rotacyjnie, bateria po baterii, a harmonogram ustalamy tak, żeby flota zachowała
-          pełną dyspozycyjność.
-        </FaqItem>
-        <FaqItem question="Czy obsługujecie firmy w całej Polsce?">
-          Tak, serwis jest mobilny i ogólnopolski. Koszt dojazdu uwzględniamy w wycenie po audycie.
-        </FaqItem>
+        <FaqList items={faq} />
       </div>
     </div>
   </section>

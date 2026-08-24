@@ -3,14 +3,14 @@ import TrustBar from '../components/TrustBar.astro';
 import PhoneIcon from '../components/icons/PhoneIcon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
-import FaqItem from '../components/FaqItem.astro';
+import FaqList from '../components/FaqList.astro';
 import HeroBackdrop from '../components/HeroBackdrop.astro';
 import Photo from '../components/Photo.astro';
-import ResultsTable from '../components/ResultsTable.astro';
+import ProofStrip from '../components/ProofStrip.astro';
 import { PHOTOS } from '../config/photos';
 import { SITE } from '../config/site';
 import { href } from '../utils/url';
-import { breadcrumbSchema, serviceSchema } from '../utils/schema';
+import { breadcrumbSchema, serviceSchema, faqSchema } from '../utils/schema';
 
 const steps: { phase: string; items: { t: string; d: string }[] }[] = [
   {
@@ -49,12 +49,22 @@ const costFactors = [
   { f: 'Ewentualna wymiana ogniw', d: 'pojedyncze zwarte ogniwo wymieniamy zamiast dyskwalifikować całą baterię' },
   { f: 'Lokalizacja i terminy', d: 'dojazd w dowolne miejsce w Polsce, także nocą i w weekendy' },
 ];
+
+const faq = [
+  { q: "Czym jest odsiarczanie (desulfatacja) baterii trakcyjnej?", a: "To proces rozbijania twardej warstwy siarczanu ołowiu, która blokuje płyty ogniw i odbiera baterii pojemność. Wykonujemy go impulsowo, pod kontrolą pomiarów. To serce całej regeneracji. Efekt uboczny, który doceniają księgowi: odsiarczona bateria ładuje się sprawniej, więc spada zużycie energii w prostowni." },
+  { q: "Do jakiej sprawności wraca bateria po regeneracji?", a: "Typowy wynik w naszej praktyce to powrót do 90-100% sprawności użytkowej. Minimalny próg, przy którym w ogóle uznajemy usługę za wykonaną, to 80% pojemności znamionowej. Konkretny wynik zawsze potwierdza test i raport przed/po." },
+  { q: "Ile trwa regeneracja baterii trakcyjnej?", a: "Zależnie od stanu baterii i liczby sztuk: od jednej doby do kilku dni. Przy większych parkach pracujemy rotacyjnie, żeby flota wózków cały czas miała zasilanie." },
+  { q: "Czy regeneracja działa na baterie żelowe i AGM?", a: "Tak. Parametry procesu dobieramy do technologii baterii (Pb / GEL / AGM), a kwalifikację zawsze poprzedzają pomiary." },
+  { q: "Czy dostanę gwarancję na efekt?", a: "Efekt potwierdza test pojemności i raport przed/po. Warunki gwarancji na wykonaną usługę określamy w ofercie po audycie, zależnie od stanu i wieku baterii." },
+  { q: "Co jeśli bateria nie nadaje się do regeneracji?", a: "Dowiesz się tego zaraz po bezpłatnych pomiarach, razem z rekomendacją wymiany, zanim cokolwiek zapłacisz. Nie bierzemy zleceń, które nie rokują." },
+];
+
 ---
 
 <BaseLayout
   title="Regeneracja baterii trakcyjnych do wózków widłowych | LIFT Baterie"
   description="Regeneracja baterii trakcyjnych Pb, GEL i AGM u klienta, w całej Polsce. Do 70% taniej niż nowa bateria. Bezpłatny audyt i raport przed/po. Tel. 695 946 842"
-  extraSchema={[
+  extraSchema={[faqSchema(faq), 
     serviceSchema({
       name: 'Regeneracja baterii trakcyjnych',
       description:
@@ -131,7 +141,7 @@ const costFactors = [
     </div>
   </section>
 
-  <ResultsTable tinted={false} title="Ile pojemności udaje się odzyskać" />
+  <ProofStrip tinted={false} />
 
   <section class="mx-auto max-w-3xl px-4 py-14">
     <h2 class="border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Regenerujemy baterie Pb, żelowe (GEL) i AGM</h2>
@@ -235,33 +245,7 @@ const costFactors = [
   <section class="mx-auto max-w-3xl px-4 py-14">
     <h2 class="border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Pytania o regenerację</h2>
     <div class="mt-6">
-      <FaqItem question="Czym jest odsiarczanie (desulfatacja) baterii trakcyjnej?">
-        To proces rozbijania twardej warstwy siarczanu ołowiu, która blokuje płyty ogniw i odbiera
-        baterii pojemność. Wykonujemy go impulsowo, pod kontrolą pomiarów. To serce całej regeneracji.
-        Efekt uboczny, który doceniają księgowi: odsiarczona bateria ładuje się sprawniej, więc spada
-        zużycie energii w prostowni.
-      </FaqItem>
-      <FaqItem question="Do jakiej sprawności wraca bateria po regeneracji?">
-        Typowy wynik w naszej praktyce to powrót do 90-100% sprawności użytkowej. Minimalny próg,
-        przy którym w ogóle uznajemy usługę za wykonaną, to 80% pojemności znamionowej. Konkretny
-        wynik zawsze potwierdza test i raport przed/po.
-      </FaqItem>
-      <FaqItem question="Ile trwa regeneracja baterii trakcyjnej?">
-        Zależnie od stanu baterii i liczby sztuk: od jednej doby do kilku dni. Przy większych parkach
-        pracujemy rotacyjnie, żeby flota wózków cały czas miała zasilanie.
-      </FaqItem>
-      <FaqItem question="Czy regeneracja działa na baterie żelowe i AGM?">
-        Tak. Parametry procesu dobieramy do technologii baterii (Pb / GEL / AGM), a kwalifikację zawsze
-        poprzedzają pomiary.
-      </FaqItem>
-      <FaqItem question="Czy dostanę gwarancję na efekt?">
-        Efekt potwierdza test pojemności i raport przed/po. Warunki gwarancji na wykonaną usługę
-        określamy w ofercie po audycie, zależnie od stanu i wieku baterii.
-      </FaqItem>
-      <FaqItem question="Co jeśli bateria nie nadaje się do regeneracji?">
-        Dowiesz się tego zaraz po bezpłatnych pomiarach, razem z rekomendacją wymiany, zanim cokolwiek
-        zapłacisz. Nie bierzemy zleceń, które nie rokują.
-      </FaqItem>
+      <FaqList items={faq} />
     </div>
   </section>
 

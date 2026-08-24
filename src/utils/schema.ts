@@ -28,6 +28,26 @@ export const breadcrumbSchema = (items: { name: string; path: string }[]) => ({
   })),
 });
 
+export interface FaqEntry {
+  q: string;
+  a: string;
+}
+
+/**
+ * Built from the same array the page renders, never a second copy. Google
+ * requires FAQPage markup to match the visible answers, and hand-maintained
+ * duplicates drift the moment somebody edits the copy.
+ */
+export const faqSchema = (entries: FaqEntry[]) => ({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: entries.map((e) => ({
+    '@type': 'Question',
+    name: e.q,
+    acceptedAnswer: { '@type': 'Answer', text: e.a },
+  })),
+});
+
 interface ArticleOpts {
   title: string;
   description: string;

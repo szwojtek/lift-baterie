@@ -29,6 +29,7 @@ export const PHOTOS = {
   heroRegenerationOnsite: {
     src: heroRegenerationOnsite,
     alt: 'Urządzenie do regeneracji baterii trakcyjnych podłączone do wózka widłowego w hali klienta, obok laptop z wykresem cyklu ładowania',
+    caption: 'Regeneracja u klienta na hali. Urządzenie pracuje przy wózku, laptop zapisuje przebieg cyklu.',
   },
   workshopRegenerationBay: {
     src: workshopRegenerationBay,
@@ -53,14 +54,17 @@ export const PHOTOS = {
   batteryCellsTopview: {
     src: batteryCellsTopview,
     alt: 'Bateria trakcyjna widziana z góry: korki ogniw i łączniki międzyogniwowe',
+    caption: 'Pakiet trakcyjny w wózku. Każde ogniwo mierzymy osobno.',
   },
   cellsConnectorsDetail: {
     src: cellsConnectorsDetail,
     alt: 'Zbliżenie na łączniki międzyogniwowe i korki ogniw baterii trakcyjnej',
+    caption: 'Łączniki międzyogniwowe. Podwyższona rezystancja na połączeniu grzeje i zjada pojemność.',
   },
   batteryInTruck: {
     src: batteryInTruck,
     alt: 'Bateria trakcyjna zamontowana w wózku widłowym, obok wskaźnik naładowania',
+    caption: 'Serwis na miejscu. Bateria zostaje w wózku, magazyn pracuje dalej.',
   },
   sulphatedBatteryBefore: {
     src: sulphatedBatteryBefore,

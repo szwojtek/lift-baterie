@@ -1,0 +1,18 @@
+---
+import FaqItem from './FaqItem.astro';
+import type { FaqEntry } from '../utils/schema';
+
+interface Props {
+  items: FaqEntry[];
+}
+
+const { items } = Astro.props;
+---
+
+{/*
+  Renders from the same array that feeds faqSchema() in the page's extraSchema,
+  so the FAQPage markup and the visible answers cannot drift apart.
+*/}
+<div>
+  {items.map((item) => <FaqItem question={item.q}>{item.a}</FaqItem>)}
+</div>
