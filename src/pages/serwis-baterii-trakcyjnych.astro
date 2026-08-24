@@ -4,6 +4,7 @@ import PhoneIcon from '../components/icons/PhoneIcon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
 import FaqItem from '../components/FaqItem.astro';
+import HeroBackdrop from '../components/HeroBackdrop.astro';
 import Photo from '../components/Photo.astro';
 import { PHOTOS } from '../config/photos';
 import { SITE } from '../config/site';
@@ -27,7 +28,8 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
     ]),
   ]}
 >
-  <section class="bg-ink-900 text-white">
+  <section class="relative isolate bg-ink-900 text-white">
+    <HeroBackdrop photo={PHOTOS.workshopRegenerationBay} />
     <div class="mx-auto max-w-6xl px-4 py-16 sm:py-20">
       <h1 class="max-w-3xl font-display text-3xl font-bold leading-tight sm:text-4xl">
         Mobilny serwis baterii trakcyjnych w całej Polsce

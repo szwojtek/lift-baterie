@@ -3,7 +3,7 @@ import TrustBar from '../components/TrustBar.astro';
 import PhoneIcon from '../components/icons/PhoneIcon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CtaBand from '../components/CtaBand.astro';
-import Photo from '../components/Photo.astro';
+import HeroBackdrop from '../components/HeroBackdrop.astro';
 import { PHOTOS } from '../config/photos';
 import { SITE } from '../config/site';
 import { href } from '../utils/url';
@@ -26,7 +26,8 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
     ]),
   ]}
 >
-  <section class="bg-ink-900 text-white">
+  <section class="relative isolate bg-ink-900 text-white">
+    <HeroBackdrop photo={PHOTOS.cellsConnectorsDetail} />
     <div class="mx-auto max-w-6xl px-4 py-16 sm:py-20">
       <h1 class="max-w-3xl font-display text-3xl font-bold leading-tight sm:text-4xl">
         Szkolenia z obsługi baterii trakcyjnych: mniej awarii dzięki dobrym nawykom
@@ -61,8 +62,6 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
       akumulatorowni, środki ochrony przy pracy z elektrolitem, postępowanie przy poparzeniach. To wiedza,
       która chroni ludzi i skraca listę niezgodności przy audytach BHP.
     </p>
-
-    <Photo photo={PHOTOS.cellsConnectorsDetail} class="mt-8" sizes="(min-width: 768px) 48rem, 100vw" widths={[480, 768, 1200]} />
 
     <h2 class="mt-10 border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Jak wygląda szkolenie</h2>
     <ul class="mt-5 list-disc space-y-3 pl-5 text-gray-700 marker:text-brand-500">

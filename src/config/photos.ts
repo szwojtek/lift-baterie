@@ -32,7 +32,7 @@ export const PHOTOS = {
   workshopRegenerationBay: {
     src: workshopRegenerationBay,
     alt: 'Stanowisko regeneracji baterii trakcyjnych: cztery urządzenia w pracy, ogniwa w komorze serwisowej i laptop z zapisem pomiarów',
-    caption: 'Stanowisko regeneracji — cykle prowadzone równolegle na kilku bateriach.',
+    caption: 'Stanowisko regeneracji. Cykle prowadzimy równolegle na kilku bateriach.',
   },
   batteryNameplate: {
     src: batteryNameplate,
@@ -47,7 +47,7 @@ export const PHOTOS = {
   openCellsDetail: {
     src: openCellsDetail,
     alt: 'Odkryte ogniwa baterii trakcyjnej ze zdjętymi korkami podczas przeglądu serwisowego',
-    caption: 'Przegląd ogniwo po ogniwie — korki zdjęte, poziom i gęstość elektrolitu sprawdzane osobno.',
+    caption: 'Przegląd ogniwo po ogniwie. Korki zdjęte, poziom i gęstość elektrolitu sprawdzamy osobno.',
   },
   batteryCellsTopview: {
     src: batteryCellsTopview,

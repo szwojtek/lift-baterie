@@ -4,6 +4,7 @@ import PhoneIcon from '../components/icons/PhoneIcon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
 import FaqItem from '../components/FaqItem.astro';
+import HeroBackdrop from '../components/HeroBackdrop.astro';
 import Photo from '../components/Photo.astro';
 import ResultsTable from '../components/ResultsTable.astro';
 import { PHOTOS } from '../config/photos';
@@ -66,7 +67,8 @@ const costFactors = [
     ]),
   ]}
 >
-  <section class="bg-ink-900 text-white">
+  <section class="relative isolate bg-ink-900 text-white">
+    <HeroBackdrop photo={PHOTOS.heroRegenerationOnsite} />
     <div class="mx-auto max-w-6xl px-4 py-16 sm:py-20">
       <h1 class="max-w-3xl font-display text-3xl font-bold leading-tight sm:text-4xl">
         Regeneracja baterii trakcyjnych do wózków widłowych: u Ciebie, bez przestojów
@@ -139,6 +141,8 @@ const costFactors = [
       technologii ogniw. Pracujemy dla magazynów, zakładów produkcyjnych, centrów dystrybucyjnych
       i chłodni.
     </p>
+
+    <Photo photo={PHOTOS.batteryNameplate} class="mt-8" sizes="(min-width: 768px) 48rem, 100vw" widths={[480, 768, 1200]} />
 
     <h2 class="mt-10 border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Kiedy odradzamy regenerację</h2>
     <p class="mt-4 text-gray-700">

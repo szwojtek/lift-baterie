@@ -4,7 +4,7 @@ import CheckIcon from '../components/icons/CheckIcon.astro';
 import PhoneIcon from '../components/icons/PhoneIcon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
-import Photo from '../components/Photo.astro';
+import HeroBackdrop from '../components/HeroBackdrop.astro';
 import { PHOTOS } from '../config/photos';
 import { SITE } from '../config/site';
 ---
@@ -13,7 +13,8 @@ import { SITE } from '../config/site';
   title="Bezpłatny audyt baterii trakcyjnych | LIFT Baterie"
   description="Zamów bezpłatny audyt baterii trakcyjnych lub akumulatorów floty: pomiary, diagnoza każdej baterii i konkretna rekomendacja z wyceną. Bez zobowiązań."
 >
-  <section class="bg-ink-900 text-white">
+  <section class="relative isolate bg-ink-900 text-white">
+    <HeroBackdrop photo={PHOTOS.clampMeterDiagnostics} />
     <div class="mx-auto max-w-3xl px-4 py-14 text-center">
       <h1 class="font-display text-3xl font-bold sm:text-4xl">Zamów bezpłatny audyt baterii</h1>
       <ul class="mx-auto mt-5 max-w-xl space-y-2 text-left text-gray-300">
@@ -54,7 +55,6 @@ import { SITE } from '../config/site';
           <p class="mt-2 text-sm text-gray-700">Dostajesz raport z rekomendacją i wyceną. Decyzja należy do Ciebie.</p>
         </div>
       </div>
-      <Photo photo={PHOTOS.clampMeterDiagnostics} class="mt-10" sizes="(min-width: 768px) 48rem, 100vw" widths={[480, 768, 1200]} />
     </div>
   </section>
 </BaseLayout>
