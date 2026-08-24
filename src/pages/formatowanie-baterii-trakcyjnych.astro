@@ -76,6 +76,48 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
       utrzymuje park baterii w formie i odsuwa w czasie wydatek na nowe.
     </p>
 
+    {/*
+      Named package sits INSIDE this page on purpose. The page ranks on
+      "formatowanie baterii", which is what people actually search for and what
+      ad group G3 bids on; nobody searches "serwis energetyczny". So the URL and
+      the H1 keep the keyword and the premium framing lives in the body.
+    */}
+    <div class="mt-12 rounded-2xl border border-brand-200 bg-brand-50 p-6 sm:p-8">
+      <p class="text-sm font-semibold uppercase tracking-wide text-brand-700">Pakiet roczny</p>
+      <h2 class="mt-2 font-display text-2xl font-bold">Roczny serwis energetyczny baterii trakcyjnej</h2>
+      <p class="mt-3 text-gray-700">
+        Formatowanie to jeden z etapów, nie cała robota. W pakiecie rocznym bateria przechodzi pełny
+        cykl pomiarowy: wiemy, z czym przyjechała i z czym wraca do pracy.
+      </p>
+      <ol class="mt-6 grid gap-x-8 gap-y-3 text-gray-700 sm:grid-cols-2">
+        {
+          [
+            'Próba pojemności na wejściu',
+            'Pomiar napięcia każdego ogniwa osobno',
+            'Pomiar gęstości elektrolitu',
+            'Kontrola temperatury pracy',
+            'Kontrola połączeń i rezystancji przejścia',
+            'Ocena stopnia rozbalansowania pakietu',
+            'Regeneracja lub formatowanie, jeśli potrzebne',
+            'Ładowanie wyrównawcze',
+            'Ponowna próba pojemności',
+            'Raport przed i po, z rekomendacją',
+          ].map((step, i) => (
+            <li class="flex gap-3">
+              <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-600 text-xs font-bold text-white">
+                {i + 1}
+              </span>
+              <span>{step}</span>
+            </li>
+          ))
+        }
+      </ol>
+      <p class="mt-6 text-sm text-gray-600">
+        Zakres ustalamy po bezpłatnym audycie. Baterii, która nie rokuje, nie formatujemy na siłę:
+        dostajesz rekomendację wymiany zamiast kosztownych prób.
+      </p>
+    </div>
+
     <h2 class="mt-10 border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Ile może pracować dobrze utrzymana bateria</h2>
     <p class="mt-4 text-gray-700">
       Standardowo eksploatowana bateria trakcyjna kończy pracę zwykle po 4-6 latach. Regularna

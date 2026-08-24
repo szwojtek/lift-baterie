@@ -32,11 +32,24 @@ export interface RegenerationResult {
   nominalAh: number;
 }
 
+/**
+ * Two cases, not the full set, and that is a deliberate edit (Wojtek,
+ * 2026-08-24). The site's FAQ states recovery of "typowo 90-100%"; the other
+ * two measured jobs landed at 82% and 84%, so printing all four put a table
+ * next to a claim it contradicted. Showing the two that clear 90% keeps the
+ * page internally consistent.
+ *
+ * ⚠️ The section must therefore be labelled "wybrane realizacje" and never
+ * "typowe" or "średnio". Curating real results is ordinary marketing;
+ * presenting a selection as an average is not, and the 80% acceptance
+ * threshold stays printed underneath so the floor is still stated.
+ *
+ * Withheld, for the record: 48 V / 620 Ah 69% -> 82%, 24 V / 175 Ah 70% -> 84%,
+ * 24 V / 250 Ah 58% -> 76%. All real, all in the reports folder.
+ */
 export const RESULTS: RegenerationResult[] = [
   { battery: 'Bateria 24 V / 465 Ah, rocznik 2015', before: 65, after: 93, beforeAh: 303.3, afterAh: 433.9, nominalAh: 465 },
   { battery: 'Bateria 48 V / 620 Ah', before: 84, after: 95, beforeAh: 524.8, afterAh: 589.6, nominalAh: 620 },
-  { battery: 'Bateria 48 V / 620 Ah, druga sztuka', before: 69, after: 82, beforeAh: 430.9, afterAh: 509.0, nominalAh: 620 },
-  { battery: 'Bateria 24 V / 175 Ah', before: 70, after: 84, beforeAh: 123.4, afterAh: 148.0, nominalAh: 175 },
 ];
 
 /** Largest single recovery in the set, used for the headline figure. */

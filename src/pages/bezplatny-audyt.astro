@@ -5,6 +5,7 @@ import PhoneIcon from '../components/icons/PhoneIcon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
 import HeroBackdrop from '../components/HeroBackdrop.astro';
+import ResultsTable from '../components/ResultsTable.astro';
 import { PHOTOS } from '../config/photos';
 import { SITE } from '../config/site';
 ---
@@ -57,4 +58,6 @@ import { SITE } from '../config/site';
       </div>
     </div>
   </section>
+
+  <ResultsTable tinted={false} title="Co dostajesz po audycie i regeneracji" />
 </BaseLayout>

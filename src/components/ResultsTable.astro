@@ -1,4 +1,6 @@
 ---
+import Photo from './Photo.astro';
+import { PHOTOS } from '../config/photos';
 import { RESULTS, BEST_RESULT } from '../config/results';
 
 interface Props {
@@ -8,11 +10,12 @@ interface Props {
 }
 
 const {
-  title = 'Efekt w liczbach: pojemność przed i po regeneracji',
+  title = 'Wybrane realizacje: pojemność przed i po regeneracji',
   tinted = true,
 } = Astro.props;
 
 const gain = BEST_RESULT.after - BEST_RESULT.before;
+const bestYear = BEST_RESULT.battery.match(/\d{4}/)?.[0];
 ---
 
 <section class={tinted ? 'bg-gray-50' : ''}>
@@ -24,40 +27,55 @@ const gain = BEST_RESULT.after - BEST_RESULT.before;
     <p class="mt-6 max-w-3xl text-gray-700">
       Każdą baterię rozładowujemy pod kontrolą urządzenia przed regeneracją i po niej. Poniżej
       odczyty z raportów urządzenia. To nie są szacunki, tylko zmierzona pojemność jako procent
-      wartości znamionowej. Najlepszy wynik w tym zestawieniu to
-      <strong>wzrost o {gain} punktów procentowych</strong> na baterii z {BEST_RESULT.battery.match(/\d{4}/)?.[0] ?? 'rocznika archiwalnego'} roku.
+      wartości znamionowej.
+      {bestYear && (
+        <>
+          Mocniejszy z tych wyników to <strong>wzrost o {gain} punktów procentowych</strong> na
+          baterii z {bestYear} roku, czyli po jedenastu latach pracy.
+        </>
+      )}
     </p>
 
-    <div class="mt-10 grid gap-6 sm:grid-cols-2">
-      {
-        RESULTS.map((r) => (
-          <div class="rounded-2xl border border-gray-200 bg-white p-6">
-            <p class="text-sm font-semibold text-gray-500">{r.battery}</p>
-            <div class="mt-4 flex items-end gap-4">
-              <div>
-                <p class="text-xs font-semibold uppercase tracking-wide text-gray-400">Przy przyjęciu</p>
-                <p class="font-display text-2xl font-bold text-gray-400">{r.before}%</p>
+    <div class="mt-10 grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-start">
+      <div class="grid gap-6">
+        {
+          RESULTS.map((r) => (
+            <div class="rounded-2xl border border-gray-200 bg-white p-6">
+              <p class="text-sm font-semibold text-gray-500">{r.battery}</p>
+              <div class="mt-4 flex items-end gap-4">
+                <div>
+                  <p class="text-xs font-semibold uppercase tracking-wide text-gray-400">Przy przyjęciu</p>
+                  <p class="font-display text-2xl font-bold text-gray-400">{r.before}%</p>
+                </div>
+                <p aria-hidden="true" class="pb-2 text-2xl text-brand-300">→</p>
+                <div>
+                  <p class="text-xs font-semibold uppercase tracking-wide text-brand-600">Po regeneracji</p>
+                  <p class="font-display text-4xl font-bold text-brand-600">{r.after}%</p>
+                </div>
               </div>
-              <p aria-hidden="true" class="pb-2 text-2xl text-brand-300">→</p>
-              <div>
-                <p class="text-xs font-semibold uppercase tracking-wide text-brand-600">Po regeneracji</p>
-                <p class="font-display text-4xl font-bold text-brand-600">{r.after}%</p>
-              </div>
+              <p class="mt-4 text-sm text-gray-600">
+                Oddana pojemność: {r.beforeAh.toLocaleString('pl-PL')} Ah →
+                <strong>{r.afterAh.toLocaleString('pl-PL')} Ah</strong>
+                <span class="text-gray-400"> (nominał {r.nominalAh} Ah)</span>
+              </p>
             </div>
-            <p class="mt-4 text-sm text-gray-600">
-              Oddana pojemność: {r.beforeAh.toLocaleString('pl-PL')} Ah →
-              <strong>{r.afterAh.toLocaleString('pl-PL')} Ah</strong>
-              <span class="text-gray-400"> (nominał {r.nominalAh} Ah)</span>
-            </p>
-          </div>
-        ))
-      }
+          ))
+        }
+      </div>
+
+      <Photo
+        photo={PHOTOS.dischargeReport}
+        widths={[520, 800, 1400]}
+        sizes="(min-width: 1024px) 34rem, 100vw"
+        class="rounded-2xl border border-gray-200 bg-white p-3"
+      />
     </div>
 
     <p class="mt-8 max-w-3xl text-sm text-gray-500">
       Wartości pochodzą z raportów testu rozładowania generowanych przez urządzenie serwisowe.
       Pomiar wykonujemy przy przyjęciu i po zakończeniu programu formowania, na tej samej baterii
-      i tym samym prądem. Usługę uznajemy za wykonaną od 80% pojemności znamionowej.
+      i tym samym prądem. Usługę uznajemy za wykonaną od 80% pojemności znamionowej. Dane klientów
+      na raportach zakrywamy.
     </p>
   </div>
 </section>

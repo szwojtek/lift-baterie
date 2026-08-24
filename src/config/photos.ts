@@ -9,6 +9,7 @@ import batteryCellsTopview from '../assets/photos/battery-cells-topview.jpg';
 import cellsConnectorsDetail from '../assets/photos/cells-connectors-detail.jpg';
 import batteryInTruck from '../assets/photos/battery-in-truck.jpg';
 import sulphatedBatteryBefore from '../assets/photos/sulphated-battery-before.jpg';
+import dischargeReport from '../assets/photos/discharge-report.jpg';
 
 export interface Photo {
   src: ImageMetadata;
@@ -65,5 +66,16 @@ export const PHOTOS = {
     src: sulphatedBatteryBefore,
     alt: 'Zaniedbana bateria trakcyjna z nalotem siarczanu na łącznikach, stan przed regeneracją',
     caption: 'Stan przy przyjęciu: nalot na łącznikach i zasiarczone ogniwa.',
+  },
+  /**
+   * A real report rendered from the device's own PDF export, not a photograph
+   * of a printout. The end customer's company, address, contact person and the
+   * battery serial and make are masked; FTU LIFT's own details stay, because
+   * they are on the site anyway.
+   */
+  dischargeReport: {
+    src: dischargeReport,
+    alt: 'Raport testu rozładowania baterii trakcyjnej 24 V 465 Ah z wynikiem 93% pojemności znamionowej',
+    caption: 'Raport z urządzenia. Taki dokument dostaje klient po każdej usłudze.',
   },
 } satisfies Record<string, Photo>;
