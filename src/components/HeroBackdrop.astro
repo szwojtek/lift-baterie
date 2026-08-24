@@ -7,31 +7,48 @@ interface Props {
 }
 
 const { photo } = Astro.props;
+
+/**
+ * Feather the photo's left edge into the background instead of laying a veil
+ * over the whole frame. Everything left of the fade is flat ink-900, so the
+ * copy column costs the photo nothing and the right-hand side can run at full
+ * strength.
+ */
+const fade =
+  '-webkit-mask-image: linear-gradient(to right, transparent 0%, #000 52%);' +
+  'mask-image: linear-gradient(to right, transparent 0%, #000 52%);';
 ---
 
 {/*
   Drop inside a `relative isolate bg-ink-900` hero section.
 
-  Two overlays, not one. The horizontal ramp keeps the copy column dark enough
-  for white text; the flat veil stops the uncovered third turning into a bright
-  patch. Measured on the home hero at 1280px: white-on-background contrast runs
-  18.9:1 at the left edge and 10.2:1 at its worst point under the headline,
-  against a 4.5:1 requirement.
-
-  Both overlays are <span>, not <div>: global.css forces `position: relative`
+  Both wrappers are <span>, not <div>: global.css forces `position: relative`
   on direct div children of the hero section, which would defeat `absolute`.
 */}
-<Image
-  src={photo.src}
-  alt={photo.alt}
-  widths={[768, 1280, 1920]}
-  sizes="100vw"
-  loading="eager"
-  fetchpriority="high"
-  class="absolute inset-0 -z-10 h-full w-full object-cover object-right opacity-70"
-/>
+<span
+  class="absolute inset-y-0 right-0 -z-10 block w-full sm:w-[68%]"
+  style={fade}
+>
+  <Image
+    src={photo.src}
+    alt={photo.alt}
+    widths={[640, 1024, 1600]}
+    sizes="(min-width: 640px) 68vw, 100vw"
+    loading="eager"
+    fetchpriority="high"
+    class="h-full w-full object-cover object-center"
+  />
+</span>
+{/*
+  Mobile has no room for a side-by-side split, so the photo runs full width
+  there and this veil carries the contrast on its own; from `sm` up the fade
+  above already does the work and the veil only steadies the overlap.
+*/}
 <span
   aria-hidden="true"
-  class="absolute inset-0 -z-10 bg-gradient-to-r from-ink-900 via-ink-900/85 to-transparent"
+  class="absolute inset-0 -z-10 bg-ink-900/65 sm:bg-transparent"
 ></span>
-<span aria-hidden="true" class="absolute inset-0 -z-10 bg-ink-900/25"></span>
+<span
+  aria-hidden="true"
+  class="absolute inset-0 -z-10 bg-gradient-to-r from-ink-900 from-30% via-ink-900/55 to-transparent"
+></span>
