@@ -3,9 +3,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
 import { SITE } from '../config/site';
 
-const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  `${SITE.legalName}, ${SITE.address.street}, ${SITE.address.zip} ${SITE.address.city}`,
-)}`;
+/*
+ * No map link here on purpose. The address is the registered seat, an
+ * accountant's office with no LIFT signage and nobody to receive a visitor;
+ * a "show on the map" button invites somebody to drive to it. Linking out to
+ * Google Maps is not a ranking signal either, so removing it costs no SEO:
+ * local search runs on NAP consistency in the text, the PostalAddress in the
+ * LocalBusiness schema, and the Google Business Profile. All three stay.
+ */
 ---
 
 <BaseLayout
@@ -27,15 +32,15 @@ const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComp
             <a href={`mailto:${SITE.email}`} class="font-semibold hover:underline">{SITE.email}</a>
           </li>
           <li>
-            <p class="text-sm font-semibold uppercase tracking-wide text-gray-500">Adres</p>
-            <p>{SITE.address.street}, {SITE.address.zip} {SITE.address.city}</p>
-            <a href={mapsUrl} target="_blank" rel="noopener" class="text-sm font-semibold text-brand-600 hover:underline">
-              Pokaż w Google Maps →
-            </a>
-          </li>
-          <li>
             <p class="text-sm font-semibold uppercase tracking-wide text-gray-500">Obszar działania</p>
             <p>Cała Polska, serwis mobilny z dojazdem do klienta.</p>
+          </li>
+          <li>
+            <p class="text-sm font-semibold uppercase tracking-wide text-gray-500">Adres rejestrowy</p>
+            <p>{SITE.address.street}, {SITE.address.zip} {SITE.address.city}</p>
+            <p class="mt-1 text-sm text-gray-500">
+              Siedziba do korespondencji. Nie prowadzimy tu obsługi klientów: przyjeżdżamy do Was.
+            </p>
           </li>
           {SITE.googleReviewsUrl && (
             <li>
