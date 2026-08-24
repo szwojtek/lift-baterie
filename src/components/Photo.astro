@@ -1,0 +1,50 @@
+---
+import { Image } from 'astro:assets';
+import type { Photo } from '../config/photos';
+
+interface Props {
+  photo: Photo;
+  /** Widths Astro should emit; defaults suit a half-width content column. */
+  widths?: number[];
+  sizes?: string;
+  /** Show the photo's caption underneath. Ignored when the photo has none. */
+  showCaption?: boolean;
+  loading?: 'lazy' | 'eager';
+  /**
+   * Force a uniform frame. The source photos have mixed aspect ratios (3:2 and
+   * 16:9), which leaves a grid of them visibly ragged; a fixed ratio plus
+   * object-cover keeps gallery rows aligned.
+   */
+  ratio?: string;
+  class?: string;
+}
+
+const {
+  photo,
+  widths = [480, 800, 1200],
+  sizes = '(min-width: 768px) 40rem, 100vw',
+  showCaption = true,
+  loading = 'lazy',
+  ratio,
+  class: className = '',
+} = Astro.props;
+
+const caption = showCaption ? photo.caption : undefined;
+const frame = ['w-full rounded-2xl object-cover shadow-sm', ratio].filter(Boolean).join(' ');
+---
+
+<figure class={className}>
+  <Image
+    src={photo.src}
+    alt={photo.alt}
+    widths={widths}
+    sizes={sizes}
+    loading={loading}
+    class={frame}
+  />
+  {
+    caption && (
+      <figcaption class="mt-3 text-sm text-gray-500">{caption}</figcaption>
+    )
+  }
+</figure>

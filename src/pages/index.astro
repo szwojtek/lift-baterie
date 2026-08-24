@@ -1,10 +1,14 @@
 ---
 import TrustBar from '../components/TrustBar.astro';
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CtaBand from '../components/CtaBand.astro';
 import FaqItem from '../components/FaqItem.astro';
+import Photo from '../components/Photo.astro';
+import ResultsTable from '../components/ResultsTable.astro';
 import PhoneIcon from '../components/icons/PhoneIcon.astro';
+import { PHOTOS } from '../config/photos';
 import { SITE } from '../config/site';
 import { href } from '../utils/url';
 
@@ -78,7 +82,24 @@ const cases = [
   description="Przywracamy sprawność baterii przemysłowych u klienta, w całej Polsce. Bezpłatny audyt, prace w oknach serwisowych, raport przed/po. Tel. 695 946 842."
 >
   <!-- HERO -->
-  <section class="bg-ink-900 text-white">
+  <section class="relative isolate bg-ink-900 text-white">
+    {/* Background sits at -z-10 under an isolated stacking context so the
+        existing glow/shine pseudo-elements still paint over it. The overlay is
+        a <span>, not a <div>: global.css forces `position: relative` on direct
+        div children of this section, which would break `absolute inset-0`. */}
+    <Image
+      src={PHOTOS.heroRegenerationOnsite.src}
+      alt={PHOTOS.heroRegenerationOnsite.alt}
+      widths={[768, 1280, 1920, 2400]}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+      class="absolute inset-0 -z-10 h-full w-full object-cover object-center opacity-40"
+    />
+    <span
+      aria-hidden="true"
+      class="absolute inset-0 -z-10 bg-gradient-to-r from-ink-900 via-ink-900/90 to-ink-900/55"
+    ></span>
     <div class="mx-auto max-w-6xl px-4 py-20 sm:py-28">
       <h1 class="max-w-3xl font-display text-3xl font-bold leading-tight sm:text-5xl">
         Mobilna regeneracja i serwis baterii przemysłowych w całej Polsce
@@ -159,6 +180,14 @@ const cases = [
           i coroczne <a href={href('/formatowanie-baterii-trakcyjnych')} class="font-semibold text-brand-600 hover:underline">formatowanie baterii</a>.
         </p>
       </div>
+      {/* The only portrait frame in the set; left full width it would tower over
+          the text column, so it runs at half width and centred. */}
+      <Photo
+        photo={PHOTOS.sulphatedBatteryBefore}
+        class="mx-auto mt-10 max-w-sm"
+        sizes="(min-width: 768px) 24rem, 80vw"
+        widths={[320, 480, 768]}
+      />
     </div>
   </section>
 
@@ -203,6 +232,9 @@ const cases = [
       </div>
     </div>
   </section>
+
+  <!-- RESULTS -->
+  <ResultsTable tinted={false} />
 
   <!-- CASES TEASER -->
   <section class="mx-auto max-w-6xl px-4 py-16">

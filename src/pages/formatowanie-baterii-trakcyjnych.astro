@@ -3,6 +3,8 @@ import TrustBar from '../components/TrustBar.astro';
 import PhoneIcon from '../components/icons/PhoneIcon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CtaBand from '../components/CtaBand.astro';
+import Photo from '../components/Photo.astro';
+import { PHOTOS } from '../config/photos';
 import { SITE } from '../config/site';
 import { href } from '../utils/url';
 import { breadcrumbSchema, serviceSchema } from '../utils/schema';
@@ -58,6 +60,8 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
       z pomiarem gęstości elektrolitu każdego ogniwa przywraca równowagę pakietu. To najtańsza forma
       przedłużania życia baterii.
     </p>
+
+    <Photo photo={PHOTOS.openCellsDetail} class="mt-8" sizes="(min-width: 768px) 48rem, 100vw" widths={[480, 768, 1200]} />
 
     <h2 class="mt-10 border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Raz w roku wystarczy</h2>
     <p class="mt-4 text-gray-700">

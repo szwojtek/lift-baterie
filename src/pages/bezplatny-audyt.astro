@@ -4,6 +4,8 @@ import CheckIcon from '../components/icons/CheckIcon.astro';
 import PhoneIcon from '../components/icons/PhoneIcon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
+import Photo from '../components/Photo.astro';
+import { PHOTOS } from '../config/photos';
 import { SITE } from '../config/site';
 ---
 
@@ -52,6 +54,7 @@ import { SITE } from '../config/site';
           <p class="mt-2 text-sm text-gray-700">Dostajesz raport z rekomendacją i wyceną. Decyzja należy do Ciebie.</p>
         </div>
       </div>
+      <Photo photo={PHOTOS.clampMeterDiagnostics} class="mt-10" sizes="(min-width: 768px) 48rem, 100vw" widths={[480, 768, 1200]} />
     </div>
   </section>
 </BaseLayout>

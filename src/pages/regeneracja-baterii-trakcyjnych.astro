@@ -4,6 +4,9 @@ import PhoneIcon from '../components/icons/PhoneIcon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
 import FaqItem from '../components/FaqItem.astro';
+import Photo from '../components/Photo.astro';
+import ResultsTable from '../components/ResultsTable.astro';
+import { PHOTOS } from '../config/photos';
 import { SITE } from '../config/site';
 import { href } from '../utils/url';
 import { breadcrumbSchema, serviceSchema } from '../utils/schema';
@@ -122,8 +125,11 @@ const costFactors = [
         Krok po kroku, z czasami realizacji, opisaliśmy proces także w artykule
         <a href={href('/baza-wiedzy/jak-przebiega-regeneracja-baterii-trakcyjnej')} class="font-semibold text-brand-600 hover:underline">„Jak przebiega regeneracja baterii trakcyjnej”</a>.
       </p>
+      <Photo photo={PHOTOS.workshopRegenerationBay} class="mt-10" sizes="(min-width: 768px) 48rem, 100vw" widths={[480, 768, 1200]} />
     </div>
   </section>
+
+  <ResultsTable tinted={false} title="Ile pojemności udaje się odzyskać" />
 
   <section class="mx-auto max-w-3xl px-4 py-14">
     <h2 class="border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Regenerujemy baterie Pb, żelowe (GEL) i AGM</h2>

@@ -4,6 +4,8 @@ import PhoneIcon from '../components/icons/PhoneIcon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
 import FaqItem from '../components/FaqItem.astro';
+import Photo from '../components/Photo.astro';
+import { PHOTOS } from '../config/photos';
 import { SITE } from '../config/site';
 import { href } from '../utils/url';
 import { breadcrumbSchema, serviceSchema } from '../utils/schema';
@@ -76,6 +78,8 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
       oczekiwania, wózek wyłączony z pracy. My działamy odwrotnie: <strong>serwis przyjeżdża do baterii</strong>.
       Pracujemy planowo, nocą i w weekendy, w całej Polsce, więc hala nie zwalnia nawet na godzinę.
     </p>
+
+    <Photo photo={PHOTOS.batteryInTruck} class="mt-8" sizes="(min-width: 768px) 48rem, 100vw" widths={[480, 768, 1200]} />
 
     <div class="mt-8 rounded-2xl bg-brand-50 p-6 text-center">
       <p class="font-semibold text-ink-800">Umów przegląd parku baterii albo zapytaj o kontrakt serwisowy</p>
