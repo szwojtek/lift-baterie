@@ -73,13 +73,15 @@ export const PHOTOS = {
   },
   /**
    * A real report rendered from the device's own PDF export, not a photograph
-   * of a printout. The end customer's company, address, contact person and the
-   * battery serial and make are masked; FTU LIFT's own details stay, because
-   * they are on the site anyway.
+   * of a printout: the first controlled discharge ("Przed") over the final one
+   * ("Po") of the same 24 V / 271 Ah battery. The crop starts below the device
+   * logo, the device-id header and both company blocks; inside the crop the
+   * manufacturer and the serial number are redacted. Both capacity fields stay
+   * as the device prints them (raw and temperature-corrected).
    */
   dischargeReport: {
     src: dischargeReport,
-    alt: 'Raport testu rozładowania baterii trakcyjnej 24 V 465 Ah z wynikiem 93% pojemności znamionowej',
-    caption: 'Raport z urządzenia. Taki dokument dostaje klient po każdej usłudze.',
+    alt: 'Raport testu rozładowania baterii trakcyjnej 24 V 271 Ah: 35% pojemności znamionowej przed regeneracją i 84% po niej',
+    caption: 'Raport z urządzenia, przed i po. Taki dokument dostaje klient po każdej usłudze.',
   },
 } satisfies Record<string, Photo>;

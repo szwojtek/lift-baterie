@@ -1,5 +1,5 @@
 ---
-import { BEST_RESULT } from '../config/results';
+import { BEST_RESULT, GAIN_FACTOR_LABEL } from '../config/results';
 import { href } from '../utils/url';
 
 interface Props {
@@ -9,7 +9,8 @@ interface Props {
 
 const { tinted = true } = Astro.props;
 const gain = BEST_RESULT.after - BEST_RESULT.before;
-const year = BEST_RESULT.battery.match(/\d{4}/)?.[0];
+// Older rows only carry Ah; the multiplier line needs both durations from the report.
+const hasTimes = Boolean(BEST_RESULT.beforeTime && BEST_RESULT.afterTime);
 ---
 
 {/*
@@ -34,8 +35,15 @@ const year = BEST_RESULT.battery.match(/\d{4}/)?.[0];
       </div>
       <div class="sm:max-w-md">
         <p class="text-gray-700">
-          Wzrost o {gain} punktów procentowych na baterii{year ? ` z ${year} roku` : ''}, zmierzony
-          testem rozładowania przed usługą i po niej.
+          {hasTimes ? (
+            <>
+              Bateria oddała <strong>{GAIN_FACTOR_LABEL} razy więcej pojemności</strong>:
+              {' '}{BEST_RESULT.afterTime} pod tym samym obciążeniem zamiast {BEST_RESULT.beforeTime}.
+              Zmierzone testem rozładowania przed usługą i po niej.
+            </>
+          ) : (
+            <>Wzrost o {gain} punktów procentowych, zmierzony testem rozładowania przed usługą i po niej.</>
+          )}
         </p>
         <a
           href={href('/realizacje')}

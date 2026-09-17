@@ -52,9 +52,14 @@ const BANNED = [
     why: 'BRIEF_ZDJECIA reguła 2: żadna nazwa producenta nie może być czytelna.',
   },
   {
-    pattern: /UNIMAX filia|Brodzicki/gi,
+    pattern: /UNIMAX filia|Brodzicki|Alma Alpinex|Klimnek|105820|605 437 164/gi,
     label: 'dane klienta końcowego',
-    why: 'Dane z raportów muszą być zamaskowane przed publikacją.',
+    why: 'Dane z raportów muszą być zamaskowane przed publikacją (raporty 24 V/465 Ah i 24 V/271 Ah).',
+  },
+  {
+    pattern: /Trojan/g,
+    label: 'marka producenta baterii',
+    why: 'results.ts: baterie identyfikujemy po parametrach, nie po producencie.',
   },
 ];
 

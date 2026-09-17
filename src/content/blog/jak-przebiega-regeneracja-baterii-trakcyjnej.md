@@ -1,5 +1,5 @@
 ---
-title: "Jak przebiega regeneracja baterii trakcyjnej: etapy, czas trwania, kryterium 80%"
+title: "Jak przebiega regeneracja baterii trakcyjnej: etapy, czas trwania, test końcowy"
 seoTitle: "Jak przebiega regeneracja baterii trakcyjnej"
 description: "Od pomiaru gęstości elektrolitu po raport przed/po: pełny przebieg profesjonalnej regeneracji baterii trakcyjnej krok po kroku i realne czasy realizacji."
 pubDate: 2026-07-03
@@ -37,7 +37,7 @@ Po odsiarczeniu bateria przechodzi cykle ładowania i rozładowania, które odbu
 i wyrównują parametry ogniw w pakiecie (ładowanie wyrównawcze). W razie potrzeby uzupełniamy
 elektrolit wodą destylowaną i korygujemy gęstość.
 
-## Etap 4: Test końcowy i kryterium 80%
+## Etap 4: Test końcowy i granica zużycia
 
 Standardem oceny baterii trakcyjnej jest próg **80% pojemności znamionowej**: ten sam, który normy
 branżowe przyjmują jako granicę końca życia baterii. Test kontrolowanego rozładowania po regeneracji

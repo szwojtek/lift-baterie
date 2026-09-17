@@ -1,7 +1,7 @@
 ---
 import Photo from './Photo.astro';
 import { PHOTOS } from '../config/photos';
-import { RESULTS, BEST_RESULT } from '../config/results';
+import { RESULTS, BEST_RESULT, GAIN_FACTOR_LABEL, END_OF_LIFE_PCT } from '../config/results';
 
 interface Props {
   title?: string;
@@ -15,7 +15,10 @@ const {
 } = Astro.props;
 
 const gain = BEST_RESULT.after - BEST_RESULT.before;
-const bestYear = BEST_RESULT.battery.match(/\d{4}/)?.[0];
+// The time line needs both durations from the report; older rows only carry Ah.
+const hasTimes = Boolean(BEST_RESULT.beforeTime && BEST_RESULT.afterTime);
+// "Ta bateria była poniżej granicy zużycia" is only true when the intake reading sat under the line.
+const wasBelowLine = BEST_RESULT.before < END_OF_LIFE_PCT;
 ---
 
 <section class={tinted ? 'bg-gray-50' : ''}>
@@ -24,14 +27,24 @@ const bestYear = BEST_RESULT.battery.match(/\d{4}/)?.[0];
       {title}
     </h2>
 
-    <p class="mt-6 max-w-3xl text-gray-700">
+    {/* The first number a reader sees is a result, never the 80% floor (LFB-001). */}
+    <p class="mt-6 font-display text-3xl font-bold sm:text-4xl">
+      <span class="text-brand-600">Z {BEST_RESULT.before}% do {BEST_RESULT.after}%.</span>
+      {wasBelowLine && <span class="text-gray-700"> Ta bateria była poniżej granicy zużycia.</span>}
+    </p>
+
+    <p class="mt-4 max-w-3xl text-gray-700">
       Każdą baterię rozładowujemy pod kontrolą urządzenia przed regeneracją i po niej. Poniżej
       odczyty z raportów urządzenia. To nie są szacunki, tylko zmierzona pojemność jako procent
       wartości znamionowej.
-      {bestYear && (
+      {hasTimes ? (
         <>
-          Mocniejszy z tych wyników to <strong>wzrost o {gain} punktów procentowych</strong> na
-          baterii z {bestYear} roku, czyli po jedenastu latach pracy.
+          Bateria oddała <strong>{GAIN_FACTOR_LABEL} razy więcej pojemności</strong>:
+          {' '}{BEST_RESULT.afterTime} pod tym samym obciążeniem zamiast {BEST_RESULT.beforeTime}.
+        </>
+      ) : (
+        <>
+          Mocniejszy z tych wyników to <strong>wzrost o {gain} punktów procentowych</strong>.
         </>
       )}
     </p>
@@ -58,6 +71,11 @@ const bestYear = BEST_RESULT.battery.match(/\d{4}/)?.[0];
                 <strong>{r.afterAh.toLocaleString('pl-PL')} Ah</strong>
                 <span class="text-gray-400"> (nominał {r.nominalAh} Ah)</span>
               </p>
+              {r.beforeTime && r.afterTime && (
+                <p class="mt-1 text-sm text-gray-600">
+                  Czas pod obciążeniem ok. {r.currentA} A: {r.beforeTime} → <strong>{r.afterTime}</strong>
+                </p>
+              )}
             </div>
           ))
         }
@@ -74,7 +92,8 @@ const bestYear = BEST_RESULT.battery.match(/\d{4}/)?.[0];
     <p class="mt-8 max-w-3xl text-sm text-gray-500">
       Wartości pochodzą z raportów testu rozładowania generowanych przez urządzenie serwisowe.
       Pomiar wykonujemy przy przyjęciu i po zakończeniu programu formowania, na tej samej baterii
-      i tym samym prądem. Usługę uznajemy za wykonaną od 80% pojemności znamionowej. Dane klientów
+      i tym samym prądem. Granica zużycia baterii według norm branżowych to {END_OF_LIFE_PCT}%
+      pojemności znamionowej. Poniżej niej nie uznajemy usługi za wykonaną. Dane klientów
       na raportach zakrywamy.
     </p>
   </div>
