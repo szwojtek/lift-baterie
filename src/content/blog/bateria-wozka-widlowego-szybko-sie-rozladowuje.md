@@ -62,7 +62,7 @@ a w skrajnych przypadkach wymiana pojedynczego ogniwa.
 ### 9. Zły lub źle skonfigurowany prostownik
 
 Prostownik z niewłaściwą charakterystyką ładowania (albo ustawiony pod inną pojemność) systematycznie
-niedoładowuje lub przeładowuje baterię. Warto to sprawdzić przy każdym audycie.
+niedoładowuje lub przeładowuje baterię. Warto to sprawdzić przy każdym przeglądzie.
 
 ### 10. Zanieczyszczony elektrolit
 
@@ -86,6 +86,7 @@ Nie zgaduj. Pomiar gęstości elektrolitu i napięć poszczególnych ogniw plus 
 jednoznaczną odpowiedź, która z powyższych przyczyn dotyczy Twojej baterii oraz czy taniej jest ją
 zregenerować, serwisować, czy wymienić.
 
-Dokładnie tym jest [bezpłatny audyt baterii](../bezplatny-audyt): przyjeżdżamy do Twojego magazynu,
-mierzymy każdą baterię i dajemy rekomendację z wyceną. Bez zobowiązań. Decyzję podejmujesz na
-podstawie liczb, nie oferty handlowca.
+Dokładnie po to jest [bezpłatna konsultacja](../bezplatna-konsultacja): opisujesz objawy, wysyłasz
+zdjęcia baterii, a my mówimy, czy regeneracja ma sens. Pomiary każdego ogniwa robimy na miejscu,
+przed decyzją o regeneracji. Bez zobowiązań. Decyzję podejmujesz na podstawie liczb, nie oferty
+handlowca.

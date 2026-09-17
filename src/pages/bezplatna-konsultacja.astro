@@ -11,22 +11,22 @@ import { SITE } from '../config/site';
 ---
 
 <BaseLayout
-  title="Bezpłatny audyt baterii trakcyjnych | LIFT Baterie"
-  description="Zamów bezpłatny audyt baterii trakcyjnych lub akumulatorów floty: pomiary, diagnoza każdej baterii i konkretna rekomendacja z wyceną. Bez zobowiązań."
+  title="Bezpłatna konsultacja baterii trakcyjnych | LIFT Baterie"
+  description="Umów bezpłatną konsultację: opisz objawy, wyślij zdjęcia baterii, a powiemy, czy regeneracja ma sens i co dalej. Bez zobowiązań."
 >
   <section class="relative isolate bg-ink-900 text-white">
     <HeroBackdrop photo={PHOTOS.clampMeterDiagnostics} />
     <div class="mx-auto max-w-3xl px-4 py-14 text-center">
-      <h1 class="font-display text-3xl font-bold sm:text-4xl">Zamów bezpłatny audyt baterii</h1>
+      <h1 class="font-display text-3xl font-bold sm:text-4xl">Umów bezpłatną konsultację</h1>
       <ul class="mx-auto mt-5 max-w-xl space-y-2 text-left text-gray-300">
-        <li><CheckIcon /> Pomiary i diagnoza każdej baterii na miejscu, u Ciebie</li>
-        <li><CheckIcon /> Rekomendacja per bateria: regenerować / serwisować / wymienić</li>
-        <li><CheckIcon /> Konkretna wycena, bez zobowiązań i bez „handlowca w gratisie”</li>
+        <li><CheckIcon /> Rozmowa telefoniczna o objawach i historii baterii</li>
+        <li><CheckIcon /> Ocena na podstawie zdjęć baterii i tabliczki znamionowej</li>
+        <li><CheckIcon /> Wstępna rekomendacja: regenerować, serwisować czy wymienić. Bez zobowiązań</li>
       </ul>
     </div>
   </section>
 
-  <TrustBar items={[`Od ${SITE.foundingYear} roku`, 'Cała Polska, dojazd do klienta', 'Audyt 0 zł na start', 'Raport przed/po']} />
+  <TrustBar items={[`Od ${SITE.foundingYear} roku`, 'Cała Polska, dojazd do klienta', 'Bezpłatna konsultacja na start', 'Raport przed/po']} />
 
   <section class="mx-auto max-w-2xl px-4 py-12">
     <a
@@ -41,19 +41,19 @@ import { SITE } from '../config/site';
 
   <section class="bg-gray-50">
     <div class="mx-auto max-w-3xl px-4 py-12">
-      <h2 class="text-center font-display text-2xl font-bold">Jak wygląda audyt?</h2>
+      <h2 class="text-center font-display text-2xl font-bold">Jak wygląda konsultacja?</h2>
       <div class="mt-8 grid gap-6 sm:grid-cols-3">
         <div class="rounded-2xl bg-white p-6 text-center shadow-sm">
           <p class="font-display text-2xl font-bold text-brand-600">1</p>
-          <p class="mt-2 text-sm text-gray-700">Umawiamy termin, także poza godzinami szczytu hali.</p>
+          <p class="mt-2 text-sm text-gray-700">Rozmawiasz z technikiem, nie z handlowcem: objawy, wiek baterii, jak jest ładowana.</p>
         </div>
         <div class="rounded-2xl bg-white p-6 text-center shadow-sm">
           <p class="font-display text-2xl font-bold text-brand-600">2</p>
-          <p class="mt-2 text-sm text-gray-700">Mierzymy każdą baterię: gęstość elektrolitu, napięcia ogniw, pojemność.</p>
+          <p class="mt-2 text-sm text-gray-700">Wysyłasz zdjęcia baterii i tabliczki znamionowej. To zwykle wystarcza do wstępnej oceny.</p>
         </div>
         <div class="rounded-2xl bg-white p-6 text-center shadow-sm">
           <p class="font-display text-2xl font-bold text-brand-600">3</p>
-          <p class="mt-2 text-sm text-gray-700">Dostajesz raport z rekomendacją i wyceną. Decyzja należy do Ciebie.</p>
+          <p class="mt-2 text-sm text-gray-700">Dostajesz odpowiedź: czy regeneracja ma sens i jak wyglądałaby u Ciebie. Decyzja należy do Ciebie.</p>
         </div>
       </div>
     </div>

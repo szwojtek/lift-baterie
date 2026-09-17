@@ -3,7 +3,7 @@ title: "Kiedy bateria trakcyjna NIE nadaje się do regeneracji"
 seoTitle: "Kiedy bateria nie nadaje się do regeneracji"
 description: "Regeneracja nie jest cudownym środkiem. Oto uszkodzenia, których nie cofnie żadna technologia, oraz jak je rozpoznać, zanim zapłacisz za usługę bez efektu."
 pubDate: 2026-07-07
-ctaPath: "/bezplatny-audyt"
+ctaPath: "/bezplatna-konsultacja"
 ---
 
 Tak, żyjemy z regeneracji baterii. Mimo to część zleceń odrzucamy już po pierwszych pomiarach,
@@ -55,7 +55,8 @@ Nie po objawach, tylko po pomiarach. Ta sama „słaba bateria" może mieć zasi
 [formatowanie](../formatowanie-baterii-trakcyjnych)) albo wypadniętą masę (czas na wymianę).
 Z zewnątrz wyglądają identycznie.
 
-Dlatego każdą współpracę zaczynamy od [bezpłatnego audytu z pomiarami](../bezplatny-audyt): gęstość
-elektrolitu i napięcie każdego ogniwa, test pojemności, oględziny. Wynik to jednoznaczna rekomendacja
-dla każdej baterii: **regenerować / serwisować / wymienić**, z wyceną. Jeśli bateria nie rokuje,
-dowiesz się tego przed wydaniem pieniędzy. Na tym polega różnica między serwisem a sprzedażą.
+Dlatego każdą współpracę zaczynamy od [bezpłatnej konsultacji](../bezplatna-konsultacja), a regenerację
+od pomiarów: gęstość elektrolitu i napięcie każdego ogniwa, test pojemności, oględziny. Wynik to
+jednoznaczna rekomendacja dla każdej baterii: **regenerować / serwisować / wymienić**, z wyceną. Jeśli
+bateria nie rokuje, dowiesz się tego przed regeneracją, nie po niej. Na tym polega różnica między
+serwisem a sprzedażą.

@@ -8,7 +8,7 @@ interface Props {
   buttonLabel?: string;
 }
 
-const { defaultSegment = 'wozki', buttonLabel = 'Zamów bezpłatny audyt' } = Astro.props;
+const { defaultSegment = 'wozki', buttonLabel = 'Umów bezpłatną konsultację' } = Astro.props;
 ---
 
 <form
@@ -44,7 +44,7 @@ const { defaultSegment = 'wozki', buttonLabel = 'Zamów bezpłatny audyt' } = As
 
   <div class="grid gap-4 sm:grid-cols-2">
     <label class="block text-sm">
-      <span class="font-medium">Czego dotyczy audyt?</span>
+      <span class="font-medium">Czego dotyczy zgłoszenie?</span>
       <select name="segment" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5">
         <option value="Wózki widłowe (baterie trakcyjne)" selected={defaultSegment === 'wozki'}>
           Wózki widłowe (baterie trakcyjne)

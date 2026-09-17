@@ -53,8 +53,9 @@ W wielu firmach to właśnie logistyka, nie sama cena, przesądza o wyborze rege
 
 ## Jak podjąć decyzję na liczbach
 
-Zamów [bezpłatny audyt baterii](../bezplatny-audyt): zmierzymy gęstość elektrolitu i napięcia każdego
-ogniwa, sprawdzimy rzeczywistą pojemność i powiemy wprost: **regenerować, serwisować czy wymienić**.
-Jeśli bateria nie rokuje, usłyszysz to od nas przed wydaniem pieniędzy, nie po. A jeśli rokuje,
+Umów [bezpłatną konsultację](../bezplatna-konsultacja): po objawach i zdjęciach powiemy, czy regeneracja
+ma sens. Na miejscu zmierzymy gęstość elektrolitu i napięcia każdego ogniwa, sprawdzimy rzeczywistą
+pojemność i powiemy wprost: **regenerować, serwisować czy wymienić**. Jeśli bateria nie rokuje,
+usłyszysz to przed regeneracją, nie po. A jeśli rokuje,
 [regeneracja](../regeneracja-baterii-trakcyjnych) zakończy się testem i raportem przed/po, który
 pokaże w liczbach, co odzyskałeś.

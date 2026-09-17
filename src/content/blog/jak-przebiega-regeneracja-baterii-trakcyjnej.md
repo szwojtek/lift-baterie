@@ -60,6 +60,6 @@ odbywa się **u Ciebie na hali**: bateria nigdzie nie jedzie.
 
 ## Od czego zacząć?
 
-Od pomiarów. [Bezpłatny audyt](../bezplatny-audyt) pokaże, które baterie w Twoim parku kwalifikują się
-do regeneracji, które wystarczy serwisować, a które realnie trzeba wymienić, z konkretną wyceną dla
-każdego scenariusza.
+Od rozmowy. [Bezpłatna konsultacja](../bezplatna-konsultacja) na podstawie objawów i zdjęć pokaże,
+czy Twoje baterie rokują. Które z nich kwalifikują się do regeneracji, które wystarczy serwisować,
+a które trzeba wymienić, rozstrzygają pomiary na miejscu, z konkretną wyceną dla każdego scenariusza.

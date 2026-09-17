@@ -64,5 +64,5 @@ Dlatego zanim cokolwiek podłączymy, robimy pomiary. Jeśli bateria nie rokuje,
 Najtańsze odsiarczanie to takie, którego nie trzeba robić. Coroczne
 [formatowanie i ładowanie wyrównawcze](../formatowanie-baterii-trakcyjnych) przerywa narastanie
 siarczanów na wczesnym etapie i utrzymuje wyrównane parametry ogniw. Jeśli Twoje baterie mają za sobą
-sezon intensywnej pracy, [bezpłatny audyt](../bezplatny-audyt) pokaże, na którym etapie jest każda
-z nich.
+sezon intensywnej pracy, zacznij od [bezpłatnej konsultacji](../bezplatna-konsultacja): po objawach
+i zdjęciach powiemy, które z nich warto zmierzyć.

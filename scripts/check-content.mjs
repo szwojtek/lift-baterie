@@ -22,6 +22,11 @@ const DIST = 'dist';
 /** Text that must not appear in any rendered page, with the reason why. */
 const BANNED = [
   {
+    pattern: /bezpłatn\w+ audy\w+|audy\w+ \(?(0 zł|bezpłatn)|próbk\w+ audytu|zamów (bezpłatny )?audy\w+/gi,
+    label: 'oferta „audytu"',
+    why: 'Decyzja klienta 2026-09-17: bezpłatna jest KONSULTACJA (telefon + zdjęcia), nie audyt z pomiarami. PLAN_LFB_001, §2.',
+  },
+  {
     pattern: /—/g,
     label: 'długa pauza (—)',
     why: 'PLAN_LIFT_BATERIE_MYSLNIKI: zero w treści widocznej. Popraw przebudową zdania, nie podmianą znaku.',

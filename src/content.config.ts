@@ -10,7 +10,7 @@ const blog = defineCollection({
     description: z.string(),
     pubDate: z.coerce.date(),
     /** Money page the article funnels to, as a site-absolute path. */
-    ctaPath: z.string().default('/bezplatny-audyt'),
+    ctaPath: z.string().default('/bezplatna-konsultacja'),
   }),
 });
 

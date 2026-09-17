@@ -14,9 +14,9 @@ import { breadcrumbSchema, serviceSchema, faqSchema } from '../utils/schema';
 
 const steps: { phase: string; items: { t: string; d: string }[] }[] = [
   {
-    phase: 'Faza 1: Diagnostyka (bezpłatny audyt)',
+    phase: 'Faza 1: Diagnostyka na miejscu',
     items: [
-      { t: 'Wywiad eksploatacyjny', d: 'Jak bateria pracowała i była ładowana, jakie są objawy. To ukierunkowuje pomiary.' },
+      { t: 'Konsultacja przed przyjazdem', d: 'Objawy, historia ładowania, zdjęcia baterii. Bezpłatnie, przez telefon. To ukierunkowuje pomiary.' },
       { t: 'Pomiar napięcia każdego ogniwa', d: 'Wyłapuje ogniwa odstające od pakietu i podejrzenia zwarć wewnętrznych.' },
       { t: 'Pomiar gęstości elektrolitu w każdym ogniwie', d: 'Gęstość pokazuje stopień naładowania i zasiarczenia, a rozrzut między ogniwami zdradza kondycję pakietu.' },
       { t: 'Oględziny i kontrola połączeń', d: 'Poziom elektrolitu, stan łączników międzyogniwowych, wtyków i skrzyni, ślady wycieków.' },
@@ -55,15 +55,15 @@ const faq = [
   { q: "Do jakiej sprawności wraca bateria po regeneracji?", a: "Typowy wynik w naszej praktyce to powrót do 90-100% sprawności użytkowej. Minimalny próg, przy którym w ogóle uznajemy usługę za wykonaną, to 80% pojemności znamionowej. Konkretny wynik zawsze potwierdza test i raport przed/po." },
   { q: "Ile trwa regeneracja baterii trakcyjnej?", a: "Zależnie od stanu baterii i liczby sztuk: od jednej doby do kilku dni. Przy większych parkach pracujemy rotacyjnie, żeby flota wózków cały czas miała zasilanie." },
   { q: "Czy regeneracja działa na baterie żelowe i AGM?", a: "Tak. Parametry procesu dobieramy do technologii baterii (Pb / GEL / AGM), a kwalifikację zawsze poprzedzają pomiary." },
-  { q: "Czy dostanę gwarancję na efekt?", a: "Efekt potwierdza test pojemności i raport przed/po. Warunki gwarancji na wykonaną usługę określamy w ofercie po audycie, zależnie od stanu i wieku baterii." },
-  { q: "Co jeśli bateria nie nadaje się do regeneracji?", a: "Dowiesz się tego zaraz po bezpłatnych pomiarach, razem z rekomendacją wymiany, zanim cokolwiek zapłacisz. Nie bierzemy zleceń, które nie rokują." },
+  { q: "Czy dostanę gwarancję na efekt?", a: "Efekt potwierdza test pojemności i raport przed/po. Warunki gwarancji na wykonaną usługę określamy w ofercie po pomiarach na miejscu, zależnie od stanu i wieku baterii." },
+  { q: "Co jeśli bateria nie nadaje się do regeneracji?", a: "Dowiesz się tego po pierwszych pomiarach na miejscu, razem z rekomendacją wymiany, zanim zaczniemy regenerację. Nie bierzemy zleceń, które nie rokują." },
 ];
 
 ---
 
 <BaseLayout
   title="Regeneracja baterii trakcyjnych do wózków widłowych | LIFT Baterie"
-  description="Regeneracja baterii trakcyjnych Pb, GEL i AGM u klienta, w całej Polsce. Do 70% taniej niż nowa bateria. Bezpłatny audyt i raport przed/po. Tel. 695 946 842"
+  description="Regeneracja baterii trakcyjnych Pb, GEL i AGM u klienta, w całej Polsce. Do 70% taniej niż nowa bateria. Bezpłatna konsultacja i raport przed/po. Tel. 695 946 842"
   extraSchema={[faqSchema(faq), 
     serviceSchema({
       name: 'Regeneracja baterii trakcyjnych',
@@ -88,7 +88,7 @@ const faq = [
         Pracujemy na miejscu, w oknach serwisowych, a efekt potwierdzamy raportem przed/po.
       </p>
       <div class="mt-7 flex flex-col gap-3 sm:flex-row">
-        <a href="#audyt" class="rounded-lg bg-brand-600 px-6 py-3 text-center font-semibold transition hover:bg-brand-700">Zamów bezpłatny audyt</a>
+        <a href="#konsultacja" class="rounded-lg bg-brand-600 px-6 py-3 text-center font-semibold transition hover:bg-brand-700">Umów bezpłatną konsultację</a>
         <a href={SITE.phoneHref} class="rounded-lg border border-gray-500 px-6 py-3 text-center font-semibold transition hover:border-white"><PhoneIcon /> {SITE.phoneDisplay}</a>
       </div>
     </div>
@@ -168,7 +168,7 @@ const faq = [
     <div class="mt-8 rounded-2xl bg-brand-50 p-6 text-center">
       <p class="font-semibold text-ink-800">Nie wiesz, czy Twoja bateria się kwalifikuje?</p>
       <div class="mt-4 flex flex-col justify-center gap-3 sm:flex-row">
-        <a href="#audyt" class="rounded-lg bg-brand-600 px-6 py-3 font-semibold text-white transition hover:bg-brand-700">Zamów bezpłatny audyt</a>
+        <a href="#konsultacja" class="rounded-lg bg-brand-600 px-6 py-3 font-semibold text-white transition hover:bg-brand-700">Umów bezpłatną konsultację</a>
         <a href={SITE.phoneHref} class="rounded-lg border border-brand-300 px-6 py-3 font-semibold text-brand-700 transition hover:border-brand-600"><PhoneIcon /> {SITE.phoneDisplay}</a>
       </div>
     </div>
@@ -182,7 +182,7 @@ const faq = [
 
     <h2 class="mt-10 border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Co wpływa na cenę</h2>
     <p class="mt-4 text-gray-700">
-      Konkretną wycenę przedstawiamy po audycie, bo rzetelnie da się ją policzyć dopiero po pomiarach. Jedno jest pewne: zasiarczenie utrwala się
+      Konkretną wycenę przedstawiamy po pomiarach na miejscu, bo rzetelnie da się ją policzyć dopiero wtedy. Jedno jest pewne: zasiarczenie utrwala się
       z każdym tygodniem pracy osłabionej baterii, więc im wcześniej pomiar, tym krótszy proces
       i niższy koszt. Na cenę składają się:
     </p>
@@ -249,11 +249,11 @@ const faq = [
     </div>
   </section>
 
-  <section id="audyt" class="bg-ink-900">
+  <section id="konsultacja" class="bg-ink-900">
     <div class="mx-auto max-w-2xl px-4 py-14">
       <h2 class="text-center font-display text-2xl font-bold text-white">Sprawdź, ile odzyska Twoja bateria</h2>
       <p class="mt-3 text-center text-gray-300">
-        Bezpłatny audyt z pomiarami i konkretną rekomendacją, bez zobowiązań.
+        Bezpłatna konsultacja: opisz objawy, wyślij zdjęcia, a powiemy, czy regeneracja ma sens. Bez zobowiązań.
         Wolisz porozmawiać? <a href={SITE.phoneHref} class="font-bold text-brand-300"><PhoneIcon /> {SITE.phoneDisplay}</a>
       </p>
       <div class="mt-8 rounded-2xl bg-white p-6">

@@ -42,20 +42,20 @@ const services = [
 
 const steps = [
   {
-    t: 'Audyt i pomiary (0 zł)',
-    d: 'Gęstość elektrolitu, napięcia ogniw, test pojemności. Rekomendacja z wyceną dla każdej baterii.',
+    t: 'Bezpłatna konsultacja',
+    d: 'Rozmowa o objawach, zdjęcia baterii i tabliczki. Mówimy, czy regeneracja ma sens, zanim przyjedziemy.',
+  },
+  {
+    t: 'Diagnostyka na miejscu',
+    d: 'Gęstość elektrolitu, napięcia ogniw, test pojemności. Jeśli bateria nie rokuje, mówimy to przed regeneracją.',
   },
   {
     t: 'Regeneracja na miejscu',
     d: 'Desulfatacja i cykle kontrolowanego ładowania w Twoim zakładzie, w terminach poza szczytem hali.',
   },
   {
-    t: 'Test końcowy',
-    d: 'Kontrolowane rozładowanie potwierdza odzyskaną pojemność. Próg zaliczenia: 80% wartości znamionowej.',
-  },
-  {
-    t: 'Raport i zalecenia',
-    d: 'Parametry przed i po usłudze oraz wskazówki dla operatorów, które utrwalają efekt.',
+    t: 'Test końcowy i raport',
+    d: 'Kontrolowane rozładowanie potwierdza odzyskaną pojemność. Parametry przed i po trafiają do raportu razem z zaleceniami dla operatorów.',
   },
 ];
 
@@ -78,12 +78,12 @@ const cases = [
 ];
 
 const faq = [
-  { q: "Czy regeneracja zawsze się opłaca?", a: "Nie. Zaczynamy od pomiarów i zdarza się, że odradzamy własną usługę: baterii z wypadniętą masą czynną albo zwartym ogniwem nie uratuje żadna technologia. W takiej sytuacji dostaniesz rekomendację wymiany zamiast kosztownych prób. Samo sprawdzenie nic nie kosztuje: pomiary wykonujemy w ramach bezpłatnego audytu." },
+  { q: "Czy regeneracja zawsze się opłaca?", a: "Nie. Zaczynamy od pomiarów i zdarza się, że odradzamy własną usługę: baterii z wypadniętą masą czynną albo zwartym ogniwem nie uratuje żadna technologia. W takiej sytuacji dostaniesz rekomendację wymiany zamiast kosztownych prób. Rozmowa nic nie kosztuje: zacznij od bezpłatnej konsultacji, a pomiary zrobimy na miejscu, przed regeneracją." },
   { q: "Po czym poznać, że bateria nadaje się do regeneracji?", a: "Typowe sygnały to skrócony czas pracy, dłuższe ładowanie i przegrzewające się ogniwa. Zwykle stoi za tym zasiarczenie, a ten proces jest odwracalny. Pewność dają dopiero pomiary." },
   { q: "Jak wygląda proces krok po kroku?", a: "Diagnostyka, regeneracja, test końcowy i raport. Harmonogram ustalamy z góry, a prace prowadzimy poza godzinami szczytu magazynu." },
   { q: "Jakie baterie i branże obsługujecie?", a: "Baterie trakcyjne Pb / GEL / AGM w wózkach widłowych oraz akumulatory rozruchowe 12/24 V we flotach ciężarowych. Pracujemy dla magazynów, produkcji, dystrybucji i transportu." },
   { q: "Ile to trwa i czy wstrzymacie mi magazyn?", a: "Pojedyncza bateria to zwykle od jednej do kilku dób. Przy większych parkach działamy rotacyjnie, bateria po baterii, więc flota zachowuje pełną dyspozycyjność." },
-  { q: "Ile to kosztuje?", a: "Zależnie od typu, pojemności i stanu baterii oraz liczby sztuk. Konkretne kwoty poznasz po audycie; w typowym scenariuszu regeneracja wychodzi znacznie taniej niż zakup nowych baterii." },
+  { q: "Ile to kosztuje?", a: "Zależnie od typu, pojemności i stanu baterii oraz liczby sztuk. Konkretne kwoty poznasz po pomiarach na miejscu; w typowym scenariuszu regeneracja wychodzi znacznie taniej niż zakup nowych baterii." },
 ];
 
 ---
@@ -91,7 +91,7 @@ const faq = [
 <BaseLayout
   extraSchema={[faqSchema(faq)]}
   title="Regeneracja baterii przemysłowych w całej Polsce | LIFT Baterie"
-  description="Przywracamy sprawność baterii przemysłowych u klienta, w całej Polsce. Bezpłatny audyt, prace w oknach serwisowych, raport przed/po. Tel. 695 946 842."
+  description="Przywracamy sprawność baterii przemysłowych u klienta, w całej Polsce. Bezpłatna konsultacja, prace w oknach serwisowych, raport przed/po. Tel. 695 946 842."
 >
   <!-- HERO -->
   <section class="relative isolate bg-ink-900 text-white">
@@ -105,8 +105,8 @@ const faq = [
         serwisowych. Efekt potwierdzamy raportem przed/po.
       </p>
       <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-        <a href={href('/bezplatny-audyt')} class="rounded-lg bg-brand-600 px-6 py-3.5 text-center font-semibold transition hover:bg-brand-700">
-          Zamów bezpłatny audyt
+        <a href={href('/bezplatna-konsultacja')} class="rounded-lg bg-brand-600 px-6 py-3.5 text-center font-semibold transition hover:bg-brand-700">
+          Umów bezpłatną konsultację
         </a>
         <a href={SITE.phoneHref} class="rounded-lg border border-gray-500 px-6 py-3.5 text-center font-semibold transition hover:border-white">
           <PhoneIcon /> Zadzwoń: {SITE.phoneDisplay}
@@ -133,7 +133,7 @@ const faq = [
         <p class="text-sm font-semibold uppercase tracking-wide text-brand-600">Floty transportowe</p>
         <h2 class="mt-2 font-display text-2xl font-bold">Akumulatory ciężarowe 12/24 V</h2>
         <p class="mt-3 text-gray-600">
-          Audyt akumulatorów całej floty, diagnostyka i regeneracja na Twojej bazie. Mniej awarii zimą.
+          Przegląd akumulatorów całej floty, diagnostyka i regeneracja na Twojej bazie. Mniej awarii zimą.
         </p>
         <p class="mt-4 font-semibold text-brand-600 group-hover:underline">Zobacz ofertę dla flot →</p>
       </a>
@@ -220,8 +220,8 @@ const faq = [
         ))}
       </ol>
       <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-        <a href={href('/bezplatny-audyt')} class="rounded-lg bg-brand-600 px-6 py-3 font-semibold text-white transition hover:bg-brand-700">
-          Zacznij od bezpłatnego audytu
+        <a href={href('/bezplatna-konsultacja')} class="rounded-lg bg-brand-600 px-6 py-3 font-semibold text-white transition hover:bg-brand-700">
+          Zacznij od bezpłatnej konsultacji
         </a>
         <a href={SITE.phoneHref} class="rounded-lg border border-gray-300 px-6 py-3 font-semibold text-ink-800 transition hover:border-ink-800">
           <PhoneIcon /> {SITE.phoneDisplay}
