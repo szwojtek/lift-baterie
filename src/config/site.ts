@@ -21,6 +21,8 @@ export const SITE = {
   cookieYesKey: '1963f26a38fdaf8f6732ff5533a298e6',
   gscVerification: 'W53ptc3d17CfjxdNvkYTf47mXSk8YQJBZgIOS32IOyA',
 
-  web3formsKey: '',
+  // Public by design: the browser posts straight to Web3Forms, so the key ships in the page source
+  // either way. Abuse is limited in the Web3Forms panel (allowed domains), not by hiding it.
+  web3formsKey: '20d2eb84-a6b1-4241-9ec6-a9b178c537ef',
   googleReviewsUrl: '',
 } as const;
