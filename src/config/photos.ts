@@ -72,6 +72,12 @@ export const PHOTOS = {
     alt: 'Zbliżenie na łączniki międzyogniwowe i korki ogniw baterii trakcyjnej',
     caption: 'Łączniki międzyogniwowe. Podwyższona rezystancja na połączeniu grzeje i zjada pojemność.',
   },
+  /**
+   * Upright 4:5 frame, the only portrait photo on the site: the earlier 16:9 band cut from this
+   * source lost most of what says the battery is still in the truck (chassis, key switch, the
+   * battery compartment's length). The label's wordmark, serial, barcode and part number are
+   * blurred in post; the cell type designation stays legible, as on batteryNameplate.
+   */
   batteryInTruck: {
     src: batteryInTruck,
     alt: 'Bateria trakcyjna zamontowana w wózku widłowym, obok wskaźnik naładowania',
