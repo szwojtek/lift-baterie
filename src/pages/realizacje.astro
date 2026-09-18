@@ -48,26 +48,14 @@ const cases = [
   title="Realizacje: regeneracja baterii w praktyce | LIFT Baterie"
   description="Zobacz realizacje LIFT Baterie: regeneracja i formatowanie baterii trakcyjnych u klientów w całej Polsce, z liczbami i raportami przed/po."
 >
-  <section class="mx-auto max-w-6xl px-4 py-16">
+  <section class="mx-auto max-w-6xl px-4 pt-16 pb-10">
     <h1 class="font-display text-3xl font-bold sm:text-4xl">Realizacje</h1>
     <p class="mt-4 max-w-2xl text-gray-600">
       Każdą usługę kończymy raportem przed/po. Poniżej wybrane wdrożenia u klientów z całej Polski.
     </p>
-    <div class="mt-10 grid gap-6 md:grid-cols-2">
-      {cases.map((c) => (
-        <figure class="rounded-2xl border border-gray-200 p-6">
-          <p class="text-sm font-bold text-brand-600">{c.tag}</p>
-          <blockquote class="mt-3 text-gray-700">„{c.quote}”</blockquote>
-          <figcaption class="mt-4 text-sm font-semibold text-gray-500">{c.firm}</figcaption>
-        </figure>
-      ))}
-    </div>
   </section>
 
-  <p class="mx-auto max-w-6xl px-4 pb-10 text-sm text-gray-500">
-    Część klientów prosi o anonimizację nazw. Pełne dane referencyjne udostępniamy do wglądu na życzenie, podczas konsultacji.
-  </p>
-
+  {/* Measurements lead: links across the site promise "raporty z pomiarów" and land here. */}
   <ResultsTable />
 
   <!-- GALLERY -->
@@ -90,6 +78,25 @@ const cases = [
         ))
       }
     </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <h2 class="border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold sm:text-3xl">
+      Opinie klientów
+    </h2>
+    <div class="mt-10 grid gap-6 md:grid-cols-2">
+      {cases.map((c) => (
+        <figure class="rounded-2xl border border-gray-200 p-6">
+          <p class="text-sm font-bold text-brand-600">{c.tag}</p>
+          <blockquote class="mt-3 text-gray-700">„{c.quote}”</blockquote>
+          <figcaption class="mt-4 text-sm font-semibold text-gray-500">{c.firm}</figcaption>
+        </figure>
+      ))}
+    </div>
+    <p class="mt-6 text-sm text-gray-500">
+      Część klientów prosi o anonimizację nazw. Pełne dane referencyjne udostępniamy do wglądu na życzenie, podczas konsultacji.
+    </p>
   </section>
 
   <CtaBand title="Twoja hala może być następna" />
