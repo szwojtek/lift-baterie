@@ -1,7 +1,8 @@
 import type { ImageMetadata } from 'astro';
 
 import heroRegenerationOnsite from '../assets/photos/hero-regeneration-onsite.jpg';
-import workshopRegenerationBay from '../assets/photos/workshop-regeneration-bay.jpg';
+import batteryUnderRegeneration from '../assets/photos/battery-under-regeneration.jpg';
+import hallRegenerationWide from '../assets/photos/hall-regeneration-wide.jpg';
 import batteryNameplate from '../assets/photos/battery-nameplate.jpg';
 import clampMeterDiagnostics from '../assets/photos/clamp-meter-diagnostics.jpg';
 import openCellsDetail from '../assets/photos/open-cells-detail.jpg';
@@ -31,10 +32,20 @@ export const PHOTOS = {
     alt: 'Urządzenie do regeneracji baterii trakcyjnych podłączone do wózka widłowego w hali klienta, obok laptop z wykresem cyklu ładowania',
     caption: 'Regeneracja u klienta na hali. Urządzenie pracuje przy wózku, laptop zapisuje przebieg cyklu.',
   },
-  workshopRegenerationBay: {
-    src: workshopRegenerationBay,
-    alt: 'Stanowisko regeneracji baterii trakcyjnych: cztery urządzenia w pracy, ogniwa w komorze serwisowej i laptop z zapisem pomiarów',
-    caption: 'Stanowisko regeneracji. Cykle prowadzimy równolegle na kilku bateriach.',
+  /**
+   * Replaced the workshop-bay frame the customer withdrew on 2026-09-17 (LFB-001).
+   * The device's model wordmark behind the laptop is masked in post.
+   */
+  batteryUnderRegeneration: {
+    src: batteryUnderRegeneration,
+    alt: 'Bateria trakcyjna z podpiętymi przewodami urządzenia do regeneracji, obok laptop z zapisem cyklu',
+    caption: 'Regeneracja w toku. Urządzenie prowadzi cykle, laptop zapisuje każdy z nich.',
+  },
+  /** Wide hall frame for the service hero; the manufacturer wordmark on the unit is masked in post. */
+  hallRegenerationWide: {
+    src: hallRegenerationWide,
+    alt: 'Urządzenie do regeneracji i laptop na palecie obok wózka wysokiego składowania w hali klienta',
+    caption: 'Serwis u klienta: urządzenie staje przy wózku, hala pracuje dalej.',
   },
   batteryNameplate: {
     src: batteryNameplate,
