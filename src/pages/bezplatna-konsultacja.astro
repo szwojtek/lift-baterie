@@ -1,6 +1,5 @@
 ---
 import TrustBar from '../components/TrustBar.astro';
-import CheckIcon from '../components/icons/CheckIcon.astro';
 import PhoneIcon from '../components/icons/PhoneIcon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
@@ -18,11 +17,9 @@ import { SITE } from '../config/site';
     <HeroBackdrop photo={PHOTOS.clampMeterDiagnostics} />
     <div class="mx-auto max-w-3xl px-4 py-14 text-center">
       <h1 class="font-display text-3xl font-bold sm:text-4xl">Umów bezpłatną konsultację</h1>
-      <ul class="mx-auto mt-5 max-w-xl space-y-2 text-left text-gray-300">
-        <li><CheckIcon /> Rozmowa telefoniczna o objawach i historii baterii</li>
-        <li><CheckIcon /> Ocena na podstawie zdjęć baterii i tabliczki znamionowej</li>
-        <li><CheckIcon /> Wstępna rekomendacja: regenerować, serwisować czy wymienić. Bez zobowiązań</li>
-      </ul>
+      <p class="mx-auto mt-5 max-w-xl text-lg text-gray-300">
+        Rozmowa telefoniczna, zdjęcia baterii, wstępna rekomendacja. Bez zobowiązań.
+      </p>
     </div>
   </section>
 

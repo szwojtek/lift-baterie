@@ -87,6 +87,6 @@ jednoznaczną odpowiedź, która z powyższych przyczyn dotyczy Twojej baterii o
 zregenerować, serwisować, czy wymienić.
 
 Dokładnie po to jest [bezpłatna konsultacja](../bezplatna-konsultacja): opisujesz objawy, wysyłasz
-zdjęcia baterii, a my mówimy, czy regeneracja ma sens. Pomiary każdego ogniwa robimy na miejscu,
-przed decyzją o regeneracji. Bez zobowiązań. Decyzję podejmujesz na podstawie liczb, nie oferty
-handlowca.
+zdjęcia baterii, a my mówimy, czy regeneracja ma sens. Bez zobowiązań. Pomiary każdego ogniwa
+wykonujemy na miejscu jako pierwszy krok usługi, przed decyzją o regeneracji. Decyzję podejmujesz
+na podstawie liczb, nie oferty handlowca.
