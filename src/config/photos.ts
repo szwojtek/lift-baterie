@@ -73,10 +73,11 @@ export const PHOTOS = {
     caption: 'Łączniki międzyogniwowe. Podwyższona rezystancja na połączeniu grzeje i zjada pojemność.',
   },
   /**
-   * Upright 4:5 frame, the only portrait photo on the site: the earlier 16:9 band cut from this
-   * source lost most of what says the battery is still in the truck (chassis, key switch, the
-   * battery compartment's length). The label's wordmark, serial, barcode and part number are
-   * blurred in post; the cell type designation stays legible, as on batteryNameplate.
+   * The source is a portrait, top-down shot. It is turned 90 degrees clockwise rather than cropped:
+   * a 16:9 band cut from it kept under half the frame, and an upright frame broke the full-width
+   * landscape slot every content photo uses. Top-down means no horizon, and turned this way the
+   * truck's charge indicator reads upright. The label's wordmark, serial, barcode and part number
+   * are blurred in post; the cell type designation stays legible, as on batteryNameplate.
    */
   batteryInTruck: {
     src: batteryInTruck,

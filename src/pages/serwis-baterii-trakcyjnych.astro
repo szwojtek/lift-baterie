@@ -81,19 +81,14 @@ const faq = [
       <a href={href('/baza-wiedzy/kiedy-bateria-nie-nadaje-sie-do-regeneracji')} class="font-semibold text-brand-600 hover:underline">piszemy o tym otwarcie</a>.
     </p>
 
-    {/* The truck frame is upright, so it sits beside the copy from md up instead of filling the column:
-        at 48rem wide a 4:5 photo would be taller than the viewport. */}
-    <div class="mt-10 grid gap-8 md:grid-cols-[1fr_17rem] md:items-start">
-      <div>
-        <h2 class="border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Mobilny serwis bez transportu baterii</h2>
-        <p class="mt-4 text-gray-700">
-          Większość firm serwisowych wymaga wysłania baterii do warsztatu: organizacja transportu, tygodnie
-          oczekiwania, wózek wyłączony z pracy. My działamy odwrotnie: <strong>serwis przyjeżdża do baterii</strong>.
-          Pracujemy planowo, nocą i w weekendy, w całej Polsce, więc hala nie zwalnia nawet na godzinę.
-        </p>
-      </div>
-      <Photo photo={PHOTOS.batteryInTruck} sizes="(min-width: 768px) 17rem, 100vw" widths={[320, 544, 800, 1200]} />
-    </div>
+    <h2 class="mt-10 border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Mobilny serwis bez transportu baterii</h2>
+    <p class="mt-4 text-gray-700">
+      Większość firm serwisowych wymaga wysłania baterii do warsztatu: organizacja transportu, tygodnie
+      oczekiwania, wózek wyłączony z pracy. My działamy odwrotnie: <strong>serwis przyjeżdża do baterii</strong>.
+      Pracujemy planowo, nocą i w weekendy, w całej Polsce, więc hala nie zwalnia nawet na godzinę.
+    </p>
+
+    <Photo photo={PHOTOS.batteryInTruck} class="mt-8" sizes="(min-width: 768px) 48rem, 100vw" widths={[480, 768, 1200]} />
 
     <div class="mt-8 rounded-2xl bg-brand-50 p-6 text-center">
       <p class="font-semibold text-ink-800">Umów przegląd parku baterii albo zapytaj o kontrakt serwisowy</p>
