@@ -5,7 +5,7 @@ export const SITE = {
   domain: 'https://lift-baterie.pl',
   phoneDisplay: '695 946 842',
   phoneHref: 'tel:+48695946842',
-  email: 'dariusz.koziel@lift-kielce.pl',
+  email: 'kontakt@lift-baterie.pl',
   address: {
     street: 'Wojska Polskiego 7 lok. 5A',
     zip: '25-364',
