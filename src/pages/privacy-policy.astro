@@ -44,14 +44,27 @@ import { SITE } from '../config/site';
 
       <div>
         <h2 class="font-display text-lg font-bold text-ink-800">Odbiorcy danych</h2>
+        {/* Named, not generic: a visitor has the right to know who actually receives the data (art. 13 RODO). */}
+        <p class="mt-2">Korzystamy z dostawców, którzy przetwarzają dane w naszym imieniu:</p>
+        <ul class="mt-2 list-disc space-y-1 pl-5">
+          <li>GitHub: hosting strony.</li>
+          <li>Web3Forms: obsługa formularza kontaktowego.</li>
+          <li>GoDaddy i Titan: poczta e-mail.</li>
+          <li>Google (Tag Manager, Analytics, Ads): analityka i pomiar reklam, po wyrażeniu zgody.</li>
+          <li>CookieYes: zarządzanie zgodami na pliki cookies.</li>
+        </ul>
         <p class="mt-2">
-          Dostawcy hostingu, poczty, narzędzi analitycznych/CRM, biuro rachunkowe, podwykonawcy serwisowi.
+          Dane mogą też trafić do biura rachunkowego i podwykonawców serwisowych, gdy wymaga tego realizacja umowy.
         </p>
       </div>
 
       <div>
         <h2 class="font-display text-lg font-bold text-ink-800">Przekazywanie poza EOG</h2>
-        <p class="mt-2">Stosujemy standardowe klauzule umowne (SCC) i dodatkowe środki bezpieczeństwa.</p>
+        <p class="mt-2">
+          Część z tych dostawców przetwarza dane poza Europejskim Obszarem Gospodarczym, głównie w USA.
+          Podstawą przekazania jest decyzja o adekwatności (program Data Privacy Framework) albo
+          standardowe klauzule umowne (SCC).
+        </p>
       </div>
 
       <div>
@@ -90,9 +103,9 @@ import { SITE } from '../config/site';
         </p>
       </div>
 
-      {/* Bump this on the day the site goes live on lift-baterie.pl; 24.08.2026
+      {/* Bump this on the day the site goes live on lift-baterie.pl; 18.09.2026
           is the date this document was last revised, not the launch date. */}
-      <p class="text-xs text-gray-500">Ostatnia aktualizacja: 24.08.2026</p>
+      <p class="text-xs text-gray-500">Ostatnia aktualizacja: 18.09.2026</p>
     </div>
   </section>
 </BaseLayout>
