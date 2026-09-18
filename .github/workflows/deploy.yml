@@ -19,10 +19,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      SITE_URL: https://szwojtek.github.io
-      BASE_PATH: /lift-baterie
-      PUBLIC_NOINDEX: "true"
-      PUBLIC_ANALYTICS: "false"
+      # Production on the custom domain: indexable, analytics on. The preview values were
+      # https://szwojtek.github.io, /lift-baterie, "true", "false"; restoring them is the rollback.
+      SITE_URL: https://lift-baterie.pl
+      BASE_PATH: /
+      PUBLIC_NOINDEX: "false"
+      PUBLIC_ANALYTICS: "true"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
