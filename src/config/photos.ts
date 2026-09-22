@@ -114,7 +114,9 @@ export const PHOTOS = {
   cellTopsBefore: {
     src: cellTopsBefore,
     alt: 'Zabrudzone, zasiarczone pokrywy ogniw baterii trakcyjnej przed regeneracją',
-    caption: 'Ta sama bateria, przed regeneracją.',
+    // Not "Ta sama bateria, przed regeneracją" — the section heading right
+    // above this pair already says "Ta sama bateria, przed i po" (code review).
+    caption: 'Przed regeneracją.',
   },
   cellTopsAfter: {
     src: cellTopsAfter,

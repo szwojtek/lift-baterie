@@ -10,6 +10,13 @@ interface Props {
   photo?: Photo;
 }
 
+/**
+ * Slots: `title` (required — Astro can't enforce this at the type level; an
+ * omitted `slot="title"` builds a silently empty `<h1>`, not an error),
+ * `eyebrow` / `subtitle` / `cta` (all optional, each rendered only when
+ * `Astro.slots.has(name)` is true).
+ */
+
 const { variant, photo } = Astro.props;
 
 /**

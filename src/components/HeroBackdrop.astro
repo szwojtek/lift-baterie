@@ -31,13 +31,29 @@ const { photo, hideBelowSm = false } = Astro.props;
     hideBelowSm ? 'hidden sm:block' : 'block',
   ]}
 >
+  {/*
+    fetchpriority is deliberately NOT tied to hideBelowSm, unlike loading below.
+    loading has to stay coupled to it -- it's the only lever that gets zero
+    bytes below `sm` (an `eager` image ignores its hidden ancestor and fetches
+    anyway). But fetchpriority only affects how urgently an ALREADY-decided
+    fetch runs, never whether it happens, so there's no reason to downgrade it
+    just because the image happens to be behind hideBelowSm on this page: at
+    sm+, where hideBelowSm pages show this exact photo, it's still the hero's
+    primary visual and a likely LCP element (LFB-003 code review caught this
+    coupling as a real regression on 5 of 7 pages before this fix).
+
+    quality={72} (was the astro:assets default, 80): 79.8 KB -> 61.1 KB on the
+    800w mobile variant, still visually indistinguishable behind the veil/
+    gradient (LFB-003 Position 2, target <=75 KB at DPR2/390px -- see
+    artifacts/lift-baterie/LFB-003/README.md).
+  */}
   <Image
     src={photo.src}
     alt={photo.alt}
     widths={[640, 800, 1024, 1200, 1600]}
     sizes="(min-width: 640px) 68vw, 100vw"
     loading={hideBelowSm ? 'lazy' : 'eager'}
-    fetchpriority={hideBelowSm ? 'auto' : 'high'}
+    fetchpriority="high"
     quality={72}
     class="hero-photo h-full w-full object-cover object-center"
   />
