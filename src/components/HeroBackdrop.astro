@@ -78,4 +78,22 @@ const { photo, hideBelowSm = false } = Astro.props;
       mask-image: linear-gradient(to right, transparent 0%, #000 70%);
     }
   }
+
+  /* Ken Burns (LFB-003 Position 3): transform-only, so it composites on its
+     own layer and costs no layout/paint per frame. Off entirely under
+     reduced motion, same gate as the rest of global.css's motion system. */
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-photo {
+      animation: hero-ken-burns 20s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+  }
+  @keyframes hero-ken-burns {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.06);
+    }
+  }
 </style>
