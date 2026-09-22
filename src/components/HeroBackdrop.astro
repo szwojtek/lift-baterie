@@ -4,19 +4,9 @@ import type { Photo } from '../config/photos';
 
 interface Props {
   photo: Photo;
-  /**
-   * Below `sm` the mobile hero box is taller, relative to its width, than a
-   * 16:9 source frame can fill without cropping away most of its width
-   * (measured on LFB-003: >55% cut, see artifacts/lift-baterie/LFB-003/README.md).
-   * Hiding it there costs zero bytes: `loading="lazy"` on an element inside a
-   * `hidden` ancestor never becomes an intersection candidate, so the browser
-   * never requests it below `sm`. From `sm` up the photo returns at full
-   * quality; only the loading priority (not the crop) is the trade-off.
-   */
-  hideBelowSm?: boolean;
 }
 
-const { photo, hideBelowSm = false } = Astro.props;
+const { photo } = Astro.props;
 ---
 
 {/*
@@ -25,22 +15,12 @@ const { photo, hideBelowSm = false } = Astro.props;
   Both wrappers are <span>, not <div>: global.css forces `position: relative`
   on direct div children of the hero section, which would defeat `absolute`.
 */}
-<span
-  class:list={[
-    'hero-photo-wrap absolute inset-y-0 right-0 -z-10 w-full sm:w-[68%]',
-    hideBelowSm ? 'hidden sm:block' : 'block',
-  ]}
->
+<span class="hero-photo-wrap absolute inset-y-0 right-0 -z-10 block w-full sm:w-[68%]">
   {/*
-    fetchpriority is deliberately NOT tied to hideBelowSm, unlike loading below.
-    loading has to stay coupled to it -- it's the only lever that gets zero
-    bytes below `sm` (an `eager` image ignores its hidden ancestor and fetches
-    anyway). But fetchpriority only affects how urgently an ALREADY-decided
-    fetch runs, never whether it happens, so there's no reason to downgrade it
-    just because the image happens to be behind hideBelowSm on this page: at
-    sm+, where hideBelowSm pages show this exact photo, it's still the hero's
-    primary visual and a likely LCP element (LFB-003 code review caught this
-    coupling as a real regression on 5 of 7 pages before this fix).
+    eager/high unconditionally: this photo is always the hero's primary
+    visual and a likely LCP element on every page that has one (LFB-003
+    follow-up, 2026-09-22 -- Wojtek restored the photo below `sm` on all
+    variants, so there's no breakpoint left where hiding it would matter).
 
     quality={72} (was the astro:assets default, 80): 79.8 KB -> 61.1 KB on the
     800w mobile variant, still visually indistinguishable behind the veil/
@@ -52,20 +32,27 @@ const { photo, hideBelowSm = false } = Astro.props;
     alt={photo.alt}
     widths={[640, 800, 1024, 1200, 1600]}
     sizes="(min-width: 640px) 68vw, 100vw"
-    loading={hideBelowSm ? 'lazy' : 'eager'}
+    loading="eager"
     fetchpriority="high"
     quality={72}
     class="hero-photo h-full w-full object-cover object-center"
   />
 </span>
 {/*
-  Below `sm` the photo (where it isn't hidden) runs full width and this veil
-  alone carries the contrast. At `sm+` it stays on at a lower, uniform 45% so
-  every pixel behind the text has a dark floor regardless of what the photo
-  looks like there; the gradient below adds the extra, left-to-right darkening
-  on top of it (LFB-003 — see the mask's comment for the worst-case numbers).
+  Below `sm` the photo runs full width and this veil alone carries the
+  contrast -- `hero-veil-below-sm` is a deliberately separate class from the
+  `sm:` override below it, so raising it never touches the sm:45% desktop
+  value, which stays exactly as Position 2 tuned it. 65% (LFB-003's original
+  Position 2 value) measured 4.20:1 on regeneracja-baterii-trakcyjnych@390 --
+  below the 4.5:1 target with the photo now visible on every variant
+  (LFB-003 follow-up, 2026-09-22). Raised to 75%: worst measured case across
+  all 7 pages x {390,360} is now 6.43:1. At `sm+` it drops to a lower,
+  uniform 45% so every pixel behind the text still has a dark floor
+  regardless of what the photo looks like there; the gradient below adds the
+  extra, left-to-right darkening on top of it (LFB-003 — see the mask's
+  comment for the worst-case numbers).
 */}
-<span aria-hidden="true" class="absolute inset-0 -z-10 bg-ink-900/65 sm:bg-ink-900/45"></span>
+<span aria-hidden="true" class="hero-veil-below-sm absolute inset-0 -z-10 bg-ink-900/75 sm:bg-ink-900/45"></span>
 <span
   aria-hidden="true"
   class="absolute inset-0 -z-10 hidden sm:block sm:bg-gradient-to-r sm:from-ink-900 sm:from-45% sm:via-ink-900/75 sm:via-70% sm:to-ink-900/50"
