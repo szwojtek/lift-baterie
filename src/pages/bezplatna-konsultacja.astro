@@ -3,7 +3,7 @@ import TrustBar from '../components/TrustBar.astro';
 import PhoneIcon from '../components/icons/PhoneIcon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
-import HeroBackdrop from '../components/HeroBackdrop.astro';
+import Hero from '../components/Hero.astro';
 import ProofStrip from '../components/ProofStrip.astro';
 import { PHOTOS } from '../config/photos';
 import { SITE } from '../config/site';
@@ -13,15 +13,12 @@ import { SITE } from '../config/site';
   title="Bezpłatna konsultacja baterii trakcyjnych | LIFT Baterie"
   description="Umów bezpłatną konsultację: opisz objawy, wyślij zdjęcia baterii, a powiemy, czy regeneracja ma sens i co dalej. Bez zobowiązań."
 >
-  <section class="relative isolate bg-ink-900 text-white">
-    <HeroBackdrop photo={PHOTOS.clampMeterDiagnostics} />
-    <div class="mx-auto max-w-3xl px-4 py-14 text-center">
-      <h1 class="font-display text-3xl font-bold sm:text-4xl">Umów bezpłatną konsultację</h1>
-      <p class="mx-auto mt-5 max-w-xl text-lg text-gray-300">
-        Rozmowa telefoniczna, zdjęcia baterii, wstępna rekomendacja. Bez zobowiązań.
-      </p>
-    </div>
-  </section>
+  <Hero variant="compact" photo={PHOTOS.clampMeterDiagnostics}>
+    <Fragment slot="title">Umów bezpłatną konsultację</Fragment>
+    <Fragment slot="subtitle">
+      Rozmowa telefoniczna, zdjęcia baterii, wstępna rekomendacja. Bez zobowiązań.
+    </Fragment>
+  </Hero>
 
   <TrustBar items={[`Od ${SITE.foundingYear} roku`, 'Cała Polska, dojazd do klienta', 'Bezpłatna konsultacja na start', 'Raport przed/po']} />
 

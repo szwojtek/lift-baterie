@@ -3,7 +3,7 @@ import TrustBar from '../components/TrustBar.astro';
 import PhoneIcon from '../components/icons/PhoneIcon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CtaBand from '../components/CtaBand.astro';
-import HeroBackdrop from '../components/HeroBackdrop.astro';
+import Hero from '../components/Hero.astro';
 import Photo from '../components/Photo.astro';
 import { PHOTOS } from '../config/photos';
 import { SITE } from '../config/site';
@@ -27,22 +27,17 @@ import { breadcrumbSchema, serviceSchema } from '../utils/schema';
     ]),
   ]}
 >
-  <section class="relative isolate bg-ink-900 text-white">
-    <HeroBackdrop photo={PHOTOS.batteryCellsTopview} />
-    <div class="mx-auto max-w-6xl px-4 py-16 sm:py-20">
-      <h1 class="max-w-3xl font-display text-3xl font-bold leading-tight sm:text-4xl">
-        Formatowanie baterii trakcyjnych: profilaktyka, która zapobiega zasiarczeniu
-      </h1>
-      <p class="mt-4 max-w-2xl text-gray-300">
-        Coroczne formatowanie eksploatacyjne stabilizuje pakiet ogniw i utrzymuje wysoką sprawność baterii
-        przez cały przewidziany okres jej eksploatacji. Wykonujemy je na miejscu, w oknach serwisowych.
-      </p>
-      <div class="mt-7 flex flex-col gap-3 sm:flex-row">
-        <a href={href('/bezplatna-konsultacja')} class="rounded-lg bg-brand-600 px-6 py-3 text-center font-semibold transition hover:bg-brand-700">Umów bezpłatną konsultację</a>
-        <a href={SITE.phoneHref} class="rounded-lg border border-gray-500 px-6 py-3 text-center font-semibold transition hover:border-white"><PhoneIcon /> {SITE.phoneDisplay}</a>
-      </div>
-    </div>
-  </section>
+  <Hero variant="page" photo={PHOTOS.batteryCellsTopview}>
+    <Fragment slot="title">Formatowanie baterii trakcyjnych: profilaktyka, która zapobiega zasiarczeniu</Fragment>
+    <Fragment slot="subtitle">
+      Coroczne formatowanie eksploatacyjne stabilizuje pakiet ogniw i utrzymuje wysoką sprawność baterii
+      przez cały przewidziany okres jej eksploatacji. Wykonujemy je na miejscu, w oknach serwisowych.
+    </Fragment>
+    <Fragment slot="cta">
+      <a href={href('/bezplatna-konsultacja')} class="rounded-lg bg-brand-600 px-6 py-3 text-center font-semibold transition hover:bg-brand-700">Umów bezpłatną konsultację</a>
+      <a href={SITE.phoneHref} class="rounded-lg border border-gray-500 px-6 py-3 text-center font-semibold transition hover:border-white"><PhoneIcon /> {SITE.phoneDisplay}</a>
+    </Fragment>
+  </Hero>
 
   <TrustBar items={[`Od ${SITE.foundingYear} roku`, 'Cała Polska, dojazd do klienta', 'Formatowanie raz w roku', 'Raport z pomiarów']} />
 

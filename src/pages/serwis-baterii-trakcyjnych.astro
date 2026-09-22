@@ -4,7 +4,7 @@ import PhoneIcon from '../components/icons/PhoneIcon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
 import FaqList from '../components/FaqList.astro';
-import HeroBackdrop from '../components/HeroBackdrop.astro';
+import Hero from '../components/Hero.astro';
 import Photo from '../components/Photo.astro';
 import { PHOTOS } from '../config/photos';
 import { SITE } from '../config/site';
@@ -35,22 +35,17 @@ const faq = [
     ]),
   ]}
 >
-  <section class="relative isolate bg-ink-900 text-white">
-    <HeroBackdrop photo={PHOTOS.hallRegenerationWide} />
-    <div class="mx-auto max-w-6xl px-4 py-16 sm:py-20">
-      <h1 class="max-w-3xl font-display text-3xl font-bold leading-tight sm:text-4xl">
-        Mobilny serwis baterii trakcyjnych w całej Polsce
-      </h1>
-      <p class="mt-4 max-w-2xl text-gray-300">
-        Cykliczne przeglądy, naprawy i opieka nad parkiem baterii Twoich wózków. Przyjeżdżamy do Ciebie
-        i pracujemy w oknach serwisowych. Bateria zostaje na miejscu, a magazyn pracuje bez przerwy.
-      </p>
-      <div class="mt-7 flex flex-col gap-3 sm:flex-row">
-        <a href={href('/bezplatna-konsultacja')} class="rounded-lg bg-brand-600 px-6 py-3 text-center font-semibold transition hover:bg-brand-700">Umów bezpłatną konsultację</a>
-        <a href={SITE.phoneHref} class="rounded-lg border border-gray-500 px-6 py-3 text-center font-semibold transition hover:border-white"><PhoneIcon /> {SITE.phoneDisplay}</a>
-      </div>
-    </div>
-  </section>
+  <Hero variant="page" photo={PHOTOS.hallRegenerationWide}>
+    <Fragment slot="title">Mobilny serwis baterii trakcyjnych w całej Polsce</Fragment>
+    <Fragment slot="subtitle">
+      Cykliczne przeglądy, naprawy i opieka nad parkiem baterii Twoich wózków. Przyjeżdżamy do Ciebie
+      i pracujemy w oknach serwisowych. Bateria zostaje na miejscu, a magazyn pracuje bez przerwy.
+    </Fragment>
+    <Fragment slot="cta">
+      <a href={href('/bezplatna-konsultacja')} class="rounded-lg bg-brand-600 px-6 py-3 text-center font-semibold transition hover:bg-brand-700">Umów bezpłatną konsultację</a>
+      <a href={SITE.phoneHref} class="rounded-lg border border-gray-500 px-6 py-3 text-center font-semibold transition hover:border-white"><PhoneIcon /> {SITE.phoneDisplay}</a>
+    </Fragment>
+  </Hero>
 
   <TrustBar items={[`Od ${SITE.foundingYear} roku`, 'Cała Polska, dojazd do klienta', 'Okna serwisowe: noc / weekend', 'Raport przed/po']} />
 

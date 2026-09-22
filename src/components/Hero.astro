@@ -1,0 +1,117 @@
+---
+import HeroBackdrop from './HeroBackdrop.astro';
+import type { Photo } from '../config/photos';
+
+type Variant = 'home' | 'page' | 'compact';
+
+interface Props {
+  variant: Variant;
+  /** Omit for the one page (regeneracja-akumulatorow-ciezarowych) with no matching frame; renders the decorative field instead. */
+  photo?: Photo;
+}
+
+const { variant, photo } = Astro.props;
+
+const containerClass = {
+  home: 'mx-auto w-full max-w-6xl px-4 py-10 sm:py-16',
+  page: 'mx-auto w-full max-w-6xl px-4 py-10 sm:py-14',
+  compact: 'mx-auto w-full max-w-3xl px-4 py-10 sm:py-12 text-center',
+}[variant];
+
+const h1Class = {
+  home: 'max-w-3xl font-display text-3xl font-bold leading-tight sm:text-5xl',
+  page: 'max-w-3xl font-display text-3xl font-bold leading-tight sm:text-4xl',
+  compact: 'font-display text-3xl font-bold sm:text-4xl',
+}[variant];
+
+const subtitleClass = {
+  home: 'mt-4 max-w-2xl text-lg text-gray-300',
+  page: 'mt-3 max-w-2xl text-gray-300',
+  compact: 'mx-auto mt-4 max-w-xl text-lg text-gray-300',
+}[variant];
+
+const ctaClass = {
+  home: 'mt-6 flex flex-col gap-3 sm:flex-row',
+  page: 'mt-6 flex flex-col gap-3 sm:flex-row',
+  compact: 'mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center',
+}[variant];
+
+/**
+ * One `min-h` pair per variant (LFB-003, Position 1). Frozen from measurement:
+ * tallest natural content (this component's own padding/type, not the old
+ * per-page markup) at the narrowest width of each breakpoint — 360px for
+ * `<sm`, 640px for `sm+` — plus a margin of ~15-20px, rounded up to a multiple
+ * of 10. A wider viewport in the same breakpoint always wraps onto the same or
+ * fewer lines, so the constant is never too small there — every page in a
+ * variant renders at exactly this height instead of whatever its own headline
+ * happened to need. Literal per-variant strings on purpose: Tailwind's scanner
+ * needs the full `min-h-[Npx]` text present in the source, not assembled from
+ * a variable at build time, or it never generates the rule.
+ * Source measurements: artifacts/lift-baterie/LFB-003/README.md.
+ */
+const minHClass = {
+  home: 'min-h-[550px] sm:min-h-[560px]',
+  page: 'min-h-[560px] sm:min-h-[470px]',
+  compact: 'min-h-[270px] sm:min-h-[230px]',
+}[variant];
+
+const hasEyebrow = Astro.slots.has('eyebrow');
+const hasSubtitle = Astro.slots.has('subtitle');
+const hasCta = Astro.slots.has('cta');
+---
+
+<section
+  class:list={['relative isolate overflow-hidden flex items-center bg-ink-900 text-white', minHClass]}
+  data-hero={variant}
+>
+  {
+    photo ? (
+      <HeroBackdrop photo={photo} />
+    ) : (
+      <>
+        {/*
+          No photograph on purpose (regeneracja-akumulatorow-ciezarowych): every
+          frame we own is a forklift traction battery and this page sells 12/24 V
+          starter batteries, so even a tight crop reads as the wrong hardware.
+          Decorative field carries the visual weight instead.
+        */}
+        <span
+          aria-hidden="true"
+          class="absolute inset-0 -z-10 block opacity-70"
+          style="background-image: radial-gradient(closest-side at 78% 28%, rgba(27,141,240,0.28), transparent 70%), radial-gradient(closest-side at 96% 82%, rgba(17,91,163,0.30), transparent 72%);"
+        />
+        <span
+          aria-hidden="true"
+          class="absolute inset-0 -z-10 block opacity-[0.14]"
+          style="background-image: linear-gradient(to right, rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.6) 1px, transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(to left, #000, transparent 62%); -webkit-mask-image: linear-gradient(to left, #000, transparent 62%);"
+        />
+      </>
+    )
+  }
+  <div class={containerClass}>
+    {
+      hasEyebrow && (
+        <p class="text-sm font-semibold uppercase tracking-wide text-brand-400">
+          <slot name="eyebrow" />
+        </p>
+      )
+    }
+    <h1 class:list={[h1Class, hasEyebrow && 'mt-2']}>
+      <slot name="title" />
+    </h1>
+    {
+      hasSubtitle && (
+        <p class={subtitleClass}>
+          <slot name="subtitle" />
+        </p>
+      )
+    }
+    {
+      hasCta && (
+        <div class={ctaClass}>
+          <slot name="cta" />
+        </div>
+      )
+    }
+  </div>
+</section>

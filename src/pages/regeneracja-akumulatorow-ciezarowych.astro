@@ -4,6 +4,7 @@ import PhoneIcon from '../components/icons/PhoneIcon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
 import FaqList from '../components/FaqList.astro';
+import Hero from '../components/Hero.astro';
 import { SITE } from '../config/site';
 import { breadcrumbSchema, serviceSchema, faqSchema } from '../utils/schema';
 
@@ -31,40 +32,17 @@ const faq = [
     ]),
   ]}
 >
-  <section class="relative isolate overflow-hidden bg-ink-900 text-white">
-    {/*
-      No photograph here on purpose. Every frame we own is of a traction
-      battery from a forklift, and this page sells 12/24 V starter batteries in
-      lorries; even a tight crop still reads as the wrong hardware to the fleet
-      manager this page is written for. The site plan also rules stock out of a
-      process hero. So the weight comes from a decorative field instead, which
-      claims to be nothing at all. Replace with a real lorry frame once one exists.
-      Span, not div: global.css forces `position: relative` on div children here.
-    */}
-    <span
-      aria-hidden="true"
-      class="absolute inset-0 -z-10 block opacity-70"
-      style="background-image: radial-gradient(closest-side at 78% 28%, rgba(27,141,240,0.28), transparent 70%), radial-gradient(closest-side at 96% 82%, rgba(17,91,163,0.30), transparent 72%);"
-    ></span>
-    <span
-      aria-hidden="true"
-      class="absolute inset-0 -z-10 block opacity-[0.14]"
-      style="background-image: linear-gradient(to right, rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.6) 1px, transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(to left, #000, transparent 62%); -webkit-mask-image: linear-gradient(to left, #000, transparent 62%);"
-    ></span>
-    <div class="mx-auto max-w-6xl px-4 py-16 sm:py-20">
-      <p class="text-sm font-semibold uppercase tracking-wide text-brand-400">Dla firm transportowych</p>
-      <h1 class="mt-2 max-w-3xl font-display text-3xl font-bold leading-tight sm:text-4xl">
-        Serwis i regeneracja akumulatorów ciężarowych: mniej awarii zimą, zero stojących zestawów
-      </h1>
-      <p class="mt-4 max-w-2xl text-gray-300">
-        Przegląd akumulatorów 12/24 V całej floty, raport per pojazd i regeneracja tego, co rokuje. Wszystko na Twojej bazie, bez zjeżdżania pojazdów z tras.
-      </p>
-      <div class="mt-7 flex flex-col gap-3 sm:flex-row">
-        <a href="#konsultacja-floty" class="rounded-lg bg-brand-600 px-6 py-3 text-center font-semibold transition hover:bg-brand-700">Umów bezpłatną konsultację</a>
-        <a href={SITE.phoneHref} class="rounded-lg border border-gray-500 px-6 py-3 text-center font-semibold transition hover:border-white"><PhoneIcon /> {SITE.phoneDisplay}</a>
-      </div>
-    </div>
-  </section>
+  <Hero variant="page">
+    <Fragment slot="eyebrow">Dla firm transportowych</Fragment>
+    <Fragment slot="title">Serwis i regeneracja akumulatorów ciężarowych: mniej awarii zimą, zero stojących zestawów</Fragment>
+    <Fragment slot="subtitle">
+      Przegląd akumulatorów 12/24 V całej floty, raport per pojazd i regeneracja tego, co rokuje. Wszystko na Twojej bazie, bez zjeżdżania pojazdów z tras.
+    </Fragment>
+    <Fragment slot="cta">
+      <a href="#konsultacja-floty" class="rounded-lg bg-brand-600 px-6 py-3 text-center font-semibold transition hover:bg-brand-700">Umów bezpłatną konsultację</a>
+      <a href={SITE.phoneHref} class="rounded-lg border border-gray-500 px-6 py-3 text-center font-semibold transition hover:border-white"><PhoneIcon /> {SITE.phoneDisplay}</a>
+    </Fragment>
+  </Hero>
 
   <TrustBar items={[`Od ${SITE.foundingYear} roku`, 'Cała Polska, na Twojej bazie', 'Bezpłatna konsultacja', 'Raport per pojazd']} />
 

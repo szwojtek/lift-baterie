@@ -5,7 +5,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { faqSchema } from '../utils/schema';
 import CtaBand from '../components/CtaBand.astro';
 import FaqList from '../components/FaqList.astro';
-import HeroBackdrop from '../components/HeroBackdrop.astro';
+import Hero from '../components/Hero.astro';
 import Photo from '../components/Photo.astro';
 import ProofStrip from '../components/ProofStrip.astro';
 import PhoneIcon from '../components/icons/PhoneIcon.astro';
@@ -94,26 +94,21 @@ const faq = [
   description="Przywracamy sprawność baterii przemysłowych u klienta, w całej Polsce. Bezpłatna konsultacja, prace w oknach serwisowych, raport przed/po. Tel. 695 946 842."
 >
   <!-- HERO -->
-  <section class="relative isolate bg-ink-900 text-white">
-    <HeroBackdrop photo={PHOTOS.heroRegenerationOnsite} />
-    <div class="mx-auto max-w-6xl px-4 py-20 sm:py-28">
-      <h1 class="max-w-3xl font-display text-3xl font-bold leading-tight sm:text-5xl">
-        Mobilna regeneracja i serwis baterii przemysłowych w całej Polsce
-      </h1>
-      <p class="mt-5 max-w-2xl text-lg text-gray-300">
-        Przywracamy sprawność baterii trakcyjnych i akumulatorów flot ciężarowych u Ciebie, w oknach
-        serwisowych. Efekt potwierdzamy raportem przed/po.
-      </p>
-      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-        <a href={href('/bezplatna-konsultacja')} class="rounded-lg bg-brand-600 px-6 py-3.5 text-center font-semibold transition hover:bg-brand-700">
-          Umów bezpłatną konsultację
-        </a>
-        <a href={SITE.phoneHref} class="rounded-lg border border-gray-500 px-6 py-3.5 text-center font-semibold transition hover:border-white">
-          <PhoneIcon /> Zadzwoń: {SITE.phoneDisplay}
-        </a>
-      </div>
-    </div>
-  </section>
+  <Hero variant="home" photo={PHOTOS.heroRegenerationOnsite}>
+    <Fragment slot="title">Mobilna regeneracja i serwis baterii przemysłowych w całej Polsce</Fragment>
+    <Fragment slot="subtitle">
+      Przywracamy sprawność baterii trakcyjnych i akumulatorów flot ciężarowych u Ciebie, w oknach
+      serwisowych. Efekt potwierdzamy raportem przed/po.
+    </Fragment>
+    <Fragment slot="cta">
+      <a href={href('/bezplatna-konsultacja')} class="rounded-lg bg-brand-600 px-6 py-3.5 text-center font-semibold transition hover:bg-brand-700">
+        Umów bezpłatną konsultację
+      </a>
+      <a href={SITE.phoneHref} class="rounded-lg border border-gray-500 px-6 py-3.5 text-center font-semibold transition hover:border-white">
+        <PhoneIcon /> Zadzwoń: {SITE.phoneDisplay}
+      </a>
+    </Fragment>
+  </Hero>
 
   <!-- TRUST BAR -->
   <TrustBar />
