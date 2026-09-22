@@ -151,8 +151,19 @@ const ogImage = new URL(href('/og-image.png'), Astro.site);
     <script>
       // Motion system "energia wraca": scroll reveal with stagger, self-drawing
       // timelines and stat counters. Hero is excluded (it has its own load animation).
+      //
+      // LFB-004: this selector has the same dead-adjacency bug global.css had --
+      // Header.astro's own <script> sibling breaks `header + section`, so `hero`
+      // was always null and the hero's own content div was never actually
+      // excluded here. It still got dev/staging away with looking fine because
+      // the hero's `rise` animations were ALSO dead (same bug, global.css) --
+      // once those were fixed without fixing this one too, the hero's content
+      // div would double-animate: this generic [data-reveal] fade-and-rise on
+      // the wrapping div, plus the hero's own `rise` on its h1/p/CTA inside it.
+      // `~` + `:first-of-type` matches global.css's fix so both agree on what
+      // "the hero" is, on every page (dark hero or not).
       if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
-        const hero = document.querySelector('header + section');
+        const hero = document.querySelector('header ~ section:first-of-type');
         const targets: Array<[Element, number]> = [];
 
         document.querySelectorAll('section > div.mx-auto').forEach((band) => {

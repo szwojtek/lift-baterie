@@ -55,28 +55,48 @@ body {
     transition-delay: var(--reveal-delay, 0ms);
   }
 
-  /* --- 2. Hero: power-on entrance + shine sweep + drifting glow ------------ */
+  /* --- 2. Hero: power-on entrance + shine sweep + drifting glow ------------
+     LFB-004: the old selector pair (`header`, adjacent-sibling combinator,
+     `section`) never matched on any page. Header.astro renders a
+     `<script type="module">` (the nav-toggle handler)
+     as a SIBLING of its own `<header>`, so the actual next element is that
+     SCRIPT, not the page's first SECTION -- measured via
+     `Array.from(document.body.children)`: `[SCRIPT, HEADER, SCRIPT, SECTION, ...]`.
+     `~` (general sibling) doesn't require adjacency, and `:first-of-type`
+     narrows it back down to exactly one element: the page's first `<section>`,
+     regardless of what non-section siblings sit in between.
+
+     Rise (h1/lead/CTA) intentionally stays UNSCOPED by background color: the
+     four pages without a dark hero (realizacje, o-nas, kontakt, baza-wiedzy)
+     open with an ordinary `<section><h1>...<p>...` too, and the original
+     selector never restricted itself to `.bg-ink-900` either -- it was always
+     meant as a generic "page opens with an entrance" effect, not a hero-only
+     one. Verified per page in LFB-004's evidence, not assumed.
+
+     Glow and shine stay scoped to `.bg-ink-900`, per their own visual premise
+     (a light glow on a dark field) and the ticket's explicit instruction --
+     unlike rise, they must NOT fire on the four light-background pages. */
   @keyframes rise {
     from {
       opacity: 0;
       transform: translateY(20px);
     }
   }
-  .js header + section h1 {
+  .js header ~ section:first-of-type h1 {
     animation: rise 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
-  .js header + section h1 ~ p {
+  .js header ~ section:first-of-type h1 ~ p {
     animation: rise 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
   }
-  .js header + section h1 ~ :is(div, ul, a) {
+  .js header ~ section:first-of-type h1 ~ :is(div, ul, a) {
     animation: rise 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
   }
 
-  header + section.bg-ink-900 {
+  header ~ section.bg-ink-900:first-of-type {
     position: relative;
     overflow: hidden;
   }
-  header + section.bg-ink-900 > div {
+  header ~ section.bg-ink-900:first-of-type > div {
     position: relative;
   }
   @keyframes glow-drift {
@@ -87,7 +107,7 @@ body {
       transform: translate3d(14%, 10%, 0) scale(1.25);
     }
   }
-  header + section.bg-ink-900::before {
+  header ~ section.bg-ink-900:first-of-type::before {
     content: "";
     position: absolute;
     top: -30%;
@@ -106,7 +126,7 @@ body {
       transform: translateX(320%) skewX(-18deg);
     }
   }
-  .js header + section.bg-ink-900::after {
+  .js header ~ section.bg-ink-900:first-of-type::after {
     content: "";
     position: absolute;
     top: 0;
