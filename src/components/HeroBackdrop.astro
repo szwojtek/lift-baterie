@@ -4,19 +4,19 @@ import type { Photo } from '../config/photos';
 
 interface Props {
   photo: Photo;
+  /**
+   * Below `sm` the mobile hero box is taller, relative to its width, than a
+   * 16:9 source frame can fill without cropping away most of its width
+   * (measured on LFB-003: >55% cut, see artifacts/lift-baterie/LFB-003/README.md).
+   * Hiding it there costs zero bytes: `loading="lazy"` on an element inside a
+   * `hidden` ancestor never becomes an intersection candidate, so the browser
+   * never requests it below `sm`. From `sm` up the photo returns at full
+   * quality; only the loading priority (not the crop) is the trade-off.
+   */
+  hideBelowSm?: boolean;
 }
 
-const { photo } = Astro.props;
-
-/**
- * Feather the photo's left edge into the background instead of laying a veil
- * over the whole frame. Everything left of the fade is flat ink-900, so the
- * copy column costs the photo nothing and the right-hand side can run at full
- * strength.
- */
-const fade =
-  '-webkit-mask-image: linear-gradient(to right, transparent 0%, #000 52%);' +
-  'mask-image: linear-gradient(to right, transparent 0%, #000 52%);';
+const { photo, hideBelowSm = false } = Astro.props;
 ---
 
 {/*
@@ -26,29 +26,56 @@ const fade =
   on direct div children of the hero section, which would defeat `absolute`.
 */}
 <span
-  class="absolute inset-y-0 right-0 -z-10 block w-full sm:w-[68%]"
-  style={fade}
+  class:list={[
+    'hero-photo-wrap absolute inset-y-0 right-0 -z-10 w-full sm:w-[68%]',
+    hideBelowSm ? 'hidden sm:block' : 'block',
+  ]}
 >
   <Image
     src={photo.src}
     alt={photo.alt}
-    widths={[640, 1024, 1600]}
+    widths={[640, 800, 1024, 1200, 1600]}
     sizes="(min-width: 640px) 68vw, 100vw"
-    loading="eager"
-    fetchpriority="high"
-    class="h-full w-full object-cover object-center"
+    loading={hideBelowSm ? 'lazy' : 'eager'}
+    fetchpriority={hideBelowSm ? 'auto' : 'high'}
+    quality={72}
+    class="hero-photo h-full w-full object-cover object-center"
   />
 </span>
 {/*
-  Mobile has no room for a side-by-side split, so the photo runs full width
-  there and this veil carries the contrast on its own; from `sm` up the fade
-  above already does the work and the veil only steadies the overlap.
+  Below `sm` the photo (where it isn't hidden) runs full width and this veil
+  alone carries the contrast. At `sm+` it stays on at a lower, uniform 45% so
+  every pixel behind the text has a dark floor regardless of what the photo
+  looks like there; the gradient below adds the extra, left-to-right darkening
+  on top of it (LFB-003 — see the mask's comment for the worst-case numbers).
 */}
+<span aria-hidden="true" class="absolute inset-0 -z-10 bg-ink-900/65 sm:bg-ink-900/45"></span>
 <span
   aria-hidden="true"
-  class="absolute inset-0 -z-10 bg-ink-900/65 sm:bg-transparent"
+  class="absolute inset-0 -z-10 hidden sm:block sm:bg-gradient-to-r sm:from-ink-900 sm:from-45% sm:via-ink-900/75 sm:via-70% sm:to-ink-900/50"
 ></span>
-<span
-  aria-hidden="true"
-  class="absolute inset-0 -z-10 bg-gradient-to-r from-ink-900 from-30% via-ink-900/55 to-transparent"
-></span>
+
+<style>
+  /*
+   * Mask and gradient used to run at every width and, below `sm`, stacked on
+   * top of an already 16:9-into-portrait crop: two extra layers of darkening
+   * on top of the worst-cropped part of the frame (LFB-003, Spec B). Scoping
+   * both to `sm+` leaves the veil above as the sole mobile contrast layer.
+   *
+   * The 70% cutoff (was 52%) is wider than the split-hero design implies:
+   * `max-w-3xl` on the heading only constrains it once the container itself
+   * is wider than ~800px. Below that (LFB-003 measured 640-768px), the
+   * container is narrower than `max-w-3xl`, so the heading runs the full row
+   * width and can sit directly over the photo's brightest area — measured
+   * worst-case contrast against the original 52%/to-transparent pair was as
+   * low as 1.17:1 at 640px. The uniform 45% veil plus this gradient (see the
+   * span above) is what actually closes that gap for bright source pixels;
+   * the mask's job is the left-edge feather, not the contrast floor.
+   */
+  @media (min-width: 640px) {
+    .hero-photo-wrap {
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 70%);
+      mask-image: linear-gradient(to right, transparent 0%, #000 70%);
+    }
+  }
+</style>

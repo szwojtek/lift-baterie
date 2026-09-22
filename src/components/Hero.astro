@@ -12,6 +12,19 @@ interface Props {
 
 const { variant, photo } = Astro.props;
 
+/**
+ * home/page copy alone needs a taller mobile box than a 16:9 frame can stay
+ * legible in: object-cover would still crop away most of the photo's width
+ * (measured on LFB-003 — see README). Per stop_conditions the fallback is no
+ * photo below `sm`, not a taller box or a shortened headline. `compact`'s
+ * shorter copy keeps the box short enough that the same photo stays readable.
+ */
+const HIDE_PHOTO_BELOW_SM: Record<Variant, boolean> = {
+  home: true,
+  page: true,
+  compact: false,
+};
+
 const containerClass = {
   home: 'mx-auto w-full max-w-6xl px-4 py-10 sm:py-16',
   page: 'mx-auto w-full max-w-6xl px-4 py-10 sm:py-14',
@@ -66,7 +79,7 @@ const hasCta = Astro.slots.has('cta');
 >
   {
     photo ? (
-      <HeroBackdrop photo={photo} />
+      <HeroBackdrop photo={photo} hideBelowSm={HIDE_PHOTO_BELOW_SM[variant]} />
     ) : (
       <>
         {/*
