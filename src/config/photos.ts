@@ -11,6 +11,8 @@ import cellsConnectorsDetail from '../assets/photos/cells-connectors-detail.jpg'
 import batteryInTruck from '../assets/photos/battery-in-truck.jpg';
 import sulphatedBatteryBefore from '../assets/photos/sulphated-battery-before.jpg';
 import dischargeReport from '../assets/photos/discharge-report.jpg';
+import cellTopsBefore from '../assets/photos/cell-tops-before.jpg';
+import cellTopsAfter from '../assets/photos/cell-tops-after.jpg';
 
 export interface Photo {
   src: ImageMetadata;
@@ -101,5 +103,22 @@ export const PHOTOS = {
     src: dischargeReport,
     alt: 'Raport testu rozładowania baterii trakcyjnej 24 V 271 Ah: 35% pojemności znamionowej przed regeneracją i 84% po niej',
     caption: 'Raport z urządzenia, przed i po. Taki dokument dostaje klient po każdej usłudze.',
+  },
+  /**
+   * IMG_7171 / IMG_7172, 21.09.2026. Wojtek confirmed (STATE.md, 2026-09-22):
+   * same battery; the "after" frame is post-COMPLETED regeneration, not just
+   * the Phase 2 cleaning step that precedes desulfatation. Captions say only
+   * that. Cropped and paired with artifacts/lift-baterie/LFB-003/scripts/
+   * make_cell_tops_photos.py; no manufacturer marks were visible to redact.
+   */
+  cellTopsBefore: {
+    src: cellTopsBefore,
+    alt: 'Zabrudzone, zasiarczone pokrywy ogniw baterii trakcyjnej przed regeneracją',
+    caption: 'Ta sama bateria, przed regeneracją.',
+  },
+  cellTopsAfter: {
+    src: cellTopsAfter,
+    alt: 'Czyste pokrywy ogniw tej samej baterii trakcyjnej po zakończonej regeneracji',
+    caption: 'Po zakończonej regeneracji.',
   },
 } satisfies Record<string, Photo>;

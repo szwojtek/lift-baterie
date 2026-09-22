@@ -221,6 +221,13 @@ const faq = [
           <p class="mt-2 text-sm text-gray-600">typowy czas regeneracji jednej baterii</p>
         </div>
       </div>
+      <div class="mx-auto mt-10 max-w-3xl">
+        <p class="text-center text-sm font-semibold uppercase tracking-wide text-gray-500">Ta sama bateria, przed i po</p>
+        <div class="mt-4 grid gap-4 sm:grid-cols-2">
+          <Photo photo={PHOTOS.cellTopsBefore} widths={[400, 640, 900]} sizes="(min-width: 640px) 22rem, 100vw" />
+          <Photo photo={PHOTOS.cellTopsAfter} widths={[400, 640, 900]} sizes="(min-width: 640px) 22rem, 100vw" />
+        </div>
+      </div>
       <figure class="mx-auto mt-10 max-w-2xl rounded-2xl bg-white p-6 shadow-sm">
         <p class="text-sm font-bold text-brand-600">−40% kosztu w tej realizacji</p>
         <blockquote class="mt-2 text-sm text-gray-700">
