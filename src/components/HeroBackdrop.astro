@@ -7,6 +7,12 @@ interface Props {
 }
 
 const { photo } = Astro.props;
+
+// LFB-005 Position 2: object-position from the photo's own focus point, falling back to
+// centre. Applied unconditionally rather than only at the breakpoints where the box departs
+// from 2.2:1 -- at sm+ (>=1024px) the box is close enough to the file's own 2.2:1 export that
+// object-fit: cover has little slack left to move, so the same value is harmless there too.
+const objectPosition = photo.focus ? `${photo.focus.x}% ${photo.focus.y}%` : '50% 50%';
 ---
 
 {/*
@@ -15,7 +21,7 @@ const { photo } = Astro.props;
   Both wrappers are <span>, not <div>: global.css forces `position: relative`
   on direct div children of the hero section, which would defeat `absolute`.
 */}
-<span class="hero-photo-wrap absolute inset-y-0 right-0 -z-10 block w-full sm:w-[68%]">
+<span class="hero-photo-wrap absolute inset-y-0 right-0 -z-10 block w-full sm:w-[68%] sm:max-w-[1100px]">
   {/*
     eager/high unconditionally: this photo is always the hero's primary
     visual and a likely LCP element on every page that has one (LFB-003
@@ -31,31 +37,59 @@ const { photo } = Astro.props;
     src={photo.src}
     alt={photo.alt}
     widths={[640, 800, 1024, 1200, 1600]}
-    sizes="(min-width: 640px) 68vw, 100vw"
+    sizes="(min-width: 640px) min(68vw, 1100px), 100vw"
     loading="eager"
     fetchpriority="high"
     quality={72}
-    class="hero-photo h-full w-full object-cover object-center"
+    class="hero-photo h-full w-full object-cover"
+    style={`object-position: ${objectPosition}`}
   />
 </span>
 {/*
   Below `sm` the photo runs full width and this veil alone carries the
   contrast -- `hero-veil-below-sm` is a deliberately separate class from the
-  `sm:` override below it, so raising it never touches the sm:45% desktop
-  value, which stays exactly as Position 2 tuned it. 65% (LFB-003's original
-  Position 2 value) measured 4.20:1 on regeneracja-baterii-trakcyjnych@390 --
-  below the 4.5:1 target with the photo now visible on every variant
-  (LFB-003 follow-up, 2026-09-22). Raised to 75%: worst measured case across
-  all 7 pages x {390,360} is now 6.43:1. At `sm+` it drops to a lower,
-  uniform 45% so every pixel behind the text still has a dark floor
-  regardless of what the photo looks like there; the gradient below adds the
-  extra, left-to-right darkening on top of it (LFB-003 — see the mask's
-  comment for the worst-case numbers).
+  `sm:`/`min-[1440px]:` overrides below it, so this value only ever changes
+  for a measured reason at ITS OWN band (LFB-005, Position 3: per-width
+  correction, never global -- see the ticket's stop_conditions). 65%
+  (LFB-003's original Position 2 value) measured 4.20:1 on regeneracja-
+  baterii-trakcyjnych@390 -- below the 4.5:1 target with the photo now
+  visible on every variant (LFB-003 follow-up, 2026-09-22). Raised to 75%:
+  worst measured case across all 7 pages x {390,360} is now 6.43:1.
+
+  640-1023 keeps LFB-003's uniform 45% + gradient: that is where the ticket's
+  own contrast measurement (Spec A) found the real failure (1.17:1 at 640px,
+  a container narrower than `max-w-3xl` letting the heading sit directly over
+  the photo).
+
+  LFB-005 Position 3 first tried lightening from `lg` (1024px), matching the
+  ticket's own starting assumption -- re-measured (7 pages x 7 widths,
+  Range.getClientRects() + pixel sampling, same method as LFB-003) and it
+  does NOT hold: regeneracja-baterii-trakcyjnych@1024 = 3.96:1, serwis@1024 =
+  3.78:1, bezplatna-konsultacja@1024 = 2.78:1 and @1280 = 2.89:1, all below
+  4.5:1 -- `compact`'s shorter 230px box and centred text sit closer to the
+  photo's bright area than `home`/`page` at the same width. The measured-safe
+  boundary is 1440px (all 7 pages pass there with room: worst case 6.59:1 on
+  bezplatna-konsultacja); 1024 and 1280 keep the 45%/heavy-gradient/70%-mask
+  treatment instead of getting a breakpoint of their own, per the ticket's
+  "podnieś zasłonę TYLKO dla tej szerokości" -- extending the already-proven
+  band is the minimal change, not a new intermediate value invented for it.
+  `min-[1440px]:` (arbitrary variant, no Tailwind default breakpoint sits at
+  1440) is the boundary below, in the mask media query, and on the image
+  width cap comment in Position 1 -- all three describe the same box geometry
+  transition. Full table: artifacts/lift-baterie/LFB-005/README.md.
 */}
-<span aria-hidden="true" class="hero-veil-below-sm absolute inset-0 -z-10 bg-ink-900/75 sm:bg-ink-900/45"></span>
+{/*
+  `!` (trailing, Tailwind v4 important syntax) on every `min-[1440px]:` utility below: an
+  arbitrary variant is not guaranteed to sort after a named breakpoint like `sm:` in the
+  generated stylesheet (measured -- `min-[1440px]:bg-ink-900/20` landed BEFORE `sm:bg-ink-900/45`
+  in dist/_astro/*.css, so without `!` the 45% rule won by source order at every width, silently
+  keeping the "light" band dark at 1440px+ despite this component's own class list). `!important`
+  makes the cascade outcome independent of generation order.
+*/}
+<span aria-hidden="true" class="hero-veil-below-sm absolute inset-0 -z-10 bg-ink-900/75 sm:bg-ink-900/45 min-[1440px]:bg-ink-900/20!"></span>
 <span
   aria-hidden="true"
-  class="absolute inset-0 -z-10 hidden sm:block sm:bg-gradient-to-r sm:from-ink-900 sm:from-45% sm:via-ink-900/75 sm:via-70% sm:to-ink-900/50"
+  class="absolute inset-0 -z-10 hidden sm:block sm:bg-gradient-to-r sm:from-ink-900 sm:from-45% sm:via-ink-900/75 sm:via-70% sm:to-ink-900/50 min-[1440px]:via-ink-900/0! min-[1440px]:via-70%! min-[1440px]:to-transparent!"
 ></span>
 
 <style>
@@ -79,6 +113,17 @@ const { photo } = Astro.props;
     .hero-photo-wrap {
       -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 70%);
       mask-image: linear-gradient(to right, transparent 0%, #000 70%);
+    }
+  }
+
+  /* LFB-005 Position 3: from 1440px (measured boundary, see the veil span's comment above --
+     NOT the `lg` 1024px the ticket started from), the photo box is capped at 1100px and the
+     veil above is already down to ~20%, so the left-edge feather can complete sooner (55%
+     instead of 70%) without re-opening the contrast gap this band was re-measured against. */
+  @media (min-width: 1440px) {
+    .hero-photo-wrap {
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 55%);
+      mask-image: linear-gradient(to right, transparent 0%, #000 55%);
     }
   }
 

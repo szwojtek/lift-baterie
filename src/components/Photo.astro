@@ -31,6 +31,9 @@ const {
 
 const caption = showCaption ? photo.caption : undefined;
 const frame = ['w-full rounded-2xl object-cover shadow-sm', ratio].filter(Boolean).join(' ');
+// Focus only has anything to do once `ratio` forces object-cover to crop; at the natural
+// aspect there's no slack for a focal point to move (LFB-005 Position 5 prep).
+const objectPosition = ratio && photo.focus ? `${photo.focus.x}% ${photo.focus.y}%` : undefined;
 ---
 
 <figure class={className}>
@@ -41,6 +44,7 @@ const frame = ['w-full rounded-2xl object-cover shadow-sm', ratio].filter(Boolea
     sizes={sizes}
     loading={loading}
     class={frame}
+    style={objectPosition ? `object-position: ${objectPosition}` : undefined}
   />
   {
     caption && (

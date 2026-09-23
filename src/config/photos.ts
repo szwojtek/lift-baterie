@@ -13,6 +13,11 @@ import sulphatedBatteryBefore from '../assets/photos/sulphated-battery-before.jp
 import dischargeReport from '../assets/photos/discharge-report.jpg';
 import cellTopsBefore from '../assets/photos/cell-tops-before.jpg';
 import cellTopsAfter from '../assets/photos/cell-tops-after.jpg';
+import heroIndexRegeneracja from '../assets/photos/hero-index-regeneracja.jpg';
+import heroServis from '../assets/photos/hero-serwis.jpg';
+import heroFormatowanie from '../assets/photos/hero-formatowanie.jpg';
+import heroSzkolenia from '../assets/photos/hero-szkolenia.jpg';
+import heroBezplatnaKonsultacja from '../assets/photos/hero-bezplatna-konsultacja.jpg';
 
 export interface Photo {
   src: ImageMetadata;
@@ -20,6 +25,14 @@ export interface Photo {
   alt: string;
   /** Optional visible caption; omit where the photo is decorative in context. */
   caption?: string;
+  /**
+   * Where the subject sits in the frame, 0-100 on each axis, used as the hero backdrop's
+   * `object-position` (LFB-005 Position 2). Only matters where the hero box's own aspect
+   * departs from the photo's 2.2:1 export -- the 640-1023 band, the phone crop and `compact` --
+   * `sm+` at 1024px+ shows the file close to its native ratio, so this rarely moves anything
+   * there. Starting values from the LFB-005 analysis; correct after the review sheet.
+   */
+  focus?: { x: number; y: number };
 }
 
 /**
@@ -122,5 +135,44 @@ export const PHOTOS = {
     src: cellTopsAfter,
     alt: 'Czyste pokrywy ogniw tej samej baterii trakcyjnej po zakończonej regeneracji',
     caption: 'Po zakończonej regeneracji.',
+  },
+  /**
+   * Hero-only crops (LFB-005 Position 2), cut fresh from the full-resolution originals at the
+   * hero box's own 2.2:1 instead of reusing the content-column files above (those cap out at
+   * 1800-2000px, below the >=2200px a zoomed hero crop needs to stay sharp). Same subjects as
+   * heroRegenerationOnsite / hallRegenerationWide / batteryCellsTopview / cellsConnectorsDetail /
+   * clampMeterDiagnostics above, which stay as they are for their other use in realizacje.astro's
+   * gallery. Script + exact crop boxes: artifacts/lift-baterie/LFB-005/scripts/make_hero_crops.py.
+   */
+  heroIndexRegeneracja: {
+    src: heroIndexRegeneracja,
+    alt: 'Urządzenie do regeneracji baterii trakcyjnych podłączone do wózka widłowego w hali klienta, obok laptop z wykresem cyklu ładowania',
+    focus: { x: 72, y: 40 },
+  },
+  heroServis: {
+    src: heroServis,
+    alt: 'Urządzenie do regeneracji i laptop na palecie obok wózka wysokiego składowania w hali klienta',
+    focus: { x: 65, y: 80 },
+  },
+  /**
+   * Source identified visually (red paint mark + the EXTREME-HEAT warning device in frame),
+   * not by pixel-exact match against the existing repo crop -- see the script docstring and
+   * artifacts/lift-baterie/LFB-005/README.md for the confidence note.
+   */
+  heroFormatowanie: {
+    src: heroFormatowanie,
+    alt: 'Bateria trakcyjna widziana z góry: korki ogniw i łączniki międzyogniwowe',
+    focus: { x: 65, y: 50 },
+  },
+  /** Source identified visually (same battery/session as heroFormatowanie's source frame). */
+  heroSzkolenia: {
+    src: heroSzkolenia,
+    alt: 'Zbliżenie na łączniki międzyogniwowe i korki ogniw baterii trakcyjnej',
+    focus: { x: 70, y: 50 },
+  },
+  heroBezplatnaKonsultacja: {
+    src: heroBezplatnaKonsultacja,
+    alt: 'Pomiar prądu miernikiem cęgowym na ogniwach baterii trakcyjnej podczas diagnostyki',
+    focus: { x: 80, y: 95 },
   },
 } satisfies Record<string, Photo>;
