@@ -25,8 +25,14 @@ const containerClass = {
   compact: 'mx-auto w-full max-w-3xl px-4 py-10 sm:py-12 text-center',
 }[variant];
 
+/**
+ * `home` matches `page` at `sm+` as of LFB-005 Position 1: `sm:text-5xl` on `index` didn't fit
+ * a 3-line headline + lead + CTA inside the new single 470px `sm+` height (measured in LFB-003:
+ * natural height at 640px was 546px against a 470px box). The two variants still differ in
+ * container padding/subtitle spacing below.
+ */
 const h1Class = {
-  home: 'max-w-3xl font-display text-3xl font-bold leading-tight sm:text-5xl',
+  home: 'max-w-3xl font-display text-3xl font-bold leading-tight sm:text-4xl',
   page: 'max-w-3xl font-display text-3xl font-bold leading-tight sm:text-4xl',
   compact: 'font-display text-3xl font-bold sm:text-4xl',
 }[variant];
@@ -44,20 +50,22 @@ const ctaClass = {
 }[variant];
 
 /**
- * One `min-h` pair per variant (LFB-003, Position 1). Frozen from measurement:
- * tallest natural content (this component's own padding/type, not the old
- * per-page markup) at the narrowest width of each breakpoint — 360px for
- * `<sm`, 640px for `sm+` — plus a margin of ~15-20px, rounded up to a multiple
- * of 10. A wider viewport in the same breakpoint always wraps onto the same or
- * fewer lines, so the constant is never too small there — every page in a
- * variant renders at exactly this height instead of whatever its own headline
- * happened to need. Literal per-variant strings on purpose: Tailwind's scanner
- * needs the full `min-h-[Npx]` text present in the source, not assembled from
- * a variable at build time, or it never generates the rule.
- * Source measurements: artifacts/lift-baterie/LFB-003/README.md.
+ * One `min-h` PAIR for the whole `home`/`page` group as of LFB-005 Position 1 (Wojtek: "miała
+ * być jedna" wysokość) -- 470px at `sm+`, unchanged from LFB-003's `page` value. Below `sm`,
+ * `home` alone needed less room than `page` (528 vs 538px NATURAL height at 360px, LFB-003
+ * measurement table), so the larger of the two governs. The shared constant is 560px -- that is
+ * `page`'s own PRE-LFB-005 value, i.e. 538px natural already rounded up with LFB-003's ~20px
+ * margin (528/538 -> 550/560 was LFB-003's own rounding, not redone here); this ticket did not
+ * recompute the margin, it only widened `page`'s existing rounded constant to cover `home` too,
+ * per "wyprowadź z najwyższej treści przy 360 px, zamroź" -- a page needing less never overflows
+ * a taller box. `compact` is untouched (Spec D: "zostaje 230"). Literal per-variant strings on
+ * purpose: Tailwind's scanner needs the full `min-h-[Npx]` text present in the source, not
+ * assembled from a variable at build time, or it never generates the rule.
+ * Source measurements: artifacts/lift-baterie/LFB-003/README.md, artifacts/lift-baterie/
+ * LFB-005/README.md (360px re-check against the new shared constant).
  */
 const minHClass = {
-  home: 'min-h-[550px] sm:min-h-[560px]',
+  home: 'min-h-[560px] sm:min-h-[470px]',
   page: 'min-h-[560px] sm:min-h-[470px]',
   compact: 'min-h-[270px] sm:min-h-[230px]',
 }[variant];
