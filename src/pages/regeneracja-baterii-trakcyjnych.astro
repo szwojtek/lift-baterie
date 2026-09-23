@@ -6,40 +6,27 @@ import ContactForm from '../components/ContactForm.astro';
 import FaqList from '../components/FaqList.astro';
 import Hero from '../components/Hero.astro';
 import Photo from '../components/Photo.astro';
-import ProofStrip from '../components/ProofStrip.astro';
 import { PHOTOS } from '../config/photos';
 import { SITE } from '../config/site';
 import { GAIN_FACTOR_LABEL, END_OF_LIFE_PCT, resultsSentence } from '../config/results';
 import { href } from '../utils/url';
 import { breadcrumbSchema, serviceSchema, faqSchema } from '../utils/schema';
 
-const steps: { phase: string; items: { t: string; d: string }[] }[] = [
+// LFB-007 P1: 12 steps -> one sentence per phase, built only from the phrases the 12-step
+// version already used (no new claims) -- see artifacts/lift-baterie/LFB-007/README.md for the
+// phrase-by-phrase mapping from the old copy to this one.
+const steps: { phase: string; d: string }[] = [
   {
     phase: 'Faza 1: Diagnostyka na miejscu',
-    items: [
-      { t: 'Konsultacja przed przyjazdem', d: 'Objawy, historia ładowania, zdjęcia baterii. Bezpłatnie, przez telefon. To ukierunkowuje pomiary.' },
-      { t: 'Pomiar napięcia każdego ogniwa', d: 'Wyłapuje ogniwa odstające od pakietu i podejrzenia zwarć wewnętrznych.' },
-      { t: 'Pomiar gęstości elektrolitu w każdym ogniwie', d: 'Gęstość pokazuje stopień naładowania i zasiarczenia, a rozrzut między ogniwami zdradza kondycję pakietu.' },
-      { t: 'Oględziny i kontrola połączeń', d: 'Poziom elektrolitu, stan łączników międzyogniwowych, wtyków i skrzyni, ślady wycieków.' },
-      { t: 'Test pojemności', d: 'Kontrolowane rozładowanie pokazuje, ile bateria naprawdę oddaje. To punkt odniesienia dla raportu.' },
-      { t: 'Kwalifikacja: regenerować czy nie', d: 'Przy wypadniętej masie czynnej albo zwarciach odradzamy regenerację i proponujemy wymianę.' },
-    ],
+    d: 'Pomiar napięcia i gęstości elektrolitu, kontrola połączeń i test pojemności decydują, czy bateria kwalifikuje się do regeneracji.',
   },
   {
     phase: 'Faza 2: Regeneracja na miejscu',
-    items: [
-      { t: 'Przygotowanie baterii', d: 'Czyszczenie, korekta poziomu elektrolitu wodą destylowaną, naprawa połączeń o podwyższonej rezystancji.' },
-      { t: 'Desulfatacja impulsowa', d: 'Profesjonalny regenerator ogniw ołowiowych rozbija warstwę siarczanu ołowiu blokującą płyty, pod stałą kontrolą napięć i temperatury.' },
-      { t: 'Cykle kontrolowanego ładowania i rozładowania', d: 'Odbudowują pojemność i uaktywniają odzyskaną powierzchnię płyt.' },
-      { t: 'Ładowanie wyrównawcze pakietu', d: 'Wyrównuje parametry wszystkich ogniw, żeby najsłabsze przestało ciągnąć baterię w dół.' },
-    ],
+    d: 'Desulfatacja impulsowa i cykle kontrolowanego ładowania odbudowują pojemność, a ładowanie wyrównawcze wyrównuje parametry ogniw.',
   },
   {
     phase: 'Faza 3: Weryfikacja i raport',
-    items: [
-      { t: 'Test końcowy pojemności', d: `Bez zdanego testu nie zamykamy zlecenia. Kryterium to powrót powyżej granicy zużycia, którą normy branżowe stawiają na ${END_OF_LIFE_PCT}% pojemności znamionowej.` },
-      { t: 'Raport przed/po + zalecenia', d: 'Porównanie parametrów sprzed i po regeneracji oraz proste zalecenia dla operatorów, które utrwalają efekt.' },
-    ],
+    d: `Test końcowy potwierdza powrót powyżej granicy zużycia (${END_OF_LIFE_PCT}% pojemności znamionowej), a raport przed/po z zaleceniami zamyka zlecenie.`,
   },
 ];
 
@@ -57,7 +44,7 @@ const faq = [
   { q: "Do jakiej sprawności wraca bateria po regeneracji?", a: `To zależy od stanu przy przyjęciu, dlatego zaczynamy od pomiaru. W naszych raportach ${resultsSentence()}. Wynik zawsze potwierdza test rozładowania i raport przed/po. Jeśli bateria nie przekroczy granicy zużycia, czyli ${END_OF_LIFE_PCT}% pojemności znamionowej, nie uznajemy usługi za wykonaną.` },
   { q: "Ile trwa regeneracja baterii trakcyjnej?", a: "Zależnie od stanu baterii i liczby sztuk: od jednej doby do kilku dni. Przy większych parkach pracujemy rotacyjnie, żeby flota wózków cały czas miała zasilanie." },
   { q: "Czy regeneracja działa na baterie żelowe i AGM?", a: "Tak. Parametry procesu dobieramy do technologii baterii (Pb / GEL / AGM), a kwalifikację zawsze poprzedzają pomiary." },
-  { q: "Czy dostanę gwarancję na efekt?", a: "Efekt potwierdza test pojemności i raport przed/po. Warunki gwarancji na wykonaną usługę określamy w ofercie po pomiarach na miejscu, zależnie od stanu i wieku baterii." },
+  { q: "Czy dostanę gwarancję na efekt?", a: "Efekt potwierdza test pojemności. Warunki gwarancji na wykonaną usługę określamy w ofercie po pomiarach na miejscu, zależnie od stanu i wieku baterii." },
   { q: "Co jeśli bateria nie nadaje się do regeneracji?", a: "Dowiesz się tego po pierwszych pomiarach na miejscu, razem z rekomendacją wymiany, zanim zaczniemy regenerację. Nie bierzemy zleceń, które nie rokują." },
 ];
 
@@ -83,7 +70,7 @@ const faq = [
     <Fragment slot="title">Regeneracja baterii trakcyjnych do wózków widłowych: u Ciebie, bez przestojów</Fragment>
     <Fragment slot="subtitle">
       Przywracamy pojemność baterii kwasowych (Pb), żelowych (GEL) i AGM zamiast wymieniać je na nowe.
-      Pracujemy na miejscu, w oknach serwisowych, a efekt potwierdzamy raportem przed/po.
+      Pracujemy na miejscu, w oknach serwisowych.
     </Fragment>
     <Fragment slot="cta">
       <a href="#konsultacja" class="rounded-lg bg-brand-600 px-6 py-3 text-center font-semibold transition hover:bg-brand-700">Umów bezpłatną konsultację</a>
@@ -113,32 +100,32 @@ const faq = [
   <section class="bg-gray-50">
     <div class="mx-auto max-w-3xl px-4 py-14">
       <h2 class="border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Procedura LIFT: pełny przebieg regeneracji</h2>
-      <p class="mt-3 text-gray-600">
-        Każdy etap kończy się pomiarem, a o wyniku decyduje test pojemności. Cały proces odbywa się na
-        miejscu i bateria nie wyjeżdża z zakładu.
+      <p class="mt-2 text-gray-600">
+        Każdy etap kończy się pomiarem. Proces odbywa się na miejscu, bateria nie wyjeżdża z zakładu.
       </p>
-      {steps.map((phase) => (
-        <div class="mt-8">
-          <h3 class="font-display text-lg font-bold text-brand-700">{phase.phase}</h3>
-          <ol class="mt-4 space-y-3">
-            {phase.items.map((s, i) => (
-              <li class="rounded-xl bg-white p-4 shadow-sm">
-                <p class="font-semibold">{i + 1}. {s.t}</p>
-                <p class="mt-1 text-sm text-gray-600">{s.d}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      ))}
-      <p class="mt-6 text-sm text-gray-600">
+      {/* LFB-007 P1: list spacing tightened (p-4/space-y-3 -> p-3/space-y-2) now that each
+          card holds one phase sentence instead of a numbered sub-step -- shorter cards read
+          better closer together; matches the density already used for `costFactors` below. */}
+      <ol class="mt-4 space-y-2">
+        {steps.map((phase) => (
+          <li class="rounded-xl bg-white p-3 shadow-sm">
+            {/* code review: `phase.phase` already reads "Faza N: ..." -- a leading `{i+1}. `
+                doubled the numbering ("1. Faza 1: ..."). Dropped, not re-added elsewhere. */}
+            <p class="font-semibold">{phase.phase}</p>
+            <p class="mt-1 text-sm text-gray-600">{phase.d}</p>
+          </li>
+        ))}
+      </ol>
+      <p class="mt-3 text-sm text-gray-600">
         Krok po kroku, z czasami realizacji, opisaliśmy proces także w artykule
         <a href={href('/baza-wiedzy/jak-przebiega-regeneracja-baterii-trakcyjnej')} class="font-semibold text-brand-600 hover:underline">„Jak przebiega regeneracja baterii trakcyjnej”</a>.
       </p>
-      <Photo photo={PHOTOS.batteryUnderRegeneration} class="mt-10" sizes="(min-width: 768px) 48rem, 100vw" widths={[480, 768, 1200]} />
+      <Photo photo={PHOTOS.batteryUnderRegeneration} class="mt-6" sizes="(min-width: 768px) 48rem, 100vw" widths={[480, 768, 1200]} />
     </div>
   </section>
 
-  <ProofStrip tinted={false} />
+  {/* LFB-007 P2: the "2,4x" proof duplicated ~700px below, in the "Dlaczego regeneracja"
+      section's stat cards -- same number, same claim, removed here rather than there. */}
 
   <section class="mx-auto max-w-3xl px-4 py-14">
     <h2 class="border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold">Regenerujemy baterie Pb, żelowe (GEL) i AGM</h2>
@@ -222,7 +209,9 @@ const faq = [
         </div>
       </div>
       <div class="mx-auto mt-10 max-w-3xl">
-        <p class="text-center text-sm font-semibold uppercase tracking-wide text-gray-500">Ta sama bateria, przed i po</p>
+        {/* LFB-007 P3: heading removed (was "Ta sama bateria, przed i po") -- the photo
+            captions already carry that pairing ("Przed regeneracją." / "Po zakończonej
+            regeneracji.", LFB-005), the photos themselves are untouched. */}
         <div class="mt-4 grid gap-4 sm:grid-cols-2">
           <Photo photo={PHOTOS.cellTopsBefore} widths={[400, 640, 900]} sizes="(min-width: 640px) 22rem, 100vw" ratio="aspect-[3/2]" />
           <Photo photo={PHOTOS.cellTopsAfter} widths={[400, 640, 900]} sizes="(min-width: 640px) 22rem, 100vw" ratio="aspect-[3/2]" />
