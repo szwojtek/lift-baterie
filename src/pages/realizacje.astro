@@ -4,6 +4,7 @@ import CtaBand from '../components/CtaBand.astro';
 import Photo from '../components/Photo.astro';
 import ResultsTable from '../components/ResultsTable.astro';
 import { PHOTOS } from '../config/photos';
+import { testimonialOsmWloszczowa, testimonialUnimax, testimonialFirmaLogistyczna } from '../data/testimonials';
 
 const gallery = [
   PHOTOS.batteryUnderRegeneration,
@@ -16,20 +17,19 @@ const gallery = [
 
 const cases = [
   {
-    firm: 'OSM Włoszczowa',
-    tag: 'Praca ciągła, także w chłodniach',
-    quote:
-      'Zrobiliście audyt i formatowanie baterii w oknach serwisowych, bez wstrzymywania załadunków. Po wdrożeniu zaleceń wózki pracują stabilnie także w chłodniach.',
+    firm: testimonialOsmWloszczowa.author,
+    tag: testimonialOsmWloszczowa.context,
+    quote: testimonialOsmWloszczowa.quote,
   },
   {
-    firm: 'Unimax, Kielce',
-    tag: 'Produkcja nie stanęła',
-    quote: 'Prace zaplanowane w oknach serwisowych, produkcja nie stanęła. Wózki wróciły do pracy szybciej, niż zakładaliśmy.',
+    firm: testimonialUnimax.author,
+    tag: testimonialUnimax.context,
+    quote: testimonialUnimax.quote,
   },
   {
-    firm: 'Firma logistyczna, Mazowsze',
-    tag: '−40% kosztu w tej realizacji',
-    quote: 'Po audycie dostaliśmy jasną wycenę. Regeneracja obniżyła koszt o około 40% przy zachowaniu parametrów pracy baterii.',
+    firm: testimonialFirmaLogistyczna.author,
+    tag: testimonialFirmaLogistyczna.context,
+    quote: testimonialFirmaLogistyczna.quote,
   },
   {
     firm: 'Fabryka tworzyw sztucznych, Małopolska',

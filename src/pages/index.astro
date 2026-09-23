@@ -12,6 +12,7 @@ import PhoneIcon from '../components/icons/PhoneIcon.astro';
 import { PHOTOS } from '../config/photos';
 import { SITE } from '../config/site';
 import { href } from '../utils/url';
+import { testimonialUnimax } from '../data/testimonials';
 
 const latestPosts = (await getCollection('blog'))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
@@ -61,9 +62,9 @@ const steps = [
 
 const cases = [
   {
-    firm: 'Unimax, Kielce',
-    quote: 'Prace zaplanowane w oknach serwisowych, produkcja nie stanęła. Wózki wróciły do pracy szybciej, niż zakładaliśmy.',
-    tag: 'Produkcja nie stanęła',
+    firm: testimonialUnimax.author,
+    quote: testimonialUnimax.quote,
+    tag: testimonialUnimax.context,
   },
   {
     firm: 'Fabryka tworzyw sztucznych, Małopolska',

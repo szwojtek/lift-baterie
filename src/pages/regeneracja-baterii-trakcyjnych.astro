@@ -7,6 +7,7 @@ import FaqList from '../components/FaqList.astro';
 import Hero from '../components/Hero.astro';
 import Photo from '../components/Photo.astro';
 import { PHOTOS } from '../config/photos';
+import { testimonialFirmaLogistyczna } from '../data/testimonials';
 import { SITE } from '../config/site';
 import { GAIN_FACTOR_LABEL, END_OF_LIFE_PCT, resultsSentence } from '../config/results';
 import { href } from '../utils/url';
@@ -218,12 +219,11 @@ const faq = [
         </div>
       </div>
       <figure class="mx-auto mt-10 max-w-2xl rounded-2xl bg-white p-6 shadow-sm">
-        <p class="text-sm font-bold text-brand-600">−40% kosztu w tej realizacji</p>
+        <p class="text-sm font-bold text-brand-600">{testimonialFirmaLogistyczna.context}</p>
         <blockquote class="mt-2 text-sm text-gray-700">
-          „Po audycie dostaliśmy jasną wycenę. Regeneracja obniżyła koszt o około 40% przy zachowaniu
-          parametrów pracy baterii.”
+          „{testimonialFirmaLogistyczna.quote}”
         </blockquote>
-        <figcaption class="mt-3 text-xs font-semibold text-gray-500">Firma logistyczna, Mazowsze</figcaption>
+        <figcaption class="mt-3 text-xs font-semibold text-gray-500">{testimonialFirmaLogistyczna.author}</figcaption>
       </figure>
       <p class="mt-6 text-center">
         <a href={href('/realizacje')} class="text-sm font-semibold text-brand-600 hover:underline">Zobacz więcej realizacji →</a>
