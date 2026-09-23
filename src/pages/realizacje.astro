@@ -55,8 +55,23 @@ const cases = [
     </p>
   </section>
 
-  {/* Measurements lead: links across the site promise "raporty z pomiarów" and land here. */}
-  <ResultsTable />
+  {/* Measurements lead: links across the site promise "raporty z pomiarów" and land here.
+      LFB-007 P4: first in-content CTA was at 7.4 screens (the final CtaBand only, at the very
+      bottom) -- a page built to convince gave no way to act through almost its whole length.
+      Existing component, placed via ResultsTable's `afterCards` slot right after the three
+      result cards (not after the whole component -- that also carries the discharge-report
+      photo and a closing paragraph, which measured ~1100px lower, past the ticket's own
+      "ok. 1400 px" estimate for this position). No title/subtitle override: this is the
+      component's OWN default text ("istniejąca etykieta", literally, not new copy) -- code
+      review round 1 caught a first draft that wrote fresh marketing copy here instead, which
+      the ticket's stop_condition forbids. Using the default meant a THIRD page repeating it
+      (already on index.astro and o-nas.astro) tripped check-content's cross-page duplicate
+      check; fixed by allowlisting this one known-shared CtaBand sentence in
+      scripts/check-content.mjs, the same way the component's other shared line already is,
+      rather than by inventing text to dodge the check. */}
+  <ResultsTable>
+    <CtaBand slot="afterCards" />
+  </ResultsTable>
 
   <!-- GALLERY -->
   <section class="mx-auto max-w-6xl px-4 py-16">

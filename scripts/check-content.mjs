@@ -153,6 +153,10 @@ for (const page of pages) {
 // pages and read as padding to anyone browsing between them.
 const SHARED_OK = [
   'Telefon odbiera technik',          // CTA band
+  'Opisz objawy, wyślij zdjęcia baterii', // CTA band default title+subtitle (LFB-007 P4: a
+                                       // third page using the component's own default text
+                                       // tripped this check before this line was added -- the
+                                       // sentence is meant to repeat, same as the line above)
   'Liczba baterii / pojazdów',        // contact form
   'Imię i nazwisko Firma Telefon',    // contact form
   'Czytaj →',                         // article teasers

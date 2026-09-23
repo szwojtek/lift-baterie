@@ -50,7 +50,7 @@ const wasBelowLine = BEST_RESULT.before < END_OF_LIFE_PCT;
     </p>
 
     <div class="mt-10 grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-start">
-      <div class="grid gap-6">
+      <div class="grid gap-6 lg:order-1">
         {
           RESULTS.map((r) => (
             <div class="rounded-2xl border border-gray-200 bg-white p-6">
@@ -81,11 +81,29 @@ const wasBelowLine = BEST_RESULT.before < END_OF_LIFE_PCT;
         }
       </div>
 
+      {
+        Astro.slots.has('afterCards') && (
+          // LFB-007 P4: lets a caller put a CTA right after the three result cards, before the
+          // discharge-report photo and closing paragraph. DOM order matches reading/mobile
+          // order (cards, then this, then the photo); `lg:order-*` on all three re-sequences
+          // just the desktop grid so cards+photo keep their original side-by-side pairing and
+          // this becomes a full-width band below that row, instead of splitting the pair.
+          // `relative left-1/2 w-screen -translate-x-1/2` breaks the slot's content out of
+          // this component's `max-w-6xl px-4` column -- without it a full-bleed component like
+          // CtaBand (its own `bg-ink-900` section) would render as an inset card with visible
+          // page margins on both sides instead of edge to edge, the one place on the site it
+          // would look that way (measured, not assumed -- see LFB-007 README).
+          <div class="w-screen ml-[calc(50%-50vw)] mr-[calc(50%-50vw)] lg:order-3 lg:col-span-2">
+            <slot name="afterCards" />
+          </div>
+        )
+      }
+
       <Photo
         photo={PHOTOS.dischargeReport}
         widths={[520, 800, 1400]}
         sizes="(min-width: 1024px) 34rem, 100vw"
-        class="rounded-2xl border border-gray-200 bg-white p-3"
+        class="rounded-2xl border border-gray-200 bg-white p-3 lg:order-2"
       />
     </div>
 

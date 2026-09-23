@@ -32,6 +32,19 @@ html {
 
 body {
   @apply font-sans text-ink-800 antialiased;
+  /* LFB-007 P4: ResultsTable's `afterCards` slot breaks a full-bleed component (CtaBand) out
+     of its centred `max-w-6xl` ancestor via `w-screen` + calc-based negative margins. That
+     technique is exact only when `100vw` and the centred container's own width reference the
+     same value -- they diverge by the scrollbar's width on a browser with a classic,
+     space-reserving scrollbar (this page always has a vertical scrollbar, being taller than
+     one viewport). Measured in this session: zero divergence in the Chromium instance used for
+     verification (`window.innerWidth === document.documentElement.clientWidth`), which turned
+     out to mean that instance's scrollbar is overlay-style and reserves no layout width -- so
+     that measurement does not rule the gap out on a real desktop browser with a classic
+     scrollbar. This is the standard, near-zero-side-effect backstop for exactly that class of
+     sub-scrollbar-width horizontal overflow (code review, this round).
+  */
+  overflow-x: clip;
 }
 
 /* ============================================================================
