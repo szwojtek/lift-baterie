@@ -1,5 +1,6 @@
 ---
 import { SITE } from '../config/site';
+import CheckIcon from './icons/CheckIcon.astro';
 
 interface Props {
   items?: string[];
@@ -16,7 +17,29 @@ const {
 ---
 
 <section class="border-b border-gray-100 bg-gray-50">
-  <div class="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-4 py-5 text-center text-sm font-semibold text-ink-700 sm:grid-cols-4">
-    {items.map((item) => <span>{item}</span>)}
+  {/*
+    LFB-006 Position 4, variant A (Wojtek's choice from the 3-variant sheet, arkusz-trustbar-
+    warianty-390.png): below `sm` a single column, one fact per row with a check icon, instead
+    of the 2x2 grid of centred text that read "like a leftover" at that width. `sm+` is
+    UNTOUCHED (stop_conditions): grid-cols-4/gap-4/text-center all still apply there unchanged,
+    just moved behind `sm:` so the below-`sm` classes can differ -- verified 0 differing pixels
+    against the pre-change render (README).
+
+    Icon: reuses `icons/CheckIcon.astro` (code review, this round) -- an existing, pre-built
+    stroke-outline check glyph matching this codebase's actual icon convention (FaqItem.astro's
+    chevron, Header.astro's hamburger are all stroke-outline inline SVGs; the dedicated
+    `icons/` folder already holds PhoneIcon in the same style). The first draft inlined a
+    solid-fill Heroicons SVG instead, which would have been a second, inconsistent icon
+    dialect for one glyph the project already has, unused since an earlier round.
+  */}
+  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-3 px-4 py-5 text-base font-semibold text-ink-700 sm:grid-cols-4 sm:gap-4 sm:text-center sm:text-sm">
+    {items.map((item) => (
+      <span class="flex items-start gap-2 text-left sm:block sm:text-center">
+        <span class="text-brand-600 sm:hidden">
+          <CheckIcon />
+        </span>
+        {item}
+      </span>
+    ))}
   </div>
 </section>
