@@ -27,7 +27,7 @@ import { SITE } from '../config/site';
       href={SITE.phoneHref}
       class="flex items-center justify-center gap-2 rounded-xl bg-brand-600 px-6 py-4 text-lg font-bold text-white transition hover:bg-brand-700"
     >
-      <PhoneIcon /> Wolisz porozmawiać? Zadzwoń: {SITE.phoneDisplay}
+      <PhoneIcon /> <span class="hidden sm:inline">Wolisz porozmawiać? </span>Zadzwoń: {SITE.phoneDisplay}
     </a>
     <p class="my-6 text-center text-sm font-semibold uppercase tracking-wide text-gray-500">albo zostaw kontakt</p>
     <ContactForm />
