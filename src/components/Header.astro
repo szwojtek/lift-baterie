@@ -29,6 +29,23 @@ const nav = [
     </nav>
 
     <div class="flex items-center gap-2">
+      {/*
+        LFB-006 Position 2: below `sm` the header carried NO phone number at all (the pill
+        below is `hidden ... sm:flex`) and a "Bezpłatna konsultacja" button that wrapped onto
+        two lines in its ~150px box (measured: 56px rendered vs 38px for one line, on all 12
+        pages x {360,390} -- artifacts/lift-baterie/LFB-006/README.md). Subtractive fix per the
+        ticket's own recommendation: swap the button for a compact tel: link (icon + digits,
+        one line) -- the sticky bottom bar and hero already carry a "Bezpłatna konsultacja"
+        CTA on every page, so the header doesn't need to duplicate it below `sm`. `sm+` is
+        UNTOUCHED (stop_conditions): the existing pill link and button just gain `sm:` so they
+        keep rendering exactly as before at that breakpoint up.
+      */}
+      <a
+        href={SITE.phoneHref}
+        class="flex items-center gap-1.5 text-sm font-semibold text-brand-300 sm:hidden"
+      >
+        <PhoneIcon /> {SITE.phoneDisplay}
+      </a>
       <a
         href={SITE.phoneHref}
         class="hidden items-center gap-2 rounded-lg border border-brand-500 px-3 py-2 text-sm font-semibold text-brand-300 transition hover:bg-brand-600 hover:text-white sm:flex"
@@ -37,7 +54,7 @@ const nav = [
       </a>
       <a
         href={href('/bezplatna-konsultacja')}
-        class="rounded-lg bg-brand-600 px-3 py-2 text-sm font-semibold text-white transition hover:bg-brand-700"
+        class="hidden rounded-lg bg-brand-600 px-3 py-2 text-sm font-semibold text-white transition hover:bg-brand-700 sm:block"
       >
         Bezpłatna konsultacja
       </a>
