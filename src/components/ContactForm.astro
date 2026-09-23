@@ -23,29 +23,29 @@ const { defaultSegment = 'wozki', buttonLabel = 'Umów bezpłatną konsultację'
   <div class="grid gap-4 sm:grid-cols-2">
     <label class="block text-sm">
       <span class="font-medium">Imię i nazwisko</span>
-      <input name="name" type="text" autocomplete="name" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5" />
+      <input name="name" type="text" autocomplete="name" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5 text-base" />
     </label>
     <label class="block text-sm">
       <span class="font-medium">Firma</span>
-      <input name="company" type="text" autocomplete="organization" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5" />
+      <input name="company" type="text" autocomplete="organization" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5 text-base" />
     </label>
   </div>
 
   <div class="grid gap-4 sm:grid-cols-2">
     <label class="block text-sm">
       <span class="font-medium">Telefon <span class="text-red-600">*</span></span>
-      <input name="phone" type="tel" required autocomplete="tel" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5" />
+      <input name="phone" type="tel" required autocomplete="tel" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5 text-base" />
     </label>
     <label class="block text-sm">
       <span class="font-medium">E-mail</span>
-      <input name="email" type="email" autocomplete="email" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5" />
+      <input name="email" type="email" autocomplete="email" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5 text-base" />
     </label>
   </div>
 
   <div class="grid gap-4 sm:grid-cols-2">
     <label class="block text-sm">
       <span class="font-medium">Czego dotyczy zgłoszenie?</span>
-      <select name="segment" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5">
+      <select name="segment" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5 text-base">
         <option value="Wózki widłowe (baterie trakcyjne)" selected={defaultSegment === 'wozki'}>
           Wózki widłowe (baterie trakcyjne)
         </option>
@@ -56,7 +56,7 @@ const { defaultSegment = 'wozki', buttonLabel = 'Umów bezpłatną konsultację'
     </label>
     <label class="block text-sm">
       <span class="font-medium">Liczba baterii / pojazdów</span>
-      <select name="quantity" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5">
+      <select name="quantity" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5 text-base">
         <option>1–3</option>
         <option>4–10</option>
         <option>11–30</option>
@@ -67,7 +67,7 @@ const { defaultSegment = 'wozki', buttonLabel = 'Umów bezpłatną konsultację'
 
   <label class="block text-sm">
     <span class="font-medium">Wiadomość</span>
-    <textarea name="message" rows="3" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5"></textarea>
+    <textarea name="message" rows="3" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5 text-base"></textarea>
   </label>
 
   <button type="submit" class="w-full rounded-lg bg-brand-600 px-6 py-3.5 font-semibold text-white transition hover:bg-brand-700">
