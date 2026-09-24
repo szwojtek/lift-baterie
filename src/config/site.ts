@@ -18,7 +18,7 @@ export const SITE = {
   foundingYear: 2009,
 
   gtmId: 'GTM-N5SMB285',
-  cookieYesKey: '1963f26a38fdaf8f6732ff5533a298e6',
+  cookieYesKey: '48bc03822b9ae10c1fa4ee8740b39319',
   gscVerification: 'W53ptc3d17CfjxdNvkYTf47mXSk8YQJBZgIOS32IOyA',
 
   // Public by design: the browser posts straight to Web3Forms, so the key ships in the page source
