@@ -102,6 +102,10 @@ const ogImage = new URL(href('/og-image.png'), Astro.site);
               functionality_storage: 'denied',
               personalization_storage: 'denied',
               security_storage: 'granted',
+              // CookieYes restores a returning visitor's stored choice only after its own init, which
+              // lands after GTM's first tags; without this hold the page_view (and the /dziekujemy
+              // conversion) went out as "denied" even for visitors who had accepted (measured 24.09).
+              wait_for_update: 500,
             });
           </script>
           <script
