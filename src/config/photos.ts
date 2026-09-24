@@ -1,8 +1,6 @@
 import type { ImageMetadata } from 'astro';
 
-import heroRegenerationOnsite from '../assets/photos/hero-regeneration-onsite.jpg';
 import batteryUnderRegeneration from '../assets/photos/battery-under-regeneration.jpg';
-import hallRegenerationWide from '../assets/photos/hall-regeneration-wide.jpg';
 import batteryNameplate from '../assets/photos/battery-nameplate.jpg';
 import clampMeterDiagnostics from '../assets/photos/clamp-meter-diagnostics.jpg';
 import openCellsDetail from '../assets/photos/open-cells-detail.jpg';
@@ -42,11 +40,6 @@ export interface Photo {
  * and rating keeps the copy consistent with the retouched frames.
  */
 export const PHOTOS = {
-  heroRegenerationOnsite: {
-    src: heroRegenerationOnsite,
-    alt: 'Urządzenie do regeneracji baterii trakcyjnych podłączone do wózka widłowego w hali klienta, obok laptop z wykresem cyklu ładowania',
-    caption: 'Regeneracja u klienta na hali. Urządzenie pracuje przy wózku, laptop zapisuje przebieg cyklu.',
-  },
   /**
    * Replaced the workshop-bay frame the customer withdrew on 2026-09-17 (LFB-001).
    * The device's model wordmark behind the laptop is masked in post.
@@ -55,12 +48,6 @@ export const PHOTOS = {
     src: batteryUnderRegeneration,
     alt: 'Bateria trakcyjna z podpiętymi przewodami urządzenia do regeneracji, obok laptop z zapisem cyklu',
     caption: 'Regeneracja w toku. Urządzenie prowadzi cykle, laptop zapisuje każdy z nich.',
-  },
-  /** Wide hall frame for the service hero; the manufacturer wordmark on the unit is masked in post. */
-  hallRegenerationWide: {
-    src: hallRegenerationWide,
-    alt: 'Urządzenie do regeneracji i laptop na palecie obok wózka wysokiego składowania w hali klienta',
-    caption: 'Serwis u klienta: urządzenie staje przy wózku, hala pracuje dalej.',
   },
   batteryNameplate: {
     src: batteryNameplate,
@@ -139,10 +126,10 @@ export const PHOTOS = {
   /**
    * Hero-only crops (LFB-005 Position 2), cut fresh from the full-resolution originals at the
    * hero box's own 2.2:1 instead of reusing the content-column files above (those cap out at
-   * 1800-2000px, below the >=2200px a zoomed hero crop needs to stay sharp). Same subjects as
-   * heroRegenerationOnsite / hallRegenerationWide / batteryCellsTopview / cellsConnectorsDetail /
-   * clampMeterDiagnostics above, which stay as they are for their other use in realizacje.astro's
-   * gallery. Script + exact crop boxes: artifacts/lift-baterie/LFB-005/scripts/make_hero_crops.py.
+   * 1800-2000px, below the >=2200px a zoomed hero crop needs to stay sharp). Crop boxes:
+   * artifacts/lift-baterie/LFB-005/scripts/make_hero_crops.py. Wordmarks on the index, serwis and
+   * bezplatna-konsultacja heroes (and on batteryUnderRegeneration / clampMeterDiagnostics) are
+   * removed letter by letter, not covered with patches: artifacts/lift-baterie/LFB-002/retouch/.
    */
   heroIndexRegeneracja: {
     src: heroIndexRegeneracja,
