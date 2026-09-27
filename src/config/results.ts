@@ -21,7 +21,7 @@
  *
  * 3. The FAQ on the regeneration page no longer states a "typical" band of
  *    recovery. It is generated from this table (three real cases) plus the
- *    80% end-of-life line, because the measured set (93, 95, 84, 82, 84%)
+ *    80% end-of-life line, because the measured set (93, 99, 84, 82, 84%)
  *    never supported "typowo 90-100%", and a band anchored on 80 reads, to a
  *    layperson, as the result rather than the floor (Wojtek, 2026-09-18).
  *
@@ -57,7 +57,7 @@ export interface RegenerationResult {
 export const RESULTS: RegenerationResult[] = [
   { battery: 'Bateria 24 V / 271 Ah, 4 monobloki 6 V', before: 35, after: 84, beforeAh: 96.1, afterAh: 227.8, nominalAh: 271, beforeTime: '1 h 47 min', afterTime: '4 h 14 min', currentA: 54 },
   { battery: 'Bateria 24 V / 465 Ah, rocznik 2015', before: 65, after: 93, beforeAh: 303.3, afterAh: 433.9, nominalAh: 465 },
-  { battery: 'Bateria 48 V / 620 Ah', before: 84, after: 95, beforeAh: 524.8, afterAh: 589.6, nominalAh: 620 },
+  { battery: 'Bateria 48 V / 620 Ah', before: 78, after: 99, beforeAh: 483.6, afterAh: 613.8, nominalAh: 620 },
 ];
 
 /** Largest single recovery in the set, used for the headline figures. */
@@ -84,7 +84,7 @@ export const END_OF_LIFE_PCT = 80;
 /**
  * The FAQ clause listing real cases, built here so the page cannot drift from
  * the table: "bateria, która oddawała 35% pojemności, po regeneracji oddaje
- * 84%; inna wróciła z 65% do 93%, kolejna z 84% do 95%".
+ * 84%; inna wróciła z 65% do 93%, kolejna z 78% do 99%".
  */
 export function resultsSentence(): string {
   const [first, ...rest] = RESULTS;

@@ -16,7 +16,7 @@ Marka firmy FTU „LIFT" Dariusz Kozieł z Kielc, działającej w branży wózk�
 - Obszar: cała Polska, dojazd do klienta. Siedziba: Kielce, województwo świętokrzyskie.
 - Zmierzone przykłady: bateria 24 V / 271 Ah wróciła z 35% na 84% pojemności znamionowej
   (96,1 → 227,8 Ah, 2,4 razy więcej, 4 h 14 min zamiast 1 h 47 min pod tym samym obciążeniem);
-  bateria 24 V / 465 Ah z 2015 roku z 65% na 93%; bateria 48 V / 620 Ah z 84% na 95%.
+  bateria 24 V / 465 Ah z 2015 roku z 65% na 93%; bateria 48 V / 620 Ah z 78% na 99%.
 - Granica zużycia: 80% pojemności znamionowej (norma branżowa). Poniżej niej nie uznajemy
   usługi za wykonaną; wynik potwierdza kontrolowane rozładowanie.
 - Konsultacja wstępna (telefon, zdjęcia baterii) jest bezpłatna i niezobowiązująca. Pomiary
