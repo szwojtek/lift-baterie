@@ -47,7 +47,8 @@ const faq = [
   <TrustBar items={[`Od ${SITE.foundingYear} roku`, 'Cała Polska, na Twojej bazie', 'Bezpłatna konsultacja', 'Raport per pojazd']} />
 
   {/* Carries the visual weight a hero photograph would normally carry, and
-      states the fleet arithmetic before the prose explains it. */}
+      states the fleet arithmetic before the prose explains it. No price tile: a share
+      of the new-battery price reads as the cost, not the saving (client, 2026-09-30). */}
   <section class="bg-gray-50">
     <div class="mx-auto max-w-6xl px-4 py-14">
       <h2 class="border-l-4 border-brand-500 pl-4 font-display text-2xl font-bold sm:text-3xl">
@@ -58,7 +59,7 @@ const faq = [
           [
             { n: '2', t: 'akumulatory w ciągniku', d: 'Każdy zestaw ma parę 12 V połączoną szeregowo.' },
             { n: '100', t: 'sztuk przy flocie 50 pojazdów', d: 'Tyle akumulatorów wchodzi w cykl wymian.' },
-            { n: '50%', t: 'tyle zwykle kosztuje regeneracja', d: 'Względem ceny nowego akumulatora, dla sztuk które rokują.' },
+            { n: '0', t: 'pojazdów zjeżdża z trasy', d: 'Przegląd i regeneracja na Twojej bazie, nocą albo w weekend.' },
             { n: '1', t: 'raport na pojazd', d: 'Każdy akumulator opisany osobno, z rekomendacją.' },
           ].map((s) => (
             <div class="rounded-2xl border border-gray-200 bg-white p-6">
@@ -87,7 +88,7 @@ const faq = [
     <p class="mt-4 text-gray-700">
       Każdy ciągnik siodłowy to dwa akumulatory rozruchowe. Flota 50 pojazdów = 100 akumulatorów, które
       trzeba cyklicznie wymieniać. To dziesiątki tysięcy złotych w każdym cyklu, plus robocizna i wyjazdy
-      awaryjne. Regeneracja akumulatorów, które rokują, kosztuje zwykle <strong>około połowy ceny nowego</strong>,
+      awaryjne. Regeneracja tych, które rokują, <strong>ogranicza wymianę do akumulatorów, których nie da się uratować</strong>,
       a przegląd prewencyjny przed zimą wyłapuje słabe sztuki, zanim unieruchomią pojazd w trasie.
     </p>
   </section>
